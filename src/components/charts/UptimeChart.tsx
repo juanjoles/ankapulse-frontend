@@ -9,13 +9,18 @@ interface UptimeChartProps {
 
 export function UptimeChart({ data }: UptimeChartProps) {
   // Procesar datos para el gráfico
-  const chartData = data
+    const chartData = data
+    .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()) // Ordenar cronológicamente
     .slice(-24) // Últimas 24 horas
-    .map((result, index) => ({
-      time: new Date(result.timestamp).getHours() + ':00',
-      status: result.statusCode === 200 ? 100 : 0,
-      latency: result.latencyMs
-    }));
+    .map((result, index) => {
+      const date = new Date(result.timestamp);
+      return {
+        time: `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`,
+        status: result.statusCode === 200 ? 100 : 0,
+        latency: result.latencyMs,
+        timestamp: result.timestamp
+      };
+    });
 
   if (!data || data.length === 0) {
     return (
