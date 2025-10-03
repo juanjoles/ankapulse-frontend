@@ -109,7 +109,7 @@ export default function ChecksPage() {
                 <RefreshCw className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
               </button>
               <Link
-                href="/dashboard/new"
+                href="/checks/new"
                 className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
               >
                 <Plus className="w-5 h-5" />
@@ -200,7 +200,7 @@ export default function ChecksPage() {
                 Create your first check to start monitoring your APIs
               </p>
               <Link
-                href="/dashboard/new"
+                href="/checks/new"
                 className="inline-flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
               >
                 <Plus className="w-5 h-5" />
