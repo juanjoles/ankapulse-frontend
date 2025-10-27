@@ -6,6 +6,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { setToken, setUser } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 export default function CallbackPage() {
   const router = useRouter();
   const searchParams = useSearchParams();

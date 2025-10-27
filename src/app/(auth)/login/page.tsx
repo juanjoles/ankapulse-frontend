@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Github, Mail, Loader2 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL_AUTH|| 'http://localhost:3000/auth';
 
 export default function LoginPage() {
