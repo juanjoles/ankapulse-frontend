@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Github, Mail, Loader2 } from 'lucide-react';
 
 const API_BASE_URL_AUTH0 = process.env.NEXT_PUBLIC_API_URL_AUTH || 'http://localhost:3000/auth';
-const API_BASE_URL_EMAIL = process.env.NEX_PUBLIC_API_URL || 'http://localhost:3000/api';
+
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState<string | null>(null);
 
