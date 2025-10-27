@@ -1,24 +1,28 @@
 import Link from 'next/link';
+import { Activity, CheckCircle, Globe, TrendingUp } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/20 transition-colors">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <nav className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-600">AnkaPulse</div>
+          <div className="flex items-center space-x-2">
+            <Activity className="w-8 h-8 text-primary" />
+            <h1 className="text-2xl font-bold text-foreground">AnkaPulse</h1>
+          </div>
           <div className="space-x-4">
             <Link 
               href="/login" 
-              className="text-gray-600 hover:text-blue-600 transition"
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Iniciar Sesión
             </Link>
             <Link 
               href="/register" 
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
             >
-              Crear Cuenta
+              Comenzar Gratis
             </Link>
           </div>
         </nav>
@@ -27,105 +31,61 @@ export default function HomePage() {
       {/* Hero Section */}
       <main className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Monitoreo de APIs
-            <span className="block text-blue-600">Simple y Accesible</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            Monitoreo de <span className="text-primary">APIs</span> Simple y Accesible
           </h1>
-          
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Mantén tus sitios y APIs online. Alertas instantáneas, setup en 2 minutos, 
-            paga con MercadoPago. Hecho para Latinoamérica.
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Mantén tus servicios funcionando con AnkaPulse. Monitoreo en tiempo real, 
+            alertas instantáneas y reportes detallados. Todo en español.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/register" 
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors"
             >
-              Empezar Gratis
+              Comenzar Gratis
             </Link>
             <Link 
-              href="/pricing" 
-              className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-50 transition"
+              href="/plans" 
+              className="border border-border text-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent transition-colors"
             >
-              Ver Planes
+              Ver Precios
             </Link>
           </div>
+        </div>
 
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-8 mt-20">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-2">Setup en 2 minutos</h3>
-              <p className="text-gray-600">
-                Sin complicaciones. Agrega tu URL y listo.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl mb-4">💳</div>
-              <h3 className="text-xl font-semibold mb-2">Paga con MercadoPago</h3>
-              <p className="text-gray-600">
-                En pesos, sin complicaciones de tarjetas internacionales.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl mb-4">📱</div>
-              <h3 className="text-xl font-semibold mb-2">Mobile-First</h3>
-              <p className="text-gray-600">
-                Diseñado para que chequees tus APIs desde el celular.
-              </p>
-            </div>
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-8 mt-20">
+          <div className="text-center p-6 bg-card rounded-lg border border-border">
+            <CheckCircle className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-card-foreground mb-2">Monitoreo Confiable</h3>
+            <p className="text-muted-foreground">
+              Verificaciones cada minuto desde múltiples ubicaciones
+            </p>
           </div>
-
-          {/* Pricing Preview */}
-          <div className="mt-20 bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold mb-8">Planes Simples y Transparentes</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="border-2 border-gray-200 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-2">Free</h3>
-                <div className="text-3xl font-bold mb-4">$0<span className="text-lg text-gray-600">/mes</span></div>
-                <ul className="space-y-2 text-left text-gray-600">
-                  <li>✓ 10 checks</li>
-                  <li>✓ 1 hora intervalo</li>
-                  <li>✓ Alertas por email</li>
-                </ul>
-              </div>
-
-              <div className="border-2 border-blue-600 rounded-xl p-6 relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm">
-                  Popular
-                </div>
-                <h3 className="text-xl font-bold mb-2">Starter</h3>
-                <div className="text-3xl font-bold mb-4">$5<span className="text-lg text-gray-600">/mes</span></div>
-                <ul className="space-y-2 text-left text-gray-600">
-                  <li>✓ 20 checks</li>
-                  <li>✓ 5 minutos intervalo</li>
-                  <li>✓ Alertas por email</li>
-                  <li>✓ 30 días retención</li>
-                </ul>
-              </div>
-
-              <div className="border-2 border-gray-200 rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-2">Pro</h3>
-                <div className="text-3xl font-bold mb-4">$15<span className="text-lg text-gray-600">/mes</span></div>
-                <ul className="space-y-2 text-left text-gray-600">
-                  <li>✓ 50 checks</li>
-                  <li>✓ 1 minuto intervalo</li>
-                  <li>✓ Slack/Discord</li>
-                  <li>✓ 90 días retención</li>
-                </ul>
-              </div>
-            </div>
+          
+          <div className="text-center p-6 bg-card rounded-lg border border-border">
+            <Globe className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-card-foreground mb-2">Global</h3>
+            <p className="text-muted-foreground">
+              Monitoreo desde Estados Unidos, Europa y América Latina
+            </p>
+          </div>
+          
+          <div className="text-center p-6 bg-card rounded-lg border border-border">
+            <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-card-foreground mb-2">Analytics</h3>
+            <p className="text-muted-foreground">
+              Reportes detallados y métricas de rendimiento
+            </p>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="container mx-auto px-4 py-8 mt-20 border-t">
-        <div className="text-center text-gray-600">
-          <p>&copy; 2025 AnkaPulse. Hecho con ❤️ para Latinoamérica.</p>
+      <footer className="container mx-auto px-4 py-8 mt-20 border-t border-border">
+        <div className="text-center text-muted-foreground">
+          <p>&copy; 2025 AnkaPulse. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>

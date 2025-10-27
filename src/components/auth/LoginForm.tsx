@@ -6,6 +6,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Loader2, ArrowLeft } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email('Email inválido'),
@@ -30,77 +35,108 @@ export default function LoginForm() {
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     setError(null);
+    
+    console.log('🔐 Enviando login con email:', data.email);
 
-    const result = await login(data);
+    try {
+      const result = await login(data);
+      console.log('📋 Resultado del login:', result);
 
-    if (!result.success) {
-      setError(result.error || 'Error al iniciar sesión');
+      if (result.success) {
+        console.log('✅ Login exitoso - redirección en proceso');
+        // El hook useAuth maneja la redirección automáticamente
+      } else {
+        console.log('❌ Error en login:', result.error);
+        setError(result.error || 'Error al iniciar sesión');
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error('❌ Error inesperado:', error);
+      setError('Error inesperado. Inténtalo de nuevo.');
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6">
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">Iniciar Sesión</h1>
-        <p className="text-gray-600">Ingresa a tu cuenta de AnkaPulse</p>
-      </div>
+    <div className="flex items-center justify-center min-h-screen p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-center">
+            Iniciar Sesión
+          </CardTitle>
+          <p className="text-center text-muted-foreground">
+            Ingresa con tu email y contraseña
+          </p>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {error && (
+              <div className="bg-destructive/15 border border-destructive/20 text-destructive px-4 py-3 rounded-lg">
+                {error}
+              </div>
+            )}
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-            {error}
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                {...register('email')}
+                id="email"
+                type="email"
+                placeholder="tu@email.com"
+                disabled={isLoading}
+              />
+              {errors.email && (
+                <p className="text-destructive text-sm">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password">Contraseña</Label>
+              <Input
+                {...register('password')}
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                disabled={isLoading}
+              />
+              {errors.password && (
+                <p className="text-destructive text-sm">{errors.password.message}</p>
+              )}
+            </div>
+
+            <Button type="submit" disabled={isLoading} className="w-full">
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Iniciando sesión...
+                </>
+              ) : (
+                'Iniciar Sesión'
+              )}
+            </Button>
+          </form>
+
+          <div className="text-center space-y-4 mt-6">
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full"
+            >
+              <Link href="/login">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Volver a opciones de login
+              </Link>
+            </Button>
+
+            <p className="text-muted-foreground text-sm">
+              ¿No tienes cuenta?{' '}
+              <Link href="/register/email" className="text-primary hover:underline">
+                Regístrate
+              </Link>
+            </p>
           </div>
-        )}
-
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Email
-          </label>
-          <input
-            {...register('email')}
-            type="email"
-            id="email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="tu@email.com"
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium mb-2">
-            Contraseña
-          </label>
-          <input
-            {...register('password')}
-            type="password"
-            id="password"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="••••••••"
-          />
-          {errors.password && (
-            <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
-        >
-          {isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-        </button>
-      </form>
-
-      <p className="mt-6 text-center text-gray-600">
-        ¿No tienes cuenta?{' '}
-        <Link href="/register" className="text-blue-600 hover:underline">
-          Regístrate
-        </Link>
-      </p>
+        </CardContent>
+      </Card>
     </div>
   );
 }

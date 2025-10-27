@@ -8,7 +8,8 @@ import { useRouter } from 'next/navigation';
 import { useChecks } from '@/hooks/useChecks';
 import { usePlan } from '@/hooks/usePlan';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, AlertCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const checkSchema = z.object({
   url: z.string().url('URL inválida'),
@@ -96,152 +97,162 @@ export default function NewCheckPage() {
       <div className="mb-6">
         <Link
           href="/dashboard"
-          className="inline-flex items-center space-x-2 text-gray-600 hover:text-blue-600 mb-4"
+          className="inline-flex items-center space-x-2 text-muted-foreground hover:text-primary mb-4 transition-colors"
         >
           <ArrowLeft size={20} />
           <span>Volver al Dashboard</span>
         </Link>
-        <h1 className="text-3xl font-bold text-gray-900">Crear Nuevo Check</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-3xl font-bold text-foreground">Crear Nuevo Check</h1>
+        <p className="text-muted-foreground mt-1">
           Configura un nuevo check para monitorear tu API o sitio web
         </p>
       </div>
 
-      <div className="bg-white rounded-lg shadow p-6">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-              {error}
+      <Card>
+        <CardContent className="p-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {error && (
+              <div className="bg-destructive/10 border border-destructive/20 text-destructive px-4 py-3 rounded-lg flex items-start space-x-2">
+                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                <p>{error}</p>
+              </div>
+            )}
+
+            <div>
+              <label htmlFor="url" className="block text-sm font-medium text-card-foreground mb-2">
+                URL *
+              </label>
+              <input
+                {...register('url')}
+                type="url"
+                id="url"
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                placeholder="https://api.example.com/health"
+              />
+              {errors.url && (
+                <p className="text-destructive text-sm mt-1">{errors.url.message}</p>
+              )}
             </div>
-          )}
 
-          <div>
-            <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-2">
-              URL *
-            </label>
-            <input
-              {...register('url')}
-              type="url"
-              id="url"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="https://api.example.com/health"
-            />
-            {errors.url && (
-              <p className="text-red-500 text-sm mt-1">{errors.url.message}</p>
-            )}
-          </div>
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-card-foreground mb-2">
+                Nombre (opcional)
+              </label>
+              <input
+                {...register('name')}
+                type="text"
+                id="name"
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                placeholder="Mi API de Producción"
+              />
+              {errors.name && (
+                <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
+              )}
+            </div>
 
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              Nombre (opcional)
-            </label>
-            <input
-              {...register('name')}
-              type="text"
-              id="name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Mi API de Producción"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-            )}
-          </div>
+            <div>
+              <label htmlFor="interval" className="block text-sm font-medium text-card-foreground mb-2">
+                Intervalo de Monitoreo *
+              </label>
+              <select
+                {...register('interval')}
+                id="interval"
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+              >
+                {intervals.map((int) => {
+                  const minutes = getIntervalMinutes(int.value);
+                  const allowed = isIntervalAllowed(minutes);
+                  return (
+                    <option key={int.value} value={int.value} disabled={!allowed}>
+                      {int.label} {!allowed && `(Requiere plan ${int.minPlan})`}
+                    </option>
+                  );
+                })}
+              </select>
+              <p className="text-sm text-muted-foreground mt-1">
+                Tu plan {usage?.plan?.name || 'Free'} permite intervalos de {usage?.usage?.minInterval?.formatted || '30 minutos'} o más
+              </p>
+            </div>
 
-          <div>
-            <label htmlFor="interval" className="block text-sm font-medium text-gray-700 mb-2">
-              Intervalo de Monitoreo *
-            </label>
-            <select
-              {...register('interval')}
-              id="interval"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {intervals.map((int) => {
-                const minutes = getIntervalMinutes(int.value);
-                const allowed = isIntervalAllowed(minutes);
-                return (
-                  <option key={int.value} value={int.value} disabled={!allowed}>
-                    {int.label} {!allowed && `(Requiere plan ${int.minPlan})`}
-                  </option>
-                );
-              })}
-            </select>
-            <p className="text-sm text-gray-600 mt-1">
-              Tu plan {usage?.plan.name} permite intervalos de {usage?.usage.minInterval.formatted} o más
-            </p>
-          </div>
+            <div>
+              <label htmlFor="timeout" className="block text-sm font-medium text-card-foreground mb-2">
+                Timeout (segundos)
+              </label>
+              <input
+                {...register('timeout', { valueAsNumber: true })}
+                type="number"
+                id="timeout"
+                min="5"
+                max="60"
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="timeout" className="block text-sm font-medium text-gray-700 mb-2">
-              Timeout (segundos)
-            </label>
-            <input
-              {...register('timeout', { valueAsNumber: true })}
-              type="number"
-              id="timeout"
-              min="5"
-              max="60"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
+            <div>
+              <label htmlFor="expectedStatusCode" className="block text-sm font-medium text-card-foreground mb-2">
+                Status Code Esperado
+              </label>
+              <input
+                {...register('expectedStatusCode', { valueAsNumber: true })}
+                type="number"
+                id="expectedStatusCode"
+                min="100"
+                max="599"
+                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="expectedStatusCode" className="block text-sm font-medium text-gray-700 mb-2">
-              Status Code Esperado
-            </label>
-            <input
-              {...register('expectedStatusCode', { valueAsNumber: true })}
-              type="number"
-              id="expectedStatusCode"
-              min="100"
-              max="599"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-
-          <div className="flex space-x-4">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
-            >
-              {isLoading ? 'Creando...' : 'Crear Check'}
-            </button>
-            <Link
-              href="/dashboard"
-              className="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transition text-center"
-            >
-              Cancelar
-            </Link>
-          </div>
-        </form>
-      </div>
+            <div className="flex space-x-4">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="flex-1 bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                {isLoading ? 'Creando...' : 'Crear Check'}
+              </button>
+              <Link
+                href="/dashboard"
+                className="flex-1 bg-secondary text-secondary-foreground py-2 px-4 rounded-lg hover:bg-secondary/80 transition-colors text-center"
+              >
+                Cancelar
+              </Link>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
 
       {/* Upgrade Modal */}
       {showUpgradeModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md mx-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Límite de Plan Alcanzado
-            </h3>
-            <p className="text-gray-600 mb-6">
-              {upgradeInfo?.error}
-            </p>
-            <div className="flex space-x-4">
-              <Link
-                href="/pricing"
-                className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition text-center"
-              >
-                Ver Planes
-              </Link>
-              <button
-                onClick={() => setShowUpgradeModal(false)}
-                className="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transition"
-              >
-                Cerrar
-              </button>
-            </div>
-          </div>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <Card className="max-w-md mx-4">
+            <CardContent className="p-6">
+              <div className="flex items-start space-x-3 mb-4">
+                <AlertCircle className="w-6 h-6 text-warning flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-xl font-bold text-card-foreground mb-2">
+                    Límite de Plan Alcanzado
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    {upgradeInfo?.error}
+                  </p>
+                </div>
+              </div>
+              <div className="flex space-x-4">
+                <Link
+                  href="/pricing"
+                  className="flex-1 bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-center"
+                >
+                  Ver Planes
+                </Link>
+                <button
+                  onClick={() => setShowUpgradeModal(false)}
+                  className="flex-1 bg-secondary text-secondary-foreground py-2 px-4 rounded-lg hover:bg-secondary/80 transition-colors"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       )}
     </div>

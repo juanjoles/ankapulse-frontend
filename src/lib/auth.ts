@@ -76,6 +76,6 @@ export const isTokenExpired = (token: string): boolean => {
 export const logout = (): void => {
   clearToken();
   if (typeof window !== 'undefined') {
-    window.location.href = '/login';
+    window.location.href = '/';
   }
 };
