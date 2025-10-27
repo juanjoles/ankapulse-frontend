@@ -21,6 +21,15 @@ const checkSchema = z.object({
 
 type CheckFormData = z.infer<typeof checkSchema>;
 
+interface UpgradeInfo {
+  success: boolean;
+  error?: string;
+  code?: string;
+  requiredPlan?: string;
+  currentLimit?: number;
+  suggestedPlan?: string;
+}
+
 export default function NewCheckPage() {
   const router = useRouter();
   const { createCheck } = useChecks();
@@ -28,7 +37,7 @@ export default function NewCheckPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-  const [upgradeInfo, setUpgradeInfo] = useState<any>(null);
+  const [upgradeInfo, setUpgradeInfo] = useState<UpgradeInfo | null>(null);
 
   const {
     register,

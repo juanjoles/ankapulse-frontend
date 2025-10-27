@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useCheckDetails } from '@/hooks/useCheckDetails';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,8 +14,7 @@ import {
   AlertTriangle,
   CheckCircle,
   XCircle,
-  ArrowLeft,
-  RefreshCw
+  ArrowLeft
 } from 'lucide-react';
 import Link from 'next/link';
 import { UptimeChart } from '@/components/charts/UptimeChart';
