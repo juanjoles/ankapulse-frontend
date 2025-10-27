@@ -46,7 +46,7 @@ export default function HomePage() {
               Comenzar Gratis
             </Link>
             <Link 
-              href="/pricing" 
+              href="/plans" 
               className="border border-border text-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent transition-colors"
             >
               Ver Precios
@@ -85,7 +85,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 mt-20 border-t border-border">
         <div className="text-center text-muted-foreground">
-          <p>&copy; 2024 AnkaPulse. Todos los derechos reservados.</p>
+          <p>&copy; 2025 AnkaPulse. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>

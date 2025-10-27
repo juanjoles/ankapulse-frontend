@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { LogOut, LayoutDashboard, Activity, DollarSign, Settings, Menu, X } from 'lucide-react';
+import { LogOut, LayoutDashboard, Activity, DollarSign, Settings, Menu, X, Loader2 } from 'lucide-react';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export default function DashboardLayout({
@@ -12,19 +12,39 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated, logout, user } = useAuth();
+  const { isAuthenticated, isLoading, logout, user } = useAuth();
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isLoading && !isAuthenticated) {
+      console.log('❌ No autenticado, redirigiendo a login...');
       router.push('/login');
     }
-  }, [isAuthenticated, router]);
+  }, [isLoading, isAuthenticated, router]);
 
+  // Mostrar loader mientras se verifica autenticación
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-muted-foreground">Verificando autenticación...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Si no está autenticado, no mostrar nada (se está redirigiendo)
   if (!isAuthenticated) {
     return null;
   }
+
+  // Función para obtener el nombre de usuario a mostrar
+  const getUserDisplayName = () => {
+    if (!user) return 'Usuario';
+    return user.nombre || user.email || 'Usuario';
+  };
 
   return (
     <div className="min-h-screen bg-background transition-colors">
@@ -47,7 +67,7 @@ export default function DashboardLayout({
             <div className="flex items-center space-x-4">
               <ThemeSwitcher />
               <span className="text-sm text-muted-foreground hidden sm:inline">
-                {user?.nombre || user?.email}
+                {getUserDisplayName()}
               </span>
               <button
                 onClick={logout}
@@ -55,7 +75,7 @@ export default function DashboardLayout({
                 title="Cerrar sesión"
               >
                 <LogOut size={20} />
-                <span className="hidden sm:inline">Salir</span>
+                <span className="hidden sm:inline">Cerrar Sesión</span>
               </button>
             </div>
           </div>
@@ -71,7 +91,7 @@ export default function DashboardLayout({
                 className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
               >
                 <LayoutDashboard size={20} />
-                <span>Dashboard</span>
+                <span>Panel Principal</span>
               </Link>
               
               <Link
@@ -80,7 +100,7 @@ export default function DashboardLayout({
                 className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
               >
                 <Activity size={20} />
-                <span>Checks</span>
+                <span>Monitoreo</span>
               </Link>
               
               <Link
@@ -89,7 +109,7 @@ export default function DashboardLayout({
                 className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
               >
                 <DollarSign size={20} />
-                <span>Pricing</span>
+                <span>Planes</span>
               </Link>
               
               <Link
@@ -114,7 +134,7 @@ export default function DashboardLayout({
               className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
             >
               <LayoutDashboard size={20} />
-              <span>Dashboard</span>
+              <span>Panel Principal</span>
             </Link>
             
             <Link
@@ -122,7 +142,7 @@ export default function DashboardLayout({
               className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
             >
               <Activity size={20} />
-              <span>Checks</span>
+              <span>Monitoreo</span>
             </Link>
             
             <Link
@@ -130,7 +150,7 @@ export default function DashboardLayout({
               className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
             >
               <DollarSign size={20} />
-              <span>Pricing</span>
+              <span>Planes</span>
             </Link>
             
             <Link

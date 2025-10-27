@@ -1,6 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { useCheckDetails } from '@/hooks/useCheckDetails';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,7 +14,8 @@ import {
   AlertTriangle,
   CheckCircle,
   XCircle,
-  ArrowLeft
+  ArrowLeft,
+  RefreshCw
 } from 'lucide-react';
 import Link from 'next/link';
 import { UptimeChart } from '@/components/charts/UptimeChart';
@@ -23,30 +25,49 @@ export default function CheckDetailPage() {
   const params = useParams();
   const checkId = typeof params?.id === 'string' ? params.id : '';
   
-  const { check, metrics, results, loading, error } = useCheckDetails(checkId);
+  const { check, metrics, results, loading, error, refetch } = useCheckDetails(checkId);
+  
+  // ✨ Auto-refresh invisible cada 60 segundos
+  useEffect(() => {
+    if (!checkId) return;
 
-const getUptimePercentage = () => {
-  // Primero intentar usar el valor del backend
-  if (metrics?.uptimePercentage !== undefined) {
-    const value = Number(metrics.uptimePercentage);
-    if (!isNaN(value) && value >= 0) {
-      return value.toFixed(1);
+    console.log('🔄 Configurando auto-refresh invisible para check:', checkId);
+
+    const interval = setInterval(async () => {
+      console.log('⏰ Auto-refresh ejecutándose silenciosamente...');
+      
+      try {
+        await refetch();
+        console.log('✅ Datos actualizados automáticamente');
+      } catch (error) {
+        console.error('❌ Error en auto-refresh:', error);
+      }
+    }, 60000); // 60 segundos
+
+    return () => {
+      console.log('🛑 Limpiando auto-refresh interval');
+      clearInterval(interval);
+    };
+  }, [checkId, refetch]);
+
+  const getUptimePercentage = () => {
+    if (metrics?.uptimePercentage !== undefined) {
+      const value = Number(metrics.uptimePercentage);
+      if (!isNaN(value) && value >= 0) {
+        return value.toFixed(1);
+      }
     }
-  }
-  
-  // Si no hay valor del backend, calcular desde los resultados
-  const total = getTotalChecks();
-  const successful = getSuccessfulChecks();
-  
-  if (total === 0) return '0.0';
-  
-  const percentage = (successful / total) * 100;
-  return percentage.toFixed(1);
-};
+    
+    const total = getTotalChecks();
+    const successful = getSuccessfulChecks();
+    
+    if (total === 0) return '0.0';
+    
+    const percentage = (successful / total) * 100;
+    return percentage.toFixed(1);
+  };
 
-  // Calcular latencia promedio desde los resultados
   const getAverageLatency = () => {
-    // Primero intentar usar el valor del backend
     if (metrics?.averageLatency) {
       const value = Number(metrics.averageLatency);
       if (!isNaN(value) && value > 0) {
@@ -54,7 +75,6 @@ const getUptimePercentage = () => {
       }
     }
     
-    // Si no hay valor del backend o es 0, calcular desde los resultados
     if (!results || results.length === 0) return 0;
     
     const validResults = results.filter(r => r.latencyMs && r.latencyMs > 0);
@@ -66,11 +86,9 @@ const getUptimePercentage = () => {
     return Math.round(average);
   };
 
-  // Calcular latencia más reciente
   const getLatestLatency = () => {
     if (!results || results.length === 0) return 0;
     
-    // Ordenar por timestamp más reciente y obtener el primero
     const sortedResults = [...results].sort((a, b) => 
       new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
     );
@@ -81,7 +99,6 @@ const getUptimePercentage = () => {
 
   const getSuccessfulChecks = () => {
     if (!metrics?.successfulChecks) {
-      // Calcular desde los resultados si no está en metrics
       if (!results) return 0;
       return results.filter(r => r.success).length;
     }
@@ -91,7 +108,6 @@ const getUptimePercentage = () => {
 
   const getTotalChecks = () => {
     if (!metrics?.totalChecks) {
-      // Calcular desde los resultados si no está en metrics
       return results?.length || 0;
     }
     const value = Number(metrics.totalChecks);
@@ -100,7 +116,6 @@ const getUptimePercentage = () => {
 
   const getFailedChecks = () => {
     if (!metrics?.failedChecks) {
-      // Calcular desde los resultados si no está en metrics
       if (!results) return 0;
       return results.filter(r => !r.success).length;
     }
@@ -109,15 +124,22 @@ const getUptimePercentage = () => {
   };
 
   const getUptimeForDisplay = () => {
-    if (!metrics?.uptimePercentage) {
-      // Calcular desde los resultados si no está en metrics
-      const total = getTotalChecks();
-      const successful = getSuccessfulChecks();
-      if (total === 0) return '0.00';
-      return ((successful / total) * 100).toFixed(2);
+    if (metrics?.uptimePercentage) {
+      const stringValue = String(metrics.uptimePercentage);
+      const numericValue = parseFloat(stringValue.replace('%', ''));
+      
+      if (!isNaN(numericValue)) {
+        return numericValue.toFixed(2);
+      }
     }
-    const value = Number(metrics.uptimePercentage);
-    return isNaN(value) ? '0.00' : value.toFixed(2);
+    
+    const total = getTotalChecks();
+    const successful = getSuccessfulChecks();
+    
+    if (total === 0) return '0.00';
+    
+    const percentage = (successful / total) * 100;
+    return percentage.toFixed(2);
   };
 
   // Loading state
@@ -182,11 +204,11 @@ const getUptimePercentage = () => {
     <XCircle className="h-3 w-3 mr-1" />
   );
 
-  const statusText = check.lastStatus === 'up' ? 'Online' : 'Offline';
+  const statusText = check.lastStatus === 'up' ? 'En línea' : 'Fuera de línea';
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* Header simplificado */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-4">
           <Link 
@@ -205,12 +227,16 @@ const getUptimePercentage = () => {
             {statusText}
           </Badge>
         </div>
-        <Link 
-          href={`/checks/${checkId}/edit`}
-          className="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
-        >
-          Editar Check
-        </Link>
+
+        {/* Solo botón de editar */}
+        <div className="flex items-center space-x-2">
+          <Link 
+            href={`/checks/${checkId}/edit`}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            Editar Check
+          </Link>
+        </div>
       </div>
 
       {/* Stats Cards */}
@@ -268,8 +294,7 @@ const getUptimePercentage = () => {
         </Card>
       </div>
 
-      {/* Rest of the component remains the same... */}
-      {/* Charts and Details */}
+      {/* El resto del componente con las tabs sigue igual... */}
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="overview">Resumen</TabsTrigger>
@@ -320,7 +345,7 @@ const getUptimePercentage = () => {
                         )}
                         <div>
                           <p className="text-sm font-medium text-card-foreground">
-                            {result.success ? 'Online' : 'Offline'}
+                            {result.success ? 'En línea' : 'Fuera de línea'}
                           </p>
                           <p className="text-xs text-muted-foreground">
                             {new Date(result.timestamp).toLocaleString('es-ES')}
@@ -345,7 +370,7 @@ const getUptimePercentage = () => {
           </Card>
         </TabsContent>
 
-        {/* Rest of tabs content... */}
+        {/* Las demás tabs siguen igual... */}
         <TabsContent value="performance">
           <Card>
             <CardHeader>
@@ -377,42 +402,43 @@ const getUptimePercentage = () => {
             </CardContent>
           </Card>
         </TabsContent>
+
         <TabsContent value="incidents">
-  <Card>
-    <CardHeader>
-      <CardTitle>Historial de Incidentes</CardTitle>
-      <CardDescription>Registro de eventos y problemas detectados</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <div className="space-y-3">
-        {results && results.filter(r => !r.success).slice(0, 5).map((incident) => (
-          <div key={incident.id} className="flex items-start space-x-3 p-3 border border-border rounded-lg bg-card">
-            <XCircle className="h-4 w-4 text-destructive mt-0.5" />
-            <div className="flex-1">
-              <p className="text-sm font-medium text-card-foreground">Servicio no disponible</p>
-              <p className="text-xs text-muted-foreground">
-                {new Date(incident.timestamp).toLocaleString('es-ES')} - {incident.region}
-              </p>
-              {incident.errorMessage && (
-                <p className="text-xs text-destructive mt-1">{incident.errorMessage}</p>
-              )}
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-muted-foreground">Código: {incident.statusCode}</p>
-              <p className="text-xs text-muted-foreground">{incident.latencyMs}ms</p>
-            </div>
-          </div>
-        ))}
-        {(!results || results.filter(r => !r.success).length === 0) && (
-          <div className="text-center py-8">
-            <CheckCircle className="h-8 w-8 text-success mx-auto mb-2" />
-            <p className="text-muted-foreground">No se han detectado incidentes recientes</p>
-          </div>
-        )}
-      </div>
-    </CardContent>
-  </Card>
-</TabsContent>        
+          <Card>
+            <CardHeader>
+              <CardTitle>Historial de Incidentes</CardTitle>
+              <CardDescription>Registro de eventos y problemas detectados</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {results && results.filter(r => !r.success).slice(0, 5).map((incident) => (
+                  <div key={incident.id} className="flex items-start space-x-3 p-3 border border-border rounded-lg bg-card">
+                    <XCircle className="h-4 w-4 text-destructive mt-0.5" />
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-card-foreground">Servicio no disponible</p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(incident.timestamp).toLocaleString('es-ES')} - {incident.region}
+                      </p>
+                      {incident.errorMessage && (
+                        <p className="text-xs text-destructive mt-1">{incident.errorMessage}</p>
+                      )}
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-muted-foreground">Código: {incident.statusCode}</p>
+                      <p className="text-xs text-muted-foreground">{incident.latencyMs}ms</p>
+                    </div>
+                  </div>
+                ))}
+                {(!results || results.filter(r => !r.success).length === 0) && (
+                  <div className="text-center py-8">
+                    <CheckCircle className="h-8 w-8 text-success mx-auto mb-2" />
+                    <p className="text-muted-foreground">No se han detectado incidentes recientes</p>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>        
 
         <TabsContent value="settings">
           <Card>
@@ -478,9 +504,9 @@ const getUptimePercentage = () => {
                   )}
                 </div>
               </div>
-    </CardContent>
-  </Card>
-</TabsContent>
+            </CardContent>
+          </Card>
+        </TabsContent>
       </Tabs>
     </div>
   );

@@ -47,7 +47,7 @@ export default function ChecksPage() {
             <div className="flex items-center space-x-3">
               <div>
                 <h1 className="text-2xl font-bold text-card-foreground">AnkaPulse</h1>
-                <p className="text-sm text-muted-foreground">Monitoring Dashboard</p>
+                <p className="text-sm text-muted-foreground">Panel de Monitoreo</p>
               </div>
               {isOffline && (
                 <div className="flex items-center space-x-1 text-destructive text-sm">
@@ -55,19 +55,13 @@ export default function ChecksPage() {
                   <span>Sin conexión</span>
                 </div>
               )}
-              {/* {!isOffline && !error && (
-                <div className="flex items-center space-x-1 text-primary text-sm">
-                  <Wifi className="w-4 h-4" />
-                  <span>Conectado</span>
-                </div>
-              )} */}
             </div>
             <div className="flex space-x-2">
               <button
                 onClick={handleRefresh}
                 disabled={isRefreshing}
                 className="p-2 text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
-                title="Refrescar"
+                title="Actualizar"
               >
                 <RefreshCw className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
               </button>
@@ -76,7 +70,7 @@ export default function ChecksPage() {
                 className="flex items-center space-x-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <Plus className="w-5 h-5" />
-                <span className="hidden sm:inline">New Check</span>
+                <span className="hidden sm:inline">Nuevo Check</span>
               </Link>
             </div>
           </div>
@@ -113,19 +107,19 @@ export default function ChecksPage() {
         {/* Checks List */}
         <Card>
           <CardHeader>
-            <CardTitle>All Checks</CardTitle>
+            <CardTitle>Todos los Checks</CardTitle>
           </CardHeader>
           <CardContent>
             {checks.length === 0 ? (
               <div className="text-center py-12">
                 <BarChart3 className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-card-foreground mb-2">
-                  {isOffline ? 'Sin conexión al servidor' : 'No checks yet'}
+                  {isOffline ? 'Sin conexión al servidor' : 'Aún no tienes checks'}
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   {isOffline 
                     ? 'No se pueden cargar los checks. Verifica la conexión al backend.'
-                    : 'Create your first check to start monitoring your APIs'
+                    : 'Crea tu primer check para comenzar a monitorear tus APIs'
                   }
                 </p>
                 {!isOffline && (
@@ -134,7 +128,7 @@ export default function ChecksPage() {
                     className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
                   >
                     <Plus className="w-5 h-5" />
-                    <span>Create First Check</span>
+                    <span>Crear Primer Check</span>
                   </Link>
                 )}
                 {isOffline && (
@@ -160,7 +154,7 @@ export default function ChecksPage() {
                             ) : (
                               <AlertCircle className="w-3 h-3 mr-1" />
                             )}
-                            {check.lastStatus === 'up' ? 'Online' : 'Offline'}
+                            {check.lastStatus === 'up' ? 'En línea' : 'Fuera de línea'}
                           </Badge>
                           <div>
                             <h3 className="font-medium text-card-foreground">{check.name || 'Sin nombre'}</h3>

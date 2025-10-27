@@ -32,7 +32,8 @@ const plans = [
     features: [
       '20 checks',
       'Intervalo mínimo: 5 minutos',
-      'Email + Telegram alerts',
+      'Email alerts',
+      'Telegram alerts',
       '30 días retención',
       '3 regiones',
       'API básica'
@@ -62,16 +63,116 @@ const plans = [
 ];
 
 export default function PricingPage() {
-  const { usage, createPreference } = usePlan();
+  const { usage, createPreference, downgradeToPlan } = usePlan();
   const [loading, setLoading] = useState<string | null>(null);
 
   const handleUpgrade = async (planType: 'starter' | 'pro') => {
-    setLoading(planType);
-    await createPreference(planType);
-    setLoading(null);
+    try {
+      setLoading(planType);
+      console.log('🚀 Iniciando proceso de upgrade/cambio a:', planType);
+      
+      const result = await createPreference(planType);
+      console.log('📋 Resultado de createPreference:', result);
+      
+      if (result.success && result.checkoutUrl) {
+        console.log('🔄 Redirigiendo a checkout:', result.checkoutUrl);
+        window.location.href = result.checkoutUrl;
+      } else {
+        console.log('✅ Cambio de plan directo exitoso');
+        alert('✅ Plan cambiado exitosamente!');
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error('❌ Error en handleUpgrade:', error);
+      alert('Error al procesar el pago. Inténtalo de nuevo.');
+    } finally {
+      setLoading(null);
+    }
+  };
+
+  const handleDowngrade = async () => {
+    try {
+      setLoading('free');
+      console.log('📉 Iniciando downgrade a FREE');
+      
+      if (confirm('¿Estás seguro de que quieres degradar a plan FREE? Perderás acceso a las funciones premium.')) {
+        const result = await downgradeToPlan('free');
+        
+        if (result.success) {
+          alert('Plan degradado exitosamente a FREE');
+          // Los datos se refrescan automáticamente en el hook
+        } else {
+          alert(`Error al degradar el plan: ${result.error}`);
+        }
+      }
+    } catch (error) {
+      console.error('❌ Error en handleDowngrade:', error);
+      alert('Error al degradar el plan. Inténtalo de nuevo.');
+    } finally {
+      setLoading(null);
+    }
   };
 
   const currentPlan = usage?.plan?.type || 'free';
+  const currentPlanPrice = plans.find(p => p.type === currentPlan)?.price || 0;
+
+  const renderActionButton = (plan: any) => {
+    const isCurrentPlan = currentPlan === plan.type;
+    const isLoading = loading === plan.type;
+
+    if (plan.type === 'free') {
+      if (isCurrentPlan) {
+        return (
+          <button 
+            className="w-full py-3 bg-muted text-muted-foreground rounded-lg font-semibold cursor-not-allowed" 
+            disabled
+          >
+            Plan Actual
+          </button>
+        );
+      } else {
+        // Usuario con plan premium quiere degradar a FREE
+        return (
+          <button
+            onClick={handleDowngrade}
+            disabled={loading !== null}
+            className="w-full py-3 bg-destructive text-destructive-foreground rounded-lg font-semibold hover:bg-destructive/90 transition-colors disabled:opacity-50"
+          >
+            {isLoading ? 'Procesando...' : 'Degradar a FREE'}
+          </button>
+        );
+      }
+    } else {
+      // Planes de pago (starter, pro)
+      if (isCurrentPlan) {
+        return (
+          <button 
+            className="w-full py-3 bg-muted text-muted-foreground rounded-lg font-semibold cursor-not-allowed" 
+            disabled
+          >
+            Plan Actual
+          </button>
+        );
+      } else {
+        const isUpgrade = plan.price > currentPlanPrice;
+        const isDowngrade = plan.price < currentPlanPrice;
+        
+        let buttonText = 'Cambiar Plan';
+        if (isUpgrade) buttonText = 'Actualizar Plan';
+        if (isDowngrade) buttonText = 'Cambiar Plan';
+        
+        return (
+          <button
+            onClick={() => handleUpgrade(plan.type as 'starter' | 'pro')}
+            disabled={loading !== null}
+            className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50"
+          >
+            {isLoading ? 'Procesando...' : buttonText}
+          </button>
+        );
+      }
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -81,6 +182,11 @@ export default function PricingPage() {
         <p className="text-xl text-muted-foreground">
           Elige el plan que mejor se adapte a tus necesidades
         </p>
+        {usage?.plan && (
+          <p className="text-sm text-muted-foreground mt-2">
+            Plan actual: <span className="font-semibold">{usage.plan.name}</span>
+          </p>
+        )}
       </div>
 
       {/* Plans Grid */}
@@ -89,15 +195,25 @@ export default function PricingPage() {
           <Card
             key={plan.type}
             className={`relative transition-all hover:shadow-lg ${
-              plan.popular 
+              currentPlan === plan.type
+                ? 'border-2 border-success shadow-lg'
+                : plan.popular 
                 ? 'border-2 border-primary shadow-lg' 
                 : 'border border-border'
             }`}
           >
-            {plan.popular && (
+            {plan.popular && currentPlan !== plan.type && (
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <Badge className="bg-primary text-primary-foreground px-4 py-1 text-sm">
                   Más Popular
+                </Badge>
+              </div>
+            )}
+
+            {currentPlan === plan.type && (
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-success text-success-foreground px-4 py-1 text-sm">
+                  Plan Actual
                 </Badge>
               </div>
             )}
@@ -110,11 +226,6 @@ export default function PricingPage() {
                   ${plan.price}
                   <span className="text-lg font-normal text-muted-foreground">/mes</span>
                 </div>
-                {currentPlan === plan.type && (
-                  <Badge variant="secondary" className="bg-success/10 text-success border-success/20">
-                    Plan Actual
-                  </Badge>
-                )}
               </div>
 
               {/* Features */}
@@ -134,64 +245,13 @@ export default function PricingPage() {
               </div>
 
               {/* Action Button */}
-              {plan.type === 'free' ? (
-                currentPlan === 'free' ? (
-                  <button 
-                    className="w-full py-3 bg-muted text-muted-foreground rounded-lg font-semibold cursor-not-allowed" 
-                    disabled
-                  >
-                    Plan Actual
-                  </button>
-                ) : (
-                  <button 
-                    className="w-full py-3 bg-muted text-muted-foreground rounded-lg font-semibold cursor-not-allowed" 
-                    disabled
-                  >
-                    No disponible
-                  </button>
-                )
-              ) : (
-                <button
-                  onClick={() => handleUpgrade(plan.type as 'starter' | 'pro')}
-                  disabled={currentPlan === plan.type || loading !== null}
-                  className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-                    currentPlan === plan.type
-                      ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                      : plan.popular
-                      ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                      : 'bg-primary text-primary-foreground hover:bg-primary/90'
-                  }`}
-                >
-                  {loading === plan.type
-                    ? 'Procesando...'
-                    : currentPlan === plan.type
-                    ? 'Plan Actual'
-                    : 'Actualizar Plan'}
-                </button>
-              )}
+              {renderActionButton(plan)}
             </CardContent>
           </Card>
         ))}
       </div>
 
-      {/* Enterprise Section */}
-      <Card className="mt-16">
-        <CardContent className="text-center p-8">
-          <div className="max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-card-foreground">¿Necesitas más?</h3>
-            <p className="text-muted-foreground mb-6">
-              Contactanos para planes enterprise personalizados con límites custom,
-              SLA garantizado y soporte dedicado.
-            </p>
-            <button className="inline-flex items-center space-x-2 bg-card-foreground text-card px-8 py-3 rounded-lg font-semibold hover:bg-card-foreground/90 transition-colors">
-              <Mail className="w-5 h-5" />
-              <span>Contactar Ventas</span>
-            </button>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Current Usage Info - Solo mostrar si usage existe y tiene la estructura correcta */}
+      {/* Current Usage Info */}
       {usage && usage.usage && (
         <Card>
           <CardContent className="p-6">

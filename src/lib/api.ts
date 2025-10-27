@@ -113,17 +113,19 @@ export const checksApi = {
 
 // Subscriptions
 export const subscriptionsApi = {
-  getCurrent: () => 
-    api.get('/subscriptions/current'),
-  
+  getCurrent: () => api.get('/subscriptions/current'),
   createPreference: (data: { planType: 'starter' | 'pro' }) => 
     api.post('/subscriptions/create-preference', data),
+  changePlan: (data: { planType: 'starter' | 'pro' }) => 
+    api.post('/subscriptions/change-plan', data),
+  downgrade: (data: { planType: 'free' }) => 
+    api.post('/subscriptions/downgrade', data),
+  cancel: () => api.post('/subscriptions/cancel'),
+  getPayments: () => api.get('/subscriptions/payments'),
   
-  getPayments: () => 
-    api.get('/subscriptions/payments'),
-  
-  cancel: () => 
-    api.post('/subscriptions/cancel'),
+  // TESTING - Quitar en producción
+  upgradeTest: (data: { planType: 'starter' | 'pro' }) => 
+    api.post('/subscriptions/upgrade-test', data),
 };
 
 
