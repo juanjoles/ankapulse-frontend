@@ -1,12 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { setToken, setUser } from '@/lib/auth';
 
-export default function CallbackPage() {
+export const dynamic = 'force-dynamic';
+
+// Componente interno que usa useSearchParams
+function CallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
@@ -24,8 +27,6 @@ export default function CallbackPage() {
       
       const decoded = JSON.parse(jsonPayload);
       console.log('👤 Token decodificado:', decoded);
-
-      
 
       // Si el token tiene la información completa, usarla directamente
       return {
@@ -164,5 +165,23 @@ export default function CallbackPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+// Componente principal con Suspense boundary
+export default function CallbackPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen p-4">
+        <Card className="w-full max-w-md">
+          <CardContent className="flex flex-col items-center justify-center p-8 space-y-4">
+            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+            <h2 className="text-xl font-semibold">Cargando...</h2>
+          </CardContent>
+        </Card>
+      </div>
+    }>
+      <CallbackContent />
+    </Suspense>
   );
 }
