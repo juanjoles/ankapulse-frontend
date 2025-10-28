@@ -1,31 +1,13 @@
 import Link from 'next/link';
-import { Activity, CheckCircle, Globe, TrendingUp } from 'lucide-react';
+import { CheckCircle, Globe, TrendingUp } from 'lucide-react';
+import { NavbarClient } from '@/components/navbar-client';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/20 transition-colors">
       {/* Header */}
       <header className="container mx-auto px-4 py-6">
-        <nav className="flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Activity className="w-8 h-8 text-primary" />
-            <h1 className="text-2xl font-bold text-foreground">AnkaPulse</h1>
-          </div>
-          <div className="space-x-4">
-            <Link 
-              href="/login" 
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Iniciar Sesión
-            </Link>
-            <Link 
-              href="/register" 
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Comenzar Gratis
-            </Link>
-          </div>
-        </nav>
+        <NavbarClient />
       </header>
 
       {/* Hero Section */}
