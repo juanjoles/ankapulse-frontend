@@ -1,20 +1,18 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from "next";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  title: 'AnkaPulse - Monitoreo de APIs Simple y Accesible',
-  description: 'Plataforma de monitoreo de uptime para APIs y sitios web. Simple, accesible y en español.',
+  title: "AnkaPulse - Monitoreo de APIs Simple y Accesible",
+  description: "Mantén tus servicios funcionando con AnkaPulse. Monitoreo en tiempo real, alertas instantáneas y reportes detallados.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
@@ -32,16 +30,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange // Evita flashes
-          storageKey="ankapulse-theme" // Key única
-        >
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
