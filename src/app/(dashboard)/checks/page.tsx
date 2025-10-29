@@ -168,16 +168,33 @@ export default function ChecksPage() {
                           >
                             Ver detalles
                           </Link>
+                          {deleteConfirm === check.id ? (
+                          
+                          <div className="flex items-center gap-2 bg-destructive/10 px-2 py-1 rounded">
+                            <span className="text-sm text-muted-foreground">¿Eliminar?</span>
+                            <button
+                              onClick={() => handleDelete(check.id)}
+                              className="text-destructive hover:text-destructive/80 text-sm font-medium px-2 py-1 rounded hover:bg-destructive/20 transition-colors"
+                            >
+                              Sí
+                            </button>
+                            <button
+                              onClick={() => setDeleteConfirm(null)}
+                              className="text-muted-foreground hover:text-foreground text-sm px-2 py-1 rounded hover:bg-accent transition-colors"
+                            >
+                              No
+                            </button>
+                          </div>
+                        ) : (
+                          
                           <button
-                            onClick={() => {
-                              if (confirm('¿Eliminar este check?')) {
-                                handleDelete(check.id);
-                              }
-                            }}
-                            className="text-destructive hover:text-destructive/80 transition-colors"
+                            onClick={() => setDeleteConfirm(check.id)}
+                            className="text-destructive hover:text-destructive/80 transition-colors p-1 rounded hover:bg-destructive/10"
+                            title="Eliminar check"
                           >
                             <Trash2 className="w-4 h-4" />
-                        </button>
+                          </button>
+                        )}
                         </div>
                       </div>
                     </CardContent>
