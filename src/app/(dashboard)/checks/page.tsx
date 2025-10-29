@@ -169,11 +169,15 @@ export default function ChecksPage() {
                             Ver detalles
                           </Link>
                           <button
-                            onClick={() => setDeleteConfirm(check.id)}
+                            onClick={() => {
+                              if (confirm('¿Eliminar este check?')) {
+                                handleDelete(check.id);
+                              }
+                            }}
                             className="text-destructive hover:text-destructive/80 transition-colors"
                           >
                             <Trash2 className="w-4 h-4" />
-                          </button>
+                        </button>
                         </div>
                       </div>
                     </CardContent>
