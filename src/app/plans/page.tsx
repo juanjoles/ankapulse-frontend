@@ -248,7 +248,7 @@ export default function PublicPlansPage() {
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 mt-20 border-t border-border">
         <div className="text-center text-muted-foreground">
-          <p>&copy; 2024 AnkaPulse. Todos los derechos reservados.</p>
+          <p>&copy; 2025 AnkaPulse. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>

@@ -33,6 +33,12 @@ export default function HomePage() {
             >
               Ver Precios
             </Link>
+            <Link 
+              href="/docs" 
+              className="border border-border text-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent transition-colors"
+            >
+              Sobre Nosotros
+            </Link>
           </div>
         </div>
 
