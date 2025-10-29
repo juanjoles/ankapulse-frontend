@@ -40,7 +40,7 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
         setFormData({
           name: checkData.name || '',
           url: checkData.url || '',
-          interval: checkData.interval || 5,
+          interval: parseInt(checkData.interval?.replace('min', '')) || 5,
           timeout: checkData.timeout || 30,
           expectedStatusCode: checkData.expectedStatusCode || 200,
           method: checkData.method || 'GET',
