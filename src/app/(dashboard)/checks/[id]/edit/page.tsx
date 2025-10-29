@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
 import Link from 'next/link';
-import { checksApi } from '@/lib/api';
+import { checksApi, userApi } from '@/lib/api';
 
 interface EditCheckPageProps {
   params: { id: string };
@@ -18,16 +18,31 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [check, setCheck] = useState<any>(null);
+  const [planLimits, setPlanLimits] = useState({ minInterval: 30 });
   
   const [formData, setFormData] = useState({
     name: '',
     url: '',
-    interval: 5,
+    interval: '30min',
     timeout: 30,
     expectedStatusCode: 200,
-    method: 'GET',
-    regions: ['us-east-1'],
   });
+
+  // Cargar límites del plan
+  useEffect(() => {
+    const loadPlanLimits = async () => {
+      try {
+        const response = await userApi.getProfile();
+        const profile = response.data;
+        setPlanLimits({
+          minInterval: profile.minIntervalMinutes || 30
+        });
+      } catch (error) {
+        console.error('Error loading plan limits:', error);
+      }
+    };
+    loadPlanLimits();
+  }, []);
 
   // Cargar datos del check
   useEffect(() => {
@@ -40,11 +55,9 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
         setFormData({
           name: checkData.name || '',
           url: checkData.url || '',
-          interval: parseInt(checkData.interval?.replace('min', '')) || 5,
+          interval: checkData.interval || '30min',
           timeout: checkData.timeout || 30,
           expectedStatusCode: checkData.expectedStatusCode || 200,
-          method: checkData.method || 'GET',
-          regions: checkData.regions || ['us-east-1'],
         });
       } catch (error) {
         console.error('Error loading check:', error);
@@ -73,6 +86,14 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
     }
   };
 
+  const intervals = [
+    { value: '1min', label: '1 minuto', minPlan: 'pro', minutes: 1 },
+    { value: '5min', label: '5 minutos', minPlan: 'starter', minutes: 5 },
+    { value: '15min', label: '15 minutos', minPlan: 'starter', minutes: 15 },
+    { value: '30min', label: '30 minutos', minPlan: 'free', minutes: 30 },
+    { value: '1h', label: '1 hora', minPlan: 'free', minutes: 60 },
+  ];
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -89,8 +110,8 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
           <p className="text-muted-foreground">Check no encontrado</p>
-          <Link href="/checks" className="text-primary hover:underline mt-2 inline-block">
-            Volver a checks
+          <Link href="/dashboard" className="text-primary hover:underline mt-2 inline-block">
+            Volver al dashboard
           </Link>
         </div>
       </div>
@@ -158,36 +179,55 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
           {/* Intervalo */}
           <div>
             <label className="block text-sm font-medium text-foreground mb-2">
-              Intervalo (minutos)
+              Intervalo de Monitoreo
             </label>
             <select
               value={formData.interval}
-              onChange={(e) => setFormData({ ...formData, interval: parseInt(e.target.value) })}
+              onChange={(e) => setFormData({ ...formData, interval: e.target.value })}
               className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
             >
-              <option value={1}>1 minuto</option>
-              <option value={5}>5 minutos</option>
-              <option value={10}>10 minutos</option>
-              <option value={15}>15 minutos</option>
-              <option value={30}>30 minutos</option>
+              {intervals.map((int) => {
+                const allowed = int.minutes >= planLimits.minInterval;
+                return (
+                  <option key={int.value} value={int.value} disabled={!allowed}>
+                    {int.label} {!allowed && `(Requiere plan ${int.minPlan})`}
+                  </option>
+                );
+              })}
             </select>
+            <p className="text-sm text-muted-foreground mt-1">
+              Tu plan permite intervalos de {planLimits.minInterval} minutos o más
+            </p>
           </div>
 
-          {/* Método HTTP */}
+          {/* Timeout */}
           <div>
             <label className="block text-sm font-medium text-foreground mb-2">
-              Método HTTP
+              Timeout (segundos)
             </label>
-            <select
-              value={formData.method}
-              onChange={(e) => setFormData({ ...formData, method: e.target.value })}
+            <input
+              type="number"
+              value={formData.timeout}
+              onChange={(e) => setFormData({ ...formData, timeout: parseInt(e.target.value) })}
+              min="5"
+              max="60"
               className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            >
-              <option value="GET">GET</option>
-              <option value="POST">POST</option>
-              <option value="PUT">PUT</option>
-              <option value="HEAD">HEAD</option>
-            </select>
+            />
+          </div>
+
+          {/* Status Code Esperado */}
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">
+              Status Code Esperado
+            </label>
+            <input
+              type="number"
+              value={formData.expectedStatusCode}
+              onChange={(e) => setFormData({ ...formData, expectedStatusCode: parseInt(e.target.value) })}
+              min="100"
+              max="599"
+              className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
           </div>
 
           {/* Botones */}
