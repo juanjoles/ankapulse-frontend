@@ -34,6 +34,14 @@ export default function AboutPage() {
             Nosotros creamos AnkaPulse porque <strong className="text-foreground">creemos que 
             todo developer merece tener herramientas profesionales sin quebrar su presupuesto</strong>.
           </p>
+          <p>
+            Y seguro te preguntás: <strong className="text-foreground">¿qué significa AnkaPulse?</strong> 
+            "Anka" es una palabra quechua que significa "águila" - un ave que vuela alto y tiene una 
+            visión panorámica de todo lo que sucede abajo. Combinado con "Pulse" (pulso), representa 
+            nuestra misión: <strong className="text-foreground">ser los ojos que monitorean 
+            el pulso de tus servicios desde las alturas</strong>, detectando cualquier problema antes 
+            de que afecte a tus usuarios.
+          </p>
         </div>
       </div>
 
@@ -116,7 +124,29 @@ export default function AboutPage() {
           sabiendo que tus servicios están funcionando.
         </p>
       </div>
-
+      {/* Apoyo al proyecto */}
+      <div className="mt-12 text-center bg-accent/30 border rounded-lg p-8">
+        <h3 className="text-lg font-semibold text-foreground mb-2">
+          ¿Te gusta lo que hacemos?
+        </h3>
+        <p className="text-muted-foreground mb-4">
+          Si querés apoyar el proyecto y ayudar a que más developers tengan acceso 
+          a herramientas de monitoreo profesionales y accesibles.
+        </p>
+        <div className="flex justify-center">
+          <a 
+            href='https://cafecito.app/juanjoles' 
+            rel='noopener' 
+            target='_blank'
+            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition-colors font-medium shadow-lg hover:shadow-xl"
+          >
+            ☕ Invitame un café
+          </a>
+        </div>
+        <p className="text-xs text-muted-foreground mt-3">
+          Cada aporte nos ayuda a mantener AnkaPulse accesible para todos
+        </p>
+      </div>
       {/* Contact */}
       <div className="mt-12 text-center">
         <h3 className="text-lg font-semibold text-foreground mb-2">
@@ -126,15 +156,17 @@ export default function AboutPage() {
           Somos un equipo pequeño y nos encanta escuchar a nuestra comunidad.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
+          {/* <a 
             href="mailto:hola@ankapulse.app"
             className="text-primary hover:underline"
           >
             📧 soporte@ankapulse.app
-          </a>
-          <span className="text-muted-foreground hidden sm:block">•</span>
+          </a> */}
+          {/* <span className="text-muted-foreground hidden sm:block">•</span> */}
           <a 
             href="https://twitter.com/ankapulse"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-primary hover:underline"
           >
             🐦 @ankapulse
