@@ -52,10 +52,9 @@ const plans = [
       'Intervalo mínimo: 1 minuto',
       'Todos los canales de alerta',
       '90 días retención',
-      'Todas las regiones',
-      'API completa',
-      'Webhooks personalizados',
-      'SLA reports',
+      'API completa - Próximamente',
+      'Webhooks - Próximamente',
+      'SLA reports - Próximamente',
       'Soporte prioritario'
     ],
     limitations: []

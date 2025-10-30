@@ -35,7 +35,7 @@ const plans = [
       'Email alerts',
       'Telegram alerts',
       '30 días retención',
-      '3 regiones',
+      '3 regiones - Próximamente',
       'API básica'
     ],
     limitations: [
@@ -53,9 +53,9 @@ const plans = [
       'Todos los canales de alerta',
       '90 días retención',
       'Todas las regiones',
-      'API completa',
-      'Webhooks personalizados',
-      'SLA reports',
+      'API completa - Próximamente',
+      'Webhooks - Próximamente',
+      'SLA reports - Próximamente',
       'Soporte prioritario'
     ],
     limitations: []
