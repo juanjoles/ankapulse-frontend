@@ -42,6 +42,7 @@ export default function NewCheckPage() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<CheckFormData>({
     resolver: zodResolver(checkSchema),
@@ -101,6 +102,15 @@ export default function NewCheckPage() {
     return map[interval] || 60;
   };
 
+  const handleUrlBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  let value = e.target.value.trim();
+  
+  // Solo agregar https:// si hay contenido y no tiene protocolo
+  if (value && !value.match(/^https?:\/\//)) {
+    setValue('url', `https://${value}`);
+  }
+};
+
   return (
     <div className="max-w-2xl">
       <div className="mb-6">
@@ -132,12 +142,13 @@ export default function NewCheckPage() {
                 URL *
               </label>
               <input
-                {...register('url')}
-                type="url"
-                id="url"
-                className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                placeholder="https://api.example.com/health"
-              />
+                  {...register('url')}
+                  type="url"
+                  id="url"
+                  onBlur={handleUrlBlur}  // ← AGREGAR esta línea
+                  className="w-full px-4 py-2 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                  placeholder="api.example.com/health"  // ← CAMBIAR placeholder (sin https://)
+                />
               {errors.url && (
                 <p className="text-destructive text-sm mt-1">{errors.url.message}</p>
               )}

@@ -112,14 +112,14 @@ export default function DashboardLayout({
                 <span>Planes</span>
               </Link>
               
-              <Link
+              {/* <Link
                 href="/settings"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
               >
                 <Settings size={20} />
                 <span>Configuración</span>
-              </Link>
+              </Link> */}
             </nav>
           </div>
         )}
