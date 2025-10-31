@@ -39,6 +39,12 @@ export default function HomePage() {
             >
               Sobre Nosotros
             </Link>
+            <Link 
+              href="/docs/why-monitoring-matters" 
+              className="border border-border text-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent transition-colors"
+            >
+              Docs
+            </Link>
           </div>
         </div>
 
