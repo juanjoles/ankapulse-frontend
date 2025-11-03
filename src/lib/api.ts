@@ -86,7 +86,7 @@ export const userApi = {
   getProfile: () => 
     api.get('/users/profile'),
   
-  updateProfile: (data: { nombre?: string; avatar?: string }) => 
+  updateProfile: (data: { nombre?: string; avatar?: string; email?: string }) => 
     api.patch('/users/profile', data),
 
   getAlertSettings: () => 

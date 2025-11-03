@@ -18,10 +18,6 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-      console.log('=== DASHBOARD LAYOUT DEBUG ===');
-  console.log('isLoading:', isLoading);
-  console.log('isAuthenticated:', isAuthenticated);
-  console.log('Token in localStorage:', !!localStorage.getItem('token'));
     if (!isLoading && !isAuthenticated) {
       console.log('❌ No autenticado, redirigiendo a login...');
       router.push('/login');
@@ -126,6 +122,14 @@ export default function DashboardLayout({
                 <Settings size={20} />
                 <span>Alertas</span>
               </Link>
+              <Link
+                href="/profile"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
+              >
+                <Settings size={20} />
+                <span>Perfil</span>
+              </Link>
             </nav>
           </div>
         )}
@@ -165,6 +169,13 @@ export default function DashboardLayout({
             >
               <Settings size={20} />
               <span>Alertas</span>
+            </Link>
+            <Link
+              href="/profile"
+              className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
+            >
+              <Settings size={20} />
+              <span>Perfil</span>
             </Link>
           </nav>
         </aside>
