@@ -45,6 +45,10 @@ export interface Check {
   lastCheckAt?: string;
   lastStatus?: 'up' | 'down';
   failureCount: number;
+  uptimePercentage?: number;
+  averageLatency?: number;
+  totalChecks?: number;
+  successfulChecks?: number;
   createdAt: string;
   updatedAt: string;
 }

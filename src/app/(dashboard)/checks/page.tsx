@@ -156,9 +156,23 @@ export default function ChecksPage() {
                             )}
                             {check.lastStatus === 'up' ? 'En línea' : 'Fuera de línea'}
                           </Badge>
-                          <div>
+                          <div className="flex-1">
                             <h3 className="font-medium text-card-foreground">{check.name || 'Sin nombre'}</h3>
                             <p className="text-sm text-muted-foreground">{check.url}</p>
+                            {/* ✨ AGREGAR ESTAS MÉTRICAS: */}
+                            <div className="flex items-center space-x-4 mt-1">
+                              <span className="text-xs text-muted-foreground">
+                                📊 {check.uptimePercentage || 0}% uptime
+                              </span>
+                              <span className="text-xs text-muted-foreground">
+                                ⚡ {check.averageLatency || 0}ms avg
+                              </span>
+                              {check.totalChecks && (
+                                <span className="text-xs text-muted-foreground">
+                                  📈 {check.totalChecks} checks
+                                </span>
+                              )}
+                            </div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-2">

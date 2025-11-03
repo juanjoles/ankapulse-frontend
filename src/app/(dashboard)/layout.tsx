@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { LogOut, LayoutDashboard, Activity, DollarSign, Settings, Menu, X, Loader2 } from 'lucide-react';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 
+
 export default function DashboardLayout({
   children,
 }: {
@@ -17,6 +18,10 @@ export default function DashboardLayout({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+      console.log('=== DASHBOARD LAYOUT DEBUG ===');
+  console.log('isLoading:', isLoading);
+  console.log('isAuthenticated:', isAuthenticated);
+  console.log('Token in localStorage:', !!localStorage.getItem('token'));
     if (!isLoading && !isAuthenticated) {
       console.log('❌ No autenticado, redirigiendo a login...');
       router.push('/login');
@@ -47,6 +52,7 @@ export default function DashboardLayout({
   };
 
   return (
+    
     <div className="min-h-screen bg-background transition-colors">
       {/* Navbar */}
       <nav className="bg-card border-b border-border fixed w-full z-10 shadow-sm">
@@ -112,14 +118,14 @@ export default function DashboardLayout({
                 <span>Planes</span>
               </Link>
               
-              {/* <Link
-                href="/settings"
+              <Link
+                href="/alerts"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
               >
                 <Settings size={20} />
-                <span>Configuración</span>
-              </Link> */}
+                <span>Alertas</span>
+              </Link>
             </nav>
           </div>
         )}
@@ -153,13 +159,13 @@ export default function DashboardLayout({
               <span>Planes</span>
             </Link>
             
-            {/* <Link
-              href="/settings"
+            <Link
+              href="/alerts"
               className="flex items-center space-x-3 px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors"
             >
               <Settings size={20} />
-              <span>Configuración</span>
-            </Link> */}
+              <span>Alertas</span>
+            </Link>
           </nav>
         </aside>
 

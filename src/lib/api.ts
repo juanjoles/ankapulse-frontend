@@ -88,6 +88,16 @@ export const userApi = {
   
   updateProfile: (data: { nombre?: string; avatar?: string }) => 
     api.patch('/users/profile', data),
+
+  getAlertSettings: () => 
+    api.get('/alerts/settings'),
+  
+  updateAlertSettings: (data: { 
+    emailAlertsEnabled: boolean; 
+    telegramAlertsEnabled: boolean; 
+    telegramChatId: string 
+  }) => 
+    api.put('/alerts/settings', data),
 };
 
 // Checks

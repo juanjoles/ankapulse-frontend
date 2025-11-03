@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   title: "AnkaPulse - Monitoreo de APIs Simple y Accesible",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
+          {/* <Toaster position="top-right" /> */}
         </ThemeProvider>
         <Analytics />
       </body>
