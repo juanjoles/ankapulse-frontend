@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { userApi } from '@/lib/api';
+import Link from 'next/link';
 
 // Switch component inline
 const Switch = ({ checked, onCheckedChange, disabled = false, id }: {
@@ -213,9 +214,11 @@ export default function AlertsPage() {
                   <AlertTriangle className="h-4 w-4 mt-0.5" />
                   <AlertDescription>
                     Las alertas por Telegram están disponibles solo para planes Starter y Pro.
-                    <Button variant="link" className="p-0 h-auto ml-1">
-                      Actualizar plan
-                    </Button>
+                    <Link href="/pricing">
+                      <Button variant="link" className="p-0 h-auto ml-1">
+                        Actualizar plan
+                      </Button>
+                    </Link>
                   </AlertDescription>
                 </div>
               </Alert>
