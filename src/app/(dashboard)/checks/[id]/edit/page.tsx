@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Loader2 } from 'lucide-react';
 import Link from 'next/link';
-import { checksApi, userApi } from '@/lib/api';
+import { checksApi } from '@/lib/api';
+import { usePlan } from '@/hooks/usePlan'; 
 
 interface EditCheckPageProps {
   params: { id: string };
@@ -13,12 +14,12 @@ interface EditCheckPageProps {
 export default function EditCheckPage({ params }: EditCheckPageProps) {
   const router = useRouter();
   const { id } = params;
+  const { usage, isIntervalAllowed } = usePlan(); // ← USAR el hook usePlan
   
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [check, setCheck] = useState<any>(null);
-  const [planLimits, setPlanLimits] = useState({ minInterval: 30 });
   
   const [formData, setFormData] = useState({
     name: '',
@@ -27,22 +28,6 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
     timeout: 30,
     expectedStatusCode: 200,
   });
-
-  // Cargar límites del plan
-  useEffect(() => {
-    const loadPlanLimits = async () => {
-      try {
-        const response = await userApi.getProfile();
-        const profile = response.data;
-        setPlanLimits({
-          minInterval: profile.minIntervalMinutes || 30
-        });
-      } catch (error) {
-        console.error('Error loading plan limits:', error);
-      }
-    };
-    loadPlanLimits();
-  }, []);
 
   // Cargar datos del check
   useEffect(() => {
@@ -93,6 +78,19 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
     { value: '30min', label: '30 minutos', minPlan: 'free', minutes: 30 },
     { value: '1h', label: '1 hora', minPlan: 'free', minutes: 60 },
   ];
+
+  // ✅ AGREGAR esta función para obtener minutos del intervalo
+  const getIntervalMinutes = (interval: string): number => {
+    const map: Record<string, number> = {
+      '1min': 1,
+      '5min': 5,
+      '15min': 15,
+      '30min': 30,
+      '1h': 60,
+      '1d': 1440,
+    };
+    return map[interval] || 60;
+  };
 
   if (loading) {
     return (
@@ -187,7 +185,8 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
               className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
             >
               {intervals.map((int) => {
-                const allowed = int.minutes >= planLimits.minInterval;
+                // ✅ USAR isIntervalAllowed del hook usePlan
+                const allowed = isIntervalAllowed(int.minutes);
                 return (
                   <option key={int.value} value={int.value} disabled={!allowed}>
                     {int.label} {!allowed && `(Requiere plan ${int.minPlan})`}
@@ -195,8 +194,9 @@ export default function EditCheckPage({ params }: EditCheckPageProps) {
                 );
               })}
             </select>
+            {/* ✅ MOSTRAR información del plan actual usando el hook usePlan */}
             <p className="text-sm text-muted-foreground mt-1">
-              Tu plan permite intervalos de {planLimits.minInterval} minutos o más
+              Tu plan {usage?.plan?.name || 'Free'} permite intervalos de {usage?.usage?.minInterval?.formatted || '30 minutos'} o más
             </p>
           </div>
 
