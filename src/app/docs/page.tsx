@@ -79,7 +79,7 @@ export default function DocsIndexPage() {
         </h3>
         <p className="text-muted-foreground">
           Estamos trabajando en más guías y artículos sobre monitoreo, mejores prácticas,
-          y casos de uso. ¿Hay algo específico que te gustaría leer?
+          y casos de uso.
         </p>
       </div>
     </div>
