@@ -1,177 +1,86 @@
-import { Heart, Code, DollarSign, Users } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
-export default function AboutPage() {
+// Metadata de los artículos disponibles
+const articles = [
+  {
+    title: 'Por qué es fundamental monitorear tus APIs',
+    description: 'Descubre el impacto real del downtime y cómo el monitoreo proactivo puede salvar tu negocio y tu reputación.',
+    href: '/docs/why-monitoring-matters',
+    category: 'Fundamentos',
+    readTime: '8 min',
+    icon: '📊',
+  },
+  {
+    title: 'Sobre AnkaPulse',
+    description: 'Conoce la historia detrás de AnkaPulse y por qué creamos una herramienta de monitoreo pensada para developers de LATAM.',
+    href: '/docs/about',
+    category: 'Acerca de',
+    readTime: '5 min',
+    icon: '🦅',
+  },
+  // Aquí puedes agregar más artículos en el futuro
+];
+
+export default function DocsIndexPage() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-6xl mx-auto">
+      {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-foreground mb-4">
-          Sobre AnkaPulse
+          Documentación y Recursos
         </h1>
         <p className="text-xl text-muted-foreground">
-          Monitoreo de servicios hecho por developers de LATAM, para developers de LATAM
+          Aprende todo sobre monitoreo de servicios y cómo sacarle el máximo provecho a AnkaPulse
         </p>
       </div>
 
-      {/* Hero Story */}
-      <div className="bg-card border rounded-lg p-8 mb-12">
-        <h2 className="text-2xl font-semibold text-card-foreground mb-4 flex items-center gap-3">
-          <Heart className="w-6 h-6 text-primary" />
-          ¿Por qué nació AnkaPulse?
-        </h2>
-        <div className="space-y-4 text-muted-foreground">
-          <p>
-            Como developers en Argentina, sabemos lo que es estar desarrollando un proyecto personal, 
-            un MVP para una startup, o trabajando como freelancer y necesitar herramientas de monitoreo 
-            profesionales.
-          </p>
-          <p>
-            El problema es simple: <strong className="text-foreground">las plataformas existentes están 
-            pensadas para empresas con presupuestos de miles de dólares al mes</strong>. Sus dashboards 
-            están llenos de features que nunca usarás, sus precios son prohibitivos para el mercado 
-            latinoamericano, y muchas veces ni siquiera tienen soporte en español.
-          </p>
-          <p>
-            Nosotros creamos AnkaPulse porque <strong className="text-foreground">creemos que 
-            todo developer merece tener herramientas profesionales sin quebrar su presupuesto</strong>.
-          </p>
-          <p>
-            Y seguro te preguntás: <strong className="text-foreground">¿qué significa AnkaPulse?</strong> 
-            "Anka" es una palabra quechua que significa "águila" - un ave que vuela alto y tiene una 
-            visión panorámica de todo lo que sucede abajo. Combinado con "Pulse" (pulso), representa 
-            nuestra misión: <strong className="text-foreground">ser los ojos que monitorean 
-            el pulso de tus servicios desde las alturas</strong>, detectando cualquier problema antes 
-            de que afecte a tus usuarios.
-          </p>
-        </div>
+      {/* Articles Grid */}
+      <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {articles.map((article) => (
+          <Link
+            key={article.href}
+            href={article.href}
+            className="group bg-card border rounded-lg p-6 hover:border-primary/50 hover:shadow-lg transition-all duration-200"
+          >
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">{article.icon}</div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">
+                    {article.category}
+                  </span>
+                  <span className="text-xs text-muted-foreground flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {article.readTime}
+                  </span>
+                </div>
+                <h2 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+                  {article.title}
+                </h2>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {article.description}
+                </p>
+                <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  Leer artículo
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
 
-      {/* Values Grid */}
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
-        <div className="text-center p-6">
-          <DollarSign className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-foreground mb-2">Precios Justos</h3>
-          <p className="text-muted-foreground">
-            Desde $5 USD al mes. No mil features que no necesitas, 
-            solo lo esencial que realmente usarás.
-          </p>
-        </div>
-        
-        <div className="text-center p-6">
-          <Code className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-foreground mb-2">Hecho por Developers</h3>
-          <p className="text-muted-foreground">
-            Sabemos qué necesitas porque nosotros también desarrollamos. 
-            Sin complejidad innecesaria.
-          </p>
-        </div>
-        
-        <div className="text-center p-6">
-          <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-foreground mb-2">Para LATAM</h3>
-          <p className="text-muted-foreground">
-            Precios accesibles, soporte en español, 
-            y entendemos tus necesidades.
-          </p>
-        </div>
-      </div>
-
-      {/* Who is it for */}
-      <div className="bg-accent/30 border rounded-lg p-8 mb-12">
-        <h2 className="text-2xl font-semibold text-foreground mb-6">
-          ¿Para quién es AnkaPulse?
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="font-semibold text-foreground mb-2">🚀 Startups y Emprendedores</h3>
-            <p className="text-muted-foreground text-sm mb-4">
-              Estás validando tu MVP, cada dólar cuenta, pero necesitas saber 
-              si tu aplicación está funcionando.
-            </p>
-            
-            <h3 className="font-semibold text-foreground mb-2">💻 Developers Freelancers</h3>
-            <p className="text-muted-foreground text-sm">
-              Desarrollas para múltiples clientes y necesitas monitorear 
-              sus servicios sin complicarte la vida.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-foreground mb-2">🏢 Equipos Pequeños</h3>
-            <p className="text-muted-foreground text-sm mb-4">
-              Son 2-10 personas, no necesitan dashboards corporativos, 
-              solo saber que todo funciona bien.
-            </p>
-            
-            <h3 className="font-semibold text-foreground mb-2">📱 Proyectos Personales</h3>
-            <p className="text-muted-foreground text-sm">
-              Tu side project está creciendo y necesitas profesionalizarlo 
-              sin gastar una fortuna.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Simple Promise */}
-      <div className="text-center bg-primary/5 border border-primary/20 rounded-lg p-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-4">
-          Nuestra Promesa
-        </h2>
-        <p className="text-lg text-muted-foreground mb-4">
-          <strong className="text-foreground">Monitoreo profesional, sin complejidad, a precio justo.</strong>
-        </p>
+      {/* Coming Soon Section */}
+      <div className="bg-accent/30 border border-dashed rounded-lg p-8 text-center">
+        <BookOpen className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+        <h3 className="text-lg font-semibold text-foreground mb-2">
+          Más contenido en camino
+        </h3>
         <p className="text-muted-foreground">
-          No te vamos a bombardear con features que no necesitas. 
-          Te vamos a dar exactamente lo que precisas para dormir tranquilo 
-          sabiendo que tus servicios están funcionando.
+          Estamos trabajando en más guías y artículos sobre monitoreo, mejores prácticas,
+          y casos de uso. ¿Hay algo específico que te gustaría leer?
         </p>
-      </div>
-      {/* Apoyo al proyecto */}
-      <div className="mt-12 text-center bg-accent/30 border rounded-lg p-8">
-        <h3 className="text-lg font-semibold text-foreground mb-2">
-          ¿Te gusta lo que hacemos?
-        </h3>
-        <p className="text-muted-foreground mb-4">
-          Si querés apoyar el proyecto y ayudar a que más developers tengan acceso 
-          a herramientas de monitoreo profesionales y accesibles.
-        </p>
-        <div className="flex justify-center">
-          <a 
-            href='https://cafecito.app/juanjoles' 
-            rel='noopener' 
-            target='_blank'
-            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition-colors font-medium shadow-lg hover:shadow-xl"
-          >
-            ☕ Invitame un café
-          </a>
-        </div>
-        <p className="text-xs text-muted-foreground mt-3">
-          Cada aporte nos ayuda a mantener AnkaPulse accesible para todos
-        </p>
-      </div>
-      {/* Contact */}
-      <div className="mt-12 text-center">
-        <h3 className="text-lg font-semibold text-foreground mb-2">
-          ¿Preguntas? ¿Sugerencias?
-        </h3>
-        <p className="text-muted-foreground mb-4">
-          Somos un equipo pequeño y nos encanta escuchar a nuestra comunidad.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* <a 
-            href="mailto:hola@ankapulse.app"
-            className="text-primary hover:underline"
-          >
-            📧 soporte@ankapulse.app
-          </a> */}
-          {/* <span className="text-muted-foreground hidden sm:block">•</span> */}
-          <a 
-            href="https://twitter.com/ankapulse"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline"
-          >
-            🐦 @ankapulse
-          </a>
-        </div>
       </div>
     </div>
   );
