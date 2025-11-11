@@ -4,6 +4,14 @@ import Link from 'next/link';
 // Metadata de los artículos disponibles
 const articles = [
   {
+    title: 'Los 5 Casos de Downtime Más Caros de la Historia',
+    description: 'De Amazon perdiendo $100M en una hora a Knight Capital casi quebrando en 45 minutos. Historias reales, números impactantes y lecciones aplicables.',
+    href: '/docs/downtime-history',
+    category: 'Casos de Estudio',
+    readTime: '8 min',
+    icon: '💸',
+  },
+  {
     title: 'Por qué es fundamental monitorear tus APIs',
     description: 'Descubre el impacto real del downtime y cómo el monitoreo proactivo puede salvar tu negocio y tu reputación.',
     href: '/docs/why-monitoring-matters',
