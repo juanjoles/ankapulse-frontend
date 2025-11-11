@@ -12,9 +12,6 @@ export default function DowntimeHistoryPage() {
         <p className="text-xl text-muted-foreground mb-4">
           Cuando el downtime no cuesta miles, sino millones de dólares
         </p>
-        <div className="text-sm text-muted-foreground">
-          Publicado el 12 de noviembre de 2024 · 8 min de lectura
-        </div>
       </div>
 
       {/* Intro */}
