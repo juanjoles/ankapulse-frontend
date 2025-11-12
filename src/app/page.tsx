@@ -18,7 +18,7 @@ export default function HomePage() {
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Mantén tus servicios funcionando con AnkaPulse. Monitoreo en tiempo real, 
-            alertas instantáneas y reportes detallados. Todo en español.
+            alertas instantáneas y reportes detallados. Simple y accesible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -62,7 +62,7 @@ export default function HomePage() {
             <Globe className="w-12 h-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-card-foreground mb-2">Global</h3>
             <p className="text-muted-foreground">
-              Monitoreo desde Estados Unidos, Europa y América Latina
+              Checks desde múltiples regiones: US, EU y LATAM
             </p>
           </div>
           

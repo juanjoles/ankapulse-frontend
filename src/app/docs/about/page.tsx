@@ -8,7 +8,7 @@ export default function AboutPage() {
           Sobre AnkaPulse
         </h1>
         <p className="text-xl text-muted-foreground">
-          Monitoreo de servicios hecho por developers de LATAM, para developers de LATAM
+          Monitoreo simple y accesible, hecho por developers para developers
         </p>
       </div>
 
@@ -20,15 +20,15 @@ export default function AboutPage() {
         </h2>
         <div className="space-y-4 text-muted-foreground">
           <p>
-            Como developers en Argentina, sabemos lo que es estar desarrollando un proyecto personal,
+            Como developers, sabemos lo que es estar desarrollando un proyecto personal,
             un MVP para una startup, o trabajando como freelancer y necesitar herramientas de monitoreo
-            profesionales.
+            profesionales sin gastar una fortuna.
           </p>
           <p>
             El problema es simple: <strong className="text-foreground">las plataformas existentes están
             pensadas para empresas con presupuestos de miles de dólares al mes</strong>. Sus dashboards
-            están llenos de features que nunca usarás, sus precios son prohibitivos para el mercado
-            latinoamericano, y muchas veces ni siquiera tienen soporte en español.
+            están llenos de features que nunca usarás, sus planes son prohibitivos para indie developers
+            y startups early-stage, y la complejidad te hace perder tiempo en vez de ahorrártelo.
           </p>
           <p>
             Nosotros creamos AnkaPulse porque <strong className="text-foreground">creemos que
@@ -67,10 +67,10 @@ export default function AboutPage() {
 
         <div className="text-center p-6">
           <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-foreground mb-2">Para LATAM</h3>
+          <h3 className="text-xl font-semibold text-foreground mb-2">Para Indie Developers</h3>
           <p className="text-muted-foreground">
-            Precios accesibles, soporte en español,
-            y entendemos tus necesidades.
+            Precios accesibles, múltiples opciones de pago,
+            y entendemos tus necesidades reales.
           </p>
         </div>
       </div>

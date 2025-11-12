@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, X, Mail, Activity } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -65,7 +65,7 @@ const plans = [
 export default function PublicPlansPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/20 transition-colors">
-      {/* Header - Usando NavbarClient */}
+      {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <NavbarClient />
       </header>
@@ -152,6 +152,62 @@ export default function PublicPlansPage() {
             ))}
           </div>
 
+          {/* Payment Options - NUEVA SECCIÓN */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            {/* Section Title */}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Métodos de Pago
+              </h2>
+              <p className="text-muted-foreground">
+                Elegí el método de pago que mejor te funcione
+              </p>
+            </div>
+
+            {/* Payment Methods Grid */}
+            <div className="grid md:grid-cols-3 gap-6">
+              
+              {/* Credit Card */}
+              <div className="p-6 bg-card rounded-lg border border-border text-center">
+                <div className="text-4xl mb-3">💳</div>
+                <h3 className="text-lg font-semibold text-card-foreground mb-2">
+                  Tarjeta de Crédito
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Próximamente
+                </p>
+              </div>
+              
+              {/* MercadoPago */}
+              <div className="p-6 bg-card rounded-lg border border-border text-center">
+                <div className="text-4xl mb-3">💰</div>
+                <h3 className="text-lg font-semibold text-card-foreground mb-2">
+                  MercadoPago
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Para LATAM • Sin impuestos internacionales
+                </p>
+              </div>
+              
+              {/* Binance Pay */}
+              <div className="p-6 bg-card rounded-lg border border-border text-center">
+                <div className="text-4xl mb-3">₿</div>
+                <h3 className="text-lg font-semibold text-card-foreground mb-2">
+                  Pagos crypto
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Próximamente  
+                </p>
+              </div>
+
+            </div>
+
+            {/* Footer text */}
+            <p className="text-center text-sm text-muted-foreground mt-6">
+              Plan gratuito sin tarjeta de crédito • Upgrade cuando quieras • Cancelá sin preguntas
+            </p>
+          </div>
+
           {/* FAQ Section */}
           <div className="mt-20">
             <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
@@ -207,25 +263,6 @@ export default function PublicPlansPage() {
               </Card>
             </div>
           </div>
-
-          {/* Enterprise Section */}
-          <Card className="mt-16">
-            <CardContent className="text-center p-8">
-              <div className="max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold mb-4 text-card-foreground">
-                  ¿Necesitas algo personalizado?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Contactanos para planes enterprise con límites personalizados,
-                  SLA garantizado y soporte dedicado.
-                </p>
-                <button className="inline-flex items-center space-x-2 bg-card-foreground text-card px-8 py-3 rounded-lg font-semibold hover:bg-card-foreground/90 transition-colors">
-                  <Mail className="w-5 h-5" />
-                  <span>Contactar Ventas</span>
-                </button>
-              </div>
-            </CardContent>
-          </Card>
 
           {/* CTA Section */}
           <div className="text-center mt-16 py-12">

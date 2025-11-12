@@ -138,7 +138,7 @@ export default function WhyMonitoringMattersPage() {
       <div className="mb-12">
         <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-3">
           <Target className="w-6 h-6 text-primary" />
-          Para desarrolladores y startups en LATAM
+          Desafíos específicos en LATAM
         </h2>
 
         <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 mb-6">
