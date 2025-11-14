@@ -15,6 +15,7 @@ const plans = [
       '10 checks',
       'Intervalo mínimo: 30 minutos',
       'Email alerts',
+      'Status Page',
       '7 días retención',
       '1 región'
     ],
@@ -34,9 +35,10 @@ const plans = [
       'Intervalo mínimo: 5 minutos',
       'Email alerts',
       'Telegram alerts',
+      'Status Page',
       '30 días retención',
       '3 regiones - Próximamente',
-      'API básica'
+      'API básica - Próximamente'
     ],
     limitations: [
       'Sin webhooks personalizados',
@@ -51,6 +53,7 @@ const plans = [
       '50 checks',
       'Intervalo mínimo: 1 minuto',
       'Todos los canales de alerta',
+      'Status Page',
       '90 días retención',
       'Todas las regiones',
       'API completa - Próximamente',

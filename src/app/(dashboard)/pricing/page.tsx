@@ -15,6 +15,7 @@ const plans = [
       '10 checks',
       'Intervalo mínimo: 30 minutos',
       'Email alerts',
+      'Status Page',
       '7 días retención',
       '1 región'
     ],
@@ -34,6 +35,7 @@ const plans = [
       'Intervalo mínimo: 5 minutos',
       'Email alerts',
       'Telegram alerts',
+      'Status Page',
       '30 días retención',
       '3 regiones',
       'API básica'
@@ -52,6 +54,7 @@ const plans = [
       'Intervalo mínimo: 1 minuto',
       'Todos los canales de alerta',
       '90 días retención',
+      'Status Page',
       'API completa - Próximamente',
       'Webhooks - Próximamente',
       'SLA reports - Próximamente',
@@ -248,8 +251,9 @@ export default function PricingPage() {
             </CardContent>
           </Card>
         ))}
+        
       </div>
-
+        
       {/* Current Usage Info */}
       {usage && usage.usage && (
         <Card>

@@ -1,5 +1,9 @@
 'use client';
 
+import '@/app/globals.css';
+
+
+
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { statusPageApi } from '@/lib/api';
