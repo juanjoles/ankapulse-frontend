@@ -126,7 +126,16 @@ export default function LoginPage() {
                 Regístrate aquí
               </Link>
             </div>
-
+            <div className="text-center text-sm text-muted-foreground">
+                ¿Olvidaste tu contraseña?{' '}
+                <Link 
+                  href="/forgot-password" 
+                  className="text-primary hover:underline font-medium"
+                >
+                  Recupérala aquí
+                </Link>
+              </div>
+           
             <div className="text-center text-xs text-muted-foreground">
               Al continuar, aceptas nuestros{' '}
               <Link href="/terms" className="hover:underline">
