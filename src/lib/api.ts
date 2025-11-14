@@ -121,6 +121,34 @@ export const checksApi = {
     api.delete(`/checks/${id}`),
 };
 
+// Status Pages
+export const statusPageApi = {
+  // Privadas (requieren auth)
+  getConfig: () => 
+    api.get('/status-page/config'),
+  
+  createOrUpdate: (data: {
+    slug: string;
+    enabled: boolean;
+    title?: string;
+    description?: string;
+    monitorIds: string[];
+  }) => 
+    api.post('/status-page/config', data),
+  
+  disable: () => 
+    api.delete('/status-page/config'),
+  
+  checkSlugAvailability: (slug: string) => 
+    api.get(`/status-page/check-slug/${slug}`),
+  
+  // Pública (sin auth - no usa instancia api para evitar interceptor)
+  getPublic: (slug: string) => {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
+    return axios.get(`${API_URL}/status-page/${slug}`);
+  },
+};
+
 // Subscriptions
 export const subscriptionsApi = {
   getCurrent: () => api.get('/subscriptions/current'),

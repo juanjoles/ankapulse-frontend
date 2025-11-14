@@ -3,7 +3,7 @@
 import { useChecks } from '@/hooks/useChecks';
 import { usePlan } from '@/hooks/usePlan';
 import Link from 'next/link';
-import { Activity, TrendingUp, Clock, Plus, ArrowRight } from 'lucide-react';
+import { Activity, TrendingUp, Clock, Plus, ArrowRight, Globe } from 'lucide-react'; // AGREGAR Globe
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function DashboardPage() {
@@ -106,6 +106,23 @@ export default function DashboardPage() {
                   <div>
                     <p className="font-medium text-card-foreground">Nuevo Check</p>
                     <p className="text-sm text-muted-foreground">Monitorea una nueva URL</p>
+                  </div>
+                </div>
+                <ArrowRight className="text-muted-foreground group-hover:text-primary" size={20} />
+              </Link>
+
+              {/* ============================================ */}
+              {/* NUEVO: Status Page */}
+              {/* ============================================ */}
+              <Link
+                href="/status-page"
+                className="flex items-center justify-between p-4 border border-border rounded-lg hover:border-primary hover:bg-accent transition-colors group"
+              >
+                <div className="flex items-center space-x-3">
+                  <Globe className="text-muted-foreground group-hover:text-primary" size={24} />
+                  <div>
+                    <p className="font-medium text-card-foreground">Status Page</p>
+                    <p className="text-sm text-muted-foreground">Página pública de estado</p>
                   </div>
                 </div>
                 <ArrowRight className="text-muted-foreground group-hover:text-primary" size={20} />

@@ -156,3 +156,44 @@ export interface RegisterInput {
   nombre: string;
   password: string;
 }
+
+export interface StatusPageConfig {
+  id: string;
+  slug: string;
+  enabled: boolean;
+  title: string | null;
+  description: string | null;
+  monitors: StatusPageMonitor[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface StatusPageMonitor {
+  checkId: string;
+  displayOrder: number;
+  check: {
+    id: string;
+    name: string | null;
+    url: string;
+    status: string;
+  };
+}
+
+export interface PublicStatusPage {
+  slug: string;
+  title: string;
+  description: string | null;
+  overallStatus: 'operational' | 'partial_outage' | 'major_outage';
+  updatedAt: string;
+  monitors: PublicMonitor[];
+}
+
+export interface PublicMonitor {
+  id: string;
+  name: string;
+  url: string;
+  status: 'operational' | 'down';
+  uptimePercentage: number;
+  averageLatency: number;
+  lastChecked: string | null;
+}
