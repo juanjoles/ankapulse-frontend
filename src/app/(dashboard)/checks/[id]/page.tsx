@@ -382,14 +382,14 @@ export default function CheckDetailPage() {
                   <h4 className="font-medium text-sm text-card-foreground">Checks Exitosos</h4>
                   <p className="text-2xl font-bold text-card-foreground">{getSuccessfulChecks()}</p>
                   <p className="text-xs text-muted-foreground">
-                    {getTotalChecks() > 0 ? ((getSuccessfulChecks() / getTotalChecks()) * 100).toFixed(1) : '0'}% del total
+                    {getTotalChecks() > 0 ? ((getSuccessfulChecks() / getTotalChecks()) * 100).toFixed(2) : '0'}% del total
                   </p>
                 </div>
                 <div className="text-center p-4 border border-border rounded-lg bg-card">
                   <h4 className="font-medium text-sm text-card-foreground">Checks Fallidos</h4>
                   <p className="text-2xl font-bold text-card-foreground">{getFailedChecks()}</p>
                   <p className="text-xs text-muted-foreground">
-                    {getTotalChecks() > 0 ? ((getFailedChecks() / getTotalChecks()) * 100).toFixed(1) : '0'}% del total
+                    {getTotalChecks() > 0 ? ((getFailedChecks() / getTotalChecks()) * 100).toFixed(2) : '0'}% del total
                   </p>
                 </div>
                 <div className="text-center p-4 border border-border rounded-lg bg-card">
