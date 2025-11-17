@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Plus, RefreshCw, AlertCircle, CheckCircle, Clock, Trash2, BarChart3, Pause, Wifi, WifiOff } from 'lucide-react';
+import { Plus, RefreshCw, AlertCircle, CheckCircle, Trash2, BarChart3, WifiOff } from 'lucide-react';
 import { useChecks } from '@/hooks/useChecks';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export default function ChecksPage() {
@@ -143,77 +143,80 @@ export default function ChecksPage() {
               </div>
             ) : (
               <div className="space-y-4">
-                {checks.map((check) => (
-                  <Card key={check.id} className="hover:shadow-md transition-shadow">
-                    <CardContent className="pt-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <Badge variant={check.lastStatus === 'up' ? 'default' : 'destructive'}>
-                            {check.lastStatus === 'up' ? (
-                              <CheckCircle className="w-3 h-3 mr-1" />
-                            ) : (
-                              <AlertCircle className="w-3 h-3 mr-1" />
-                            )}
-                            {check.lastStatus === 'up' ? 'En línea' : 'Fuera de línea'}
-                          </Badge>
-                          <div className="flex-1">
-                            <h3 className="font-medium text-card-foreground">{check.name || 'Sin nombre'}</h3>
-                            <p className="text-sm text-muted-foreground">{check.url}</p>
-                            {/* ✨ AGREGAR ESTAS MÉTRICAS: */}
-                            <div className="flex items-center space-x-4 mt-1">
-                              <span className="text-xs text-muted-foreground">
-                                📊 {check.uptimePercentage || 0}% uptime
-                              </span>
-                              <span className="text-xs text-muted-foreground">
-                                ⚡ {check.averageLatency || 0}ms avg
-                              </span>
-                              {check.totalChecks && (
-                                <span className="text-xs text-muted-foreground">
-                                  📈 {check.totalChecks} checks
-                                </span>
+                {checks.map((check) => {
+                  // ✅ Extraer datos usando 'as any' para evitar errores TS
+                  const checkData = check as any;
+                  const uptimePercentage = checkData.uptimePercentage ?? 0;
+                  const averageLatency = checkData.averageLatency ?? 0;
+                  
+                  return (
+                    <Card key={check.id} className="hover:shadow-md transition-shadow">
+                      <CardContent className="pt-6">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-4">
+                            <Badge variant={check.lastStatus === 'up' ? 'default' : 'destructive'}>
+                              {check.lastStatus === 'up' ? (
+                                <CheckCircle className="w-3 h-3 mr-1" />
+                              ) : (
+                                <AlertCircle className="w-3 h-3 mr-1" />
                               )}
+                              {check.lastStatus === 'up' ? 'En línea' : 'Fuera de línea'}
+                            </Badge>
+                            <div className="flex-1">
+                              <h3 className="font-medium text-card-foreground">
+                                {check.name || 'Sin nombre'}
+                              </h3>
+                              <p className="text-sm text-muted-foreground">{check.url}</p>
+                              
+                              {/* ✅ SOLO uptime y avg latency */}
+                              <div className="flex items-center space-x-4 mt-1">
+                                <span className="text-xs text-muted-foreground">
+                                  📊 {uptimePercentage.toFixed(1)}% uptime
+                                </span>
+                                <span className="text-xs text-muted-foreground">
+                                  ⚡ {Math.round(averageLatency)}ms avg
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Link
-                            href={`/checks/${check.id}`}
-                            className="text-primary hover:text-primary/80 transition-colors"
-                          >
-                            Ver detalles
-                          </Link>
-                          {deleteConfirm === check.id ? (
-                          
-                          <div className="flex items-center gap-2 bg-destructive/10 px-2 py-1 rounded">
-                            <span className="text-sm text-muted-foreground">¿Eliminar?</span>
-                            <button
-                              onClick={() => handleDelete(check.id)}
-                              className="text-destructive hover:text-destructive/80 text-sm font-medium px-2 py-1 rounded hover:bg-destructive/20 transition-colors"
+                          <div className="flex items-center space-x-2">
+                            <Link
+                              href={`/checks/${check.id}`}
+                              className="text-primary hover:text-primary/80 transition-colors"
                             >
-                              Sí
-                            </button>
-                            <button
-                              onClick={() => setDeleteConfirm(null)}
-                              className="text-muted-foreground hover:text-foreground text-sm px-2 py-1 rounded hover:bg-accent transition-colors"
-                            >
-                              No
-                            </button>
+                              Ver detalles
+                            </Link>
+                            {deleteConfirm === check.id ? (
+                              <div className="flex items-center gap-2 bg-destructive/10 px-2 py-1 rounded">
+                                <span className="text-sm text-muted-foreground">¿Eliminar?</span>
+                                <button
+                                  onClick={() => handleDelete(check.id)}
+                                  className="text-destructive hover:text-destructive/80 text-sm font-medium px-2 py-1 rounded hover:bg-destructive/20 transition-colors"
+                                >
+                                  Sí
+                                </button>
+                                <button
+                                  onClick={() => setDeleteConfirm(null)}
+                                  className="text-muted-foreground hover:text-foreground text-sm px-2 py-1 rounded hover:bg-accent transition-colors"
+                                >
+                                  No
+                                </button>
+                              </div>
+                            ) : (
+                              <button
+                                onClick={() => setDeleteConfirm(check.id)}
+                                className="text-destructive hover:text-destructive/80 transition-colors p-1 rounded hover:bg-destructive/10"
+                                title="Eliminar check"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            )}
                           </div>
-                        ) : (
-                          
-                          <button
-                            onClick={() => setDeleteConfirm(check.id)}
-                            className="text-destructive hover:text-destructive/80 transition-colors p-1 rounded hover:bg-destructive/10"
-                            title="Eliminar check"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        )}
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             )}
           </CardContent>
