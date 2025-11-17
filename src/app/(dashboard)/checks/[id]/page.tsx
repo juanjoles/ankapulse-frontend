@@ -53,7 +53,7 @@ export default function CheckDetailPage() {
     if (metrics?.uptimePercentage !== undefined) {
       const value = Number(metrics.uptimePercentage);
       if (!isNaN(value) && value >= 0) {
-        return value.toFixed(1);
+        return value.toFixed(2);
       }
     }
     
@@ -63,7 +63,7 @@ export default function CheckDetailPage() {
     if (total === 0) return '0.0';
     
     const percentage = (successful / total) * 100;
-    return percentage.toFixed(1);
+    return percentage.toFixed(2);
   };
 
   const getAverageLatency = () => {

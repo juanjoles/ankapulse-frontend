@@ -171,7 +171,7 @@ export default function ChecksPage() {
                               {/* ✅ SOLO uptime y avg latency */}
                               <div className="flex items-center space-x-4 mt-1">
                                 <span className="text-xs text-muted-foreground">
-                                  📊 {uptimePercentage.toFixed(1)}% uptime
+                                  📊 {uptimePercentage.toFixed(2)}% uptime
                                 </span>
                                 <span className="text-xs text-muted-foreground">
                                   ⚡ {Math.round(averageLatency)}ms avg

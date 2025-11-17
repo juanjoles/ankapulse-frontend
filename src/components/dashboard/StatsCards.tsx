@@ -26,7 +26,7 @@ export default function StatsCards() {
   const checksUp = checks.filter((c) => c.lastStatus === 'up').length;
   const checksDown = checks.filter((c) => c.lastStatus === 'down').length;
   const avgUptime = checks.length > 0 
-    ? ((checksUp / checks.length) * 100).toFixed(1) 
+    ? ((checksUp / checks.length) * 100).toFixed(2) 
     : '0';
 
   // Calcular latencia promedio (mock data - reemplazar con datos reales)
