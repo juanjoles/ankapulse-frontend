@@ -160,6 +160,12 @@ export const subscriptionsApi = {
     api.post('/subscriptions/downgrade', data),
   cancel: () => api.post('/subscriptions/cancel'),
   getPayments: () => api.get('/subscriptions/payments'),
+
+  createLemonCheckout: (data: { planType: 'starter' | 'pro' }) => 
+    api.post('/subscriptions/lemon/create-checkout', data),
+
+  changeLemonPlan: (data: { planType: 'starter' | 'pro' }) => 
+    api.post('/subscriptions/lemon/change-plan', data),
   
   // TESTING - Quitar en producción
   upgradeTest: (data: { planType: 'starter' | 'pro' }) => 

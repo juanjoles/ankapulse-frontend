@@ -5,32 +5,35 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/locale-link';
 import { useEmailAuth } from '@/hooks/useEmailAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, CheckCircle } from 'lucide-react';
-
-const registerSchema = z.object({
-  nombre: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-  email: z.string().email('Email inválido'),
-  password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: 'Las contraseñas no coinciden',
-  path: ['confirmPassword'],
-});
-
-type RegisterFormData = z.infer<typeof registerSchema>;
+import { useTranslations } from 'next-intl';
 
 export default function RegisterForm() {
+  const t = useTranslations('auth.registerEmail');
   const router = useRouter();
   const { register: registerUser } = useEmailAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+
+  // Schema con traducciones
+  const registerSchema = z.object({
+    nombre: z.string().min(2, t('errors.nameTooShort')),
+    email: z.string().email(t('errors.invalidEmail')),
+    password: z.string().min(6, t('errors.passwordTooShort')),
+    confirmPassword: z.string(),
+  }).refine((data) => data.password === data.confirmPassword, {
+    message: t('errors.passwordMismatch'),
+    path: ['confirmPassword'],
+  });
+
+  type RegisterFormData = z.infer<typeof registerSchema>;
 
   const {
     register,
@@ -63,12 +66,12 @@ export default function RegisterForm() {
         
       } else {
         console.log('❌ Error en registro:', result.error);
-        setError(result.error || 'Error al registrarse');
+        setError(result.error || t('errors.registerFailed'));
         setIsLoading(false);
       }
     } catch (error) {
       console.error('❌ Error inesperado:', error);
-      setError('Error inesperado. Inténtalo de nuevo.');
+      setError(t('errors.unexpected'));
       setIsLoading(false);
     }
   };
@@ -80,21 +83,21 @@ export default function RegisterForm() {
         <Card className="w-full max-w-md">
           <CardContent className="p-8 text-center">
             <CheckCircle className="mx-auto text-green-500 mb-4" size={64} />
-            <h2 className="text-2xl font-bold mb-2">¡Registro Exitoso!</h2>
+            <h2 className="text-2xl font-bold mb-2">{t('success.title')}</h2>
             <p className="text-muted-foreground mb-6">
-              Tu cuenta ha sido creada correctamente.
+              {t('success.description')}
             </p>
             
             <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-4">
               <Loader2 className="animate-spin" size={16} />
-              <span>Redirigiendo al login...</span>
+              <span>{t('success.redirecting')}</span>
             </div>
             
             <Button 
               onClick={() => router.push('/login')}
               className="w-full"
             >
-              Ir al Login Ahora
+              {t('success.goNow')}
             </Button>
           </CardContent>
         </Card>
@@ -106,9 +109,11 @@ export default function RegisterForm() {
     <div className="flex items-center justify-center min-h-screen p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">Crear Cuenta</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">
+            {t('title')}
+          </CardTitle>
           <p className="text-center text-muted-foreground">
-            Completa los datos para registrarte
+            {t('description')}
           </p>
         </CardHeader>
         <CardContent>
@@ -120,12 +125,12 @@ export default function RegisterForm() {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="nombre">Nombre</Label>
+              <Label htmlFor="nombre">{t('nameLabel')}</Label>
               <Input
                 {...register('nombre')}
                 id="nombre"
                 type="text"
-                placeholder="Tu nombre completo"
+                placeholder={t('namePlaceholder')}
                 disabled={isLoading}
               />
               {errors.nombre && (
@@ -134,12 +139,12 @@ export default function RegisterForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('emailLabel')}</Label>
               <Input
                 {...register('email')}
                 id="email"
                 type="email"
-                placeholder="tu@email.com"
+                placeholder={t('emailPlaceholder')}
                 disabled={isLoading}
               />
               {errors.email && (
@@ -148,12 +153,12 @@ export default function RegisterForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">{t('passwordLabel')}</Label>
               <Input
                 {...register('password')}
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder={t('passwordPlaceholder')}
                 disabled={isLoading}
               />
               {errors.password && (
@@ -162,12 +167,12 @@ export default function RegisterForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirmar Contraseña</Label>
+              <Label htmlFor="confirmPassword">{t('confirmPasswordLabel')}</Label>
               <Input
                 {...register('confirmPassword')}
                 id="confirmPassword"
                 type="password"
-                placeholder="••••••••"
+                placeholder={t('confirmPasswordPlaceholder')}
                 disabled={isLoading}
               />
               {errors.confirmPassword && (
@@ -179,19 +184,19 @@ export default function RegisterForm() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Creando cuenta...
+                  {t('submitting')}
                 </>
               ) : (
-                'Crear Cuenta'
+                t('submitButton')
               )}
             </Button>
           </form>
 
           <div className="text-center space-y-4 mt-6">
             <p className="text-muted-foreground text-sm">
-              ¿Ya tienes cuenta?{' '}
+              {t('haveAccount')}{' '}
               <Link href="/login" className="text-primary hover:underline">
-                Inicia sesión
+                {t('loginLink')}
               </Link>
             </p>
           </div>

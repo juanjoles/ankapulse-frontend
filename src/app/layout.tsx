@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from '@vercel/analytics/react';
-import { Toaster } from 'react-hot-toast';
+import { locales } from '../i18n';
+import './globals.css';
 
-export const metadata: Metadata = {
-  title: "AnkaPulse - Monitoreo de APIs Simple y Accesible",
-  description: "Mantén tus servicios funcionando con AnkaPulse. Monitoreo en tiempo real, alertas instantáneas y reportes detallados.",
-};
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -32,11 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-          {/* <Toaster position="top-right" /> */}
-        </ThemeProvider>
-        <Analytics />
+        {children}
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation'; // ← AGREGAR useParams
 import { getToken, getUser, isAuthenticated, isTokenExpired, logout as authLogout, setToken, setUser } from '@/lib/auth';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
@@ -36,6 +36,8 @@ export function useAuth() {
   const [isLoading, setIsLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const router = useRouter();
+  const params = useParams(); // ← AGREGAR
+  const locale = (params?.locale as string) || 'es'; // ← AGREGAR (default a 'es' por si acaso)
 
   useEffect(() => {
     const checkAuth = () => {
@@ -44,7 +46,6 @@ export function useAuth() {
       const token = getToken();
       const userData = getUser();
       
-      // Optimización: Si no hay token, salir rápido
       if (!token) {
         console.log('❌ No hay token, usuario no autenticado');
         setAuthenticated(false);
@@ -85,11 +86,9 @@ export function useAuth() {
         setUserState(null);
       }
       
-      // Acelerar la carga inicial
       setIsLoading(false);
     };
 
-    // Ejecutar inmediatamente sin delay
     checkAuth();
 
     const handleStorageChange = () => {
@@ -134,7 +133,6 @@ export function useAuth() {
       if (isSuccess) {
         console.log('✅ useAuth: Login exitoso detectado');
         
-        // Guardar token y usuario inmediatamente
         if (result.data?.token) {
           setToken(result.data.token);
         }
@@ -143,14 +141,13 @@ export function useAuth() {
           setUserState(result.data.user);
         }
         
-        // Actualizar estado inmediatamente para evitar recargas
         setAuthenticated(true);
         setIsLoading(false);
         
         console.log('🚀 useAuth: Redirigiendo inmediatamente...');
         
-        // Redirección más directa
-        router.replace('/dashboard');
+        // ✅ CAMBIO: Redirigir con locale
+        router.replace(`/${locale}/dashboard`);
         
         return { success: true, data: result.data };
       } else {
@@ -188,7 +185,9 @@ export function useAuth() {
         
         setAuthenticated(true);
         setIsLoading(false);
-        router.replace('/dashboard');
+        
+        // ✅ CAMBIO: Redirigir con locale
+        router.replace(`/${locale}/dashboard`);
         
         return { success: true, data: result.data };
       } else {
@@ -206,7 +205,9 @@ export function useAuth() {
     setAuthenticated(false);
     setUserState(null);
     setIsLoading(false);
-    router.push('/login');
+    
+    // ✅ CAMBIO: Redirigir con locale
+    router.push(`/${locale}/login`);
   };
 
   return {

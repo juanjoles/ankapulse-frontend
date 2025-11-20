@@ -2,9 +2,13 @@
 
 import { Activity } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
-import Link from 'next/link';
+import { LanguageSelector } from '@/components/language-selector';
+import { LocaleLink as Link } from '@/components/locale-link';
+import { useTranslations } from 'next-intl';
 
 export function NavbarClient() {
+  const t = useTranslations('nav');
+  
   return (
     <nav className="flex justify-between items-center">
       {/* Logo clickeable que redirige a la landing */}
@@ -20,6 +24,7 @@ export function NavbarClient() {
 
       {/* Botones de acción */}
       <div className="flex items-center space-x-2">
+        <LanguageSelector />
         <ThemeToggle />
         
         {/* Botones responsivos */}
@@ -28,13 +33,13 @@ export function NavbarClient() {
             href="/login"
             className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg hover:bg-accent transition-colors text-center"
           >
-            Iniciar Sesión
+            {t('login')}
           </Link>
           <Link
             href="/register"
             className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-center"
           >
-            Comenzar Gratis
+            {t('register')}
           </Link>
         </div>
       </div>

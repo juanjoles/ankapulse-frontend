@@ -4,25 +4,31 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/locale-link';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, ArrowLeft } from 'lucide-react';
-
-const loginSchema = z.object({
-  email: z.string().email('Email inválido'),
-  password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
-});
-
-type LoginFormData = z.infer<typeof loginSchema>;
+import { useTranslations } from 'next-intl';
+import { useRouter, useParams } from 'next/navigation'; // ← AGREGAR
 
 export default function LoginForm() {
+  const t = useTranslations('auth.loginEmail');
+  const router = useRouter(); // ← AGREGAR
+  const params = useParams(); // ← AGREGAR
+  const locale = params.locale as string; // ← AGREGAR
   const { login } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const loginSchema = z.object({
+    email: z.string().email(t('errors.invalidEmail')),
+    password: z.string().min(6, t('errors.passwordTooShort')),
+  });
+
+  type LoginFormData = z.infer<typeof loginSchema>;
 
   const {
     register,
@@ -43,16 +49,17 @@ export default function LoginForm() {
       console.log('📋 Resultado del login:', result);
 
       if (result.success) {
-        console.log('✅ Login exitoso - redirección en proceso');
-        // El hook useAuth maneja la redirección automáticamente
+        console.log('✅ Login exitoso - redirigiendo con locale');
+        // ✅ CAMBIO: Redirigir manualmente con locale
+        router.push(`/${locale}/dashboard`);
       } else {
         console.log('❌ Error en login:', result.error);
-        setError(result.error || 'Error al iniciar sesión');
+        setError(result.error || t('errors.loginFailed'));
         setIsLoading(false);
       }
     } catch (error) {
       console.error('❌ Error inesperado:', error);
-      setError('Error inesperado. Inténtalo de nuevo.');
+      setError(t('errors.unexpected'));
       setIsLoading(false);
     }
   };
@@ -62,10 +69,10 @@ export default function LoginForm() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
-            Iniciar Sesión
+            {t('title')}
           </CardTitle>
           <p className="text-center text-muted-foreground">
-            Ingresa con tu email y contraseña
+            {t('description')}
           </p>
         </CardHeader>
         <CardContent>
@@ -77,12 +84,12 @@ export default function LoginForm() {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('emailLabel')}</Label>
               <Input
                 {...register('email')}
                 id="email"
                 type="email"
-                placeholder="tu@email.com"
+                placeholder={t('emailPlaceholder')}
                 disabled={isLoading}
               />
               {errors.email && (
@@ -91,12 +98,12 @@ export default function LoginForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">{t('passwordLabel')}</Label>
               <Input
                 {...register('password')}
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder={t('passwordPlaceholder')}
                 disabled={isLoading}
               />
               {errors.password && (
@@ -108,10 +115,10 @@ export default function LoginForm() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Iniciando sesión...
+                  {t('submitting')}
                 </>
               ) : (
-                'Iniciar Sesión'
+                t('submitButton')
               )}
             </Button>
           </form>
@@ -124,14 +131,14 @@ export default function LoginForm() {
             >
               <Link href="/login">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Volver a opciones de login
+                {t('backButton')}
               </Link>
             </Button>
 
             <p className="text-muted-foreground text-sm">
-              ¿No tienes cuenta?{' '}
+              {t('noAccount')}{' '}
               <Link href="/register/email" className="text-primary hover:underline">
-                Regístrate
+                {t('registerLink')}
               </Link>
             </p>
           </div>

@@ -2,7 +2,7 @@
 
 import { Activity } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
-import Link from 'next/link';
+import { LocaleLink as Link } from '@/components/locale-link';
 
 export function LogoNav() {
   return (

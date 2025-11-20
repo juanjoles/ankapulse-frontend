@@ -1,0 +1,1116 @@
+{
+  "nav": {
+    "login": "Sign In",
+    "register": "Start Free",
+    "checks": "Checks",
+    "statusPage": "Status Page",
+    "settings": "Settings"
+  },
+  "landing": {
+    "hero": {
+      "title": "Simple and Affordable API Monitoring",
+      "titleHighlight": "APIs",
+      "subtitle": "Keep your services running with AnkaPulse. Real-time monitoring, instant alerts, and detailed reports. Simple and affordable.",
+      "ctaPrimary": "Get Started Free",
+      "ctaSecondary": "View Pricing",
+      "about": "About Us",
+      "docs": "Docs"
+    },
+    "features": {
+      "reliable": {
+        "title": "Reliable Monitoring",
+        "description": "Checks every minute from multiple locations"
+      },
+      "global": {
+        "title": "Global",
+        "description": "Checks from multiple regions: US, EU, and LATAM"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Detailed reports and performance metrics"
+      }
+    },
+    "footer": {
+      "copyright": "© 2025 AnkaPulse. All rights reserved."
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "Manage your personal information and account settings",
+    "personalInfo": {
+      "title": "Personal Information",
+      "description": "Update your name and email associated with the account",
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "edit": "Edit"
+    },
+    "accountInfo": {
+      "title": "Account Information",
+      "description": "Details of your AnkaPulse account",
+      "registrationMethod": "Registration method",
+      "emailVerified": "Email verified",
+      "accountStatus": "Account status",
+      "memberSince": "Member since",
+      "providers": {
+        "email": "Email and password",
+        "google": "Google",
+        "github": "GitHub"
+      },
+      "verified": "✅ Verified",
+      "pending": "⏳ Pending",
+      "active": "🟢 Active",
+      "inactive": "🔴 Inactive"
+    },
+    "messages": {
+      "nameUpdated": "Name updated successfully",
+      "emailUpdated": "Email updated successfully",
+      "nameEmpty": "Name cannot be empty",
+      "invalidEmail": "Invalid email format",
+      "updateError": "Error updating profile",
+      "loadError": "Error loading profile"
+    },
+    "loading": "Loading profile..."
+  },
+  "plans": {
+    "title": "Plans & Pricing",
+    "footer": "All rights reserved",
+    "subtitle": "Start free and scale as you grow. No surprises, no hidden fees.",
+    "popular": "Most Popular",
+    "perMonth": "/month",
+    "perfectStart": "Perfect to get started",
+    "choosePlan": "Choose Plan",
+    "startFree": "Start Free",
+    "free": {
+      "name": "Free",
+      "features": {
+        "checks": "10 checks",
+        "interval": "Minimum interval: 30 minutes",
+        "emailAlerts": "Email alerts",
+        "statusPage": "Status Page",
+        "retention": "7 days retention",
+        "region": "1 region"
+      },
+      "limitations": {
+        "noSlack": "No Slack/Discord",
+        "noApi": "No API access",
+        "noAdvanced": "No advanced metrics"
+      }
+    },
+    "starter": {
+      "name": "Starter",
+      "features": {
+        "checks": "50 checks",
+        "interval": "Minimum interval: 1 minute",
+        "emailAlerts": "Email alerts",
+        "telegramAlerts": "Telegram alerts",
+        "statusPage": "Status Page",
+        "retention": "30 days retention",
+        "regions": "3 regions - Coming soon",
+        "api": "Basic API - Coming soon"
+      },
+      "limitations": {
+        "noWebhooks": "No custom webhooks",
+        "noSla": "No SLA reports"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "features": {
+        "checks": "200 checks",
+        "interval": "Minimum interval: 1 minute",
+        "allAlerts": "All alert channels",
+        "statusPage": "Status Page",
+        "retention": "90 days retention",
+        "allRegions": "All regions",
+        "api": "Full API - Coming soon",
+        "webhooks": "Webhooks - Coming soon",
+        "sla": "SLA reports - Coming soon",
+        "support": "Priority support"
+      }
+    },
+    "payment": {
+      "title": "Payment Methods",
+      "subtitle": "Choose the payment method that works best for you",
+      "creditCard": {
+        "title": "Credit Card",
+        "status": "Coming soon"
+      },
+      "mercadopago": {
+        "title": "MercadoPago",
+        "description": "For LATAM • No international fees"
+      },
+      "crypto": {
+        "title": "Crypto payments",
+        "status": "Coming soon"
+      },
+      "footer": "Free plan with no credit card • Upgrade anytime • Cancel with no questions"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "Can I change plans anytime?",
+        "answer": "Yes, you can upgrade or downgrade your plan whenever you want. Changes apply immediately."
+      },
+      "q2": {
+        "question": "What's included in the free plan?",
+        "answer": "The free plan includes 10 checks with monitoring every 30 minutes, perfect for small projects."
+      },
+      "q3": {
+        "question": "Are there discounts for annual payment?",
+        "answer": "We'll soon offer discounts for annual subscriptions. Stay tuned for updates."
+      },
+      "q4": {
+        "question": "Do you offer technical support?",
+        "answer": "All plans include email support. Pro plans include priority support."
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Set up your first monitor in under 2 minutes",
+      "button": "Start Free Now"
+    }
+  },
+  "pricingDashboard": {
+    "title": "Plans & Pricing",
+    "subtitle": "Choose the plan that best fits your needs",
+    "currentPlan": "Current plan:",
+    "confirmations": {
+      "downgradeLemonStarter": "Are you sure you want to change to Starter plan? Your next billing will be $5/month.",
+      "downgradeLemonStarterTitle": "Change to Starter?"
+    },
+    "actions": {
+      "currentPlan": "Current Plan",
+      "upgrade": "Upgrade Plan",
+      "changePlan": "Change Plan",
+      "downgrade": "Downgrade to FREE",
+      "processing": "Processing...",
+      "mercadoPagoLatam": "MercadoPago (LATAM)",
+      "creditCardInternational": "Credit Card (International) 💳",
+      "orPayWith": "Pay with"
+    },
+    "confirmDowngrade": "Are you sure you want to downgrade to FREE plan? You will lose access to premium features.",
+    "success": {
+      "planChanged": "✅ Plan changed successfully!",
+      "downgraded": "Plan successfully downgraded to FREE"
+    },
+    "errors": {
+      "payment": "Error processing payment. Please try again.",
+      "downgrade": "Error downgrading plan:"
+    },
+    "usage": {
+      "title": "Current Usage",
+      "checks": "checks",
+      "of": "of",
+      "currentPlan": "Current plan"
+    }
+  },
+  "about": {
+    "title": "About AnkaPulse",
+    "subtitle": "Simple and affordable monitoring, made by developers for developers",
+    "story": {
+      "title": "Why was AnkaPulse born?",
+      "p1": "As developers, we know what it's like to work on a personal project, an MVP for a startup, or as a freelancer and need professional monitoring tools without breaking the bank.",
+      "p2": "The problem is simple:",
+      "p2Bold": "existing platforms are designed for companies with budgets of thousands of dollars per month.",
+      "p2After": "Their dashboards are full of features you'll never use, their plans are prohibitive for indie developers and early-stage startups, and the complexity wastes your time instead of saving it.",
+      "p3": "We created AnkaPulse because",
+      "p3Bold": "we believe every developer deserves professional tools without breaking their budget.",
+      "p4": "And you might be wondering:",
+      "p4Bold": "what does AnkaPulse mean?",
+      "p4After": "\"Anka\" is a Quechua word meaning \"eagle\" - a bird that flies high and has a panoramic view of everything below. Combined with \"Pulse,\" it represents our mission:",
+      "p4Mission": "to be the eyes that monitor your services' pulse from above,",
+      "p4End": "detecting any issues before they affect your users."
+    },
+    "values": {
+      "pricing": {
+        "title": "Fair Pricing",
+        "description": "Starting at $5 USD per month. Not a thousand features you don't need, just the essentials you'll actually use."
+      },
+      "developers": {
+        "title": "Made by Developers",
+        "description": "We know what you need because we develop too. No unnecessary complexity."
+      },
+      "indie": {
+        "title": "For Indie Developers",
+        "description": "Affordable prices, multiple payment options, and we understand your real needs."
+      }
+    },
+    "forWho": {
+      "title": "Who is AnkaPulse for?",
+      "startups": {
+        "title": "🚀 Startups & Entrepreneurs",
+        "description": "You're validating your MVP, every dollar counts, but you need to know if your application is working."
+      },
+      "freelancers": {
+        "title": "💻 Freelance Developers",
+        "description": "You develop for multiple clients and need to monitor their services without complications."
+      },
+      "teams": {
+        "title": "🏢 Small Teams",
+        "description": "2-10 people, don't need corporate dashboards, just want to know everything works fine."
+      },
+      "personal": {
+        "title": "📱 Personal Projects",
+        "description": "Your side project is growing and you need to professionalize it without spending a fortune."
+      }
+    },
+    "promise": {
+      "title": "Our Promise",
+      "main": "Professional monitoring, without complexity, at a fair price.",
+      "description": "We won't bombard you with features you don't need. We'll give you exactly what you need to sleep peacefully knowing your services are running."
+    },
+    "support": {
+      "title": "Do you like what we do?",
+      "description": "If you want to support the project and help more developers have access to professional and affordable monitoring tools.",
+      "button": "☕ Buy me a coffee",
+      "footer": "Every contribution helps us keep AnkaPulse accessible to everyone"
+    },
+    "contact": {
+      "title": "Questions? Suggestions?",
+      "description": "We're a small team and we love hearing from our community."
+    }
+  },
+  "docs": {
+    "title": "Documentation & Resources",
+    "subtitle": "Learn everything about service monitoring and how to get the most out of AnkaPulse",
+    "articles": {
+      "downtimeHistory": {
+        "title": "The 5 Most Expensive Downtime Cases in History",
+        "description": "From Amazon losing $100M in one hour to Knight Capital nearly going bankrupt in 45 minutes. Real stories, shocking numbers, and applicable lessons.",
+        "category": "Case Studies"
+      },
+      "whyMonitoring": {
+        "title": "Why monitoring your APIs is fundamental",
+        "description": "Discover the real impact of downtime and how proactive monitoring can save your business and reputation.",
+        "category": "Fundamentals"
+      },
+      "about": {
+        "title": "About AnkaPulse",
+        "description": "Learn the story behind AnkaPulse and why we created a monitoring tool designed for LATAM developers.",
+        "category": "About"
+      }
+    },
+    "readTime": "min",
+    "readArticle": "Read article",
+    "comingSoon": {
+      "title": "More content coming soon",
+      "description": "We're working on more guides and articles about monitoring, best practices, and use cases."
+    },
+    "whyMonitoringPage": {
+      "title": "Why monitoring your APIs is fundamental",
+      "subtitle": "In the modern development world, APIs are the heart of practically every application",
+      "intro": "From a simple weather app to a complex e-commerce, we all depend on external and internal services that must be available 24/7. However, many developers only find out something failed when users are already complaining.",
+      "costDowntime": {
+        "title": "The true cost of downtime",
+        "economic": {
+          "title": "Immediate economic impact",
+          "description": "When your API is down, you don't just lose functionality - you lose money. An e-commerce processing $10,000 USD per day loses approximately $7 per minute of downtime.",
+          "examplesTitle": "Real examples:",
+          "payment": "Payment API down: Direct lost sales",
+          "auth": "Authentication system down: Users can't access",
+          "thirdParty": "Third-party API: Critical functionality disabled"
+        },
+        "reputation": {
+          "title": "Reputation damage",
+          "description": "In LATAM, where digital competition is growing exponentially, reliability is a key differentiator. A user who can't complete an important action probably won't return. The reputation you spent months building can be lost in minutes."
+        }
+      },
+      "earlyDetection": {
+        "title": "Early detection makes the difference",
+        "beforeUsers": {
+          "title": "Finding out before your users",
+          "description": "Proactive monitoring lets you be the first to know when something's wrong. Instead of waking up to 20 angry WhatsApp messages, you get an immediate alert that gives you time to act.",
+          "without": {
+            "title": "❌ Without monitoring:",
+            "timeline": {
+              "1": "9:00 AM - API goes down",
+              "2": "9:30 AM - First users report",
+              "3": "10:00 AM - You find out about the problem",
+              "4": "10:30 AM - You identify the cause",
+              "5": "11:00 AM - Problem resolved"
+            },
+            "downTotal": "Total downtime: 2 hours"
+          },
+          "with": {
+            "title": "✅ With monitoring:",
+            "timeline": {
+              "1": "9:00 AM - API goes down",
+              "2": "9:01 AM - Automatic alert",
+              "3": "9:10 AM - Problem identified",
+              "4": "9:20 AM - Problem resolved"
+            },
+            "downTotal": "Total downtime: 20 minutes"
+          }
+        },
+        "beyond": {
+          "title": "Beyond \"up\" or \"down\"",
+          "description": "Modern monitoring doesn't just check if your API responds, but how it responds:",
+          "responseTime": {
+            "title": "Response time",
+            "description": "An API taking 5s might be \"functional\" but unusable"
+          },
+          "statusCodes": {
+            "title": "Status codes",
+            "description": "500 internal error is different from 503 service unavailable"
+          },
+          "validContent": {
+            "title": "Valid content",
+            "description": "Verify it returns valid data, not just that it responds"
+          }
+        }
+      },
+      "latam": {
+        "title": "Specific challenges in LATAM",
+        "context": {
+          "title": "Regional context matters",
+          "description": "In Latin America we face unique challenges:",
+          "infrastructure": {
+            "title": "🌐 Variable infrastructure",
+            "description": "Internet and hosting can be less stable"
+          },
+          "thirdParty": {
+            "title": "🔗 Third-party services",
+            "description": "International APIs with high latency"
+          },
+          "resources": {
+            "title": "💰 Limited resources",
+            "description": "We can't always afford DevOps teams"
+          }
+        },
+        "credibility": {
+          "title": "Professional credibility",
+          "description": "When pitching your startup to investors or enterprise clients, showing real uptime metrics is an important differentiator.",
+          "quote": "\"We have 99.9% uptime over the last 6 months\"",
+          "vs": "sounds much better than",
+          "bad": "\"we think it works well\""
+        }
+      },
+      "roi": {
+        "title": "Monitoring ROI",
+        "calculation": {
+          "title": "Simple calculation",
+          "description": "If your application generates $1000 USD/day:",
+          "cost": "Monitoring cost: $30/month",
+          "avoided": "Downtime avoided: 2 hours/month",
+          "loss": "Loss avoided: $83/month",
+          "result": "ROI: 177%"
+        },
+        "intangible": {
+          "title": "Intangible benefits:",
+          "sleep": "Better sleep (no nighttime emergencies)",
+          "productive": "More productive team (less firefighting)",
+          "confidence": "Greater client confidence",
+          "data": "Data for performance optimization"
+        }
+      },
+      "cta": {
+        "title": "The best time to implement monitoring was yesterday",
+        "subtitle": "The second best time is now.",
+        "description": "The question isn't if your API will ever fail, but when it will happen and how quickly you'll find out.",
+        "button": "Create free account",
+        "footer": "Set up your first check in under 2 minutes"
+      }
+    },
+    "downtimeHistoryPage": {
+      "title": "The 5 Most Expensive Downtime Cases in History",
+      "subtitle": "When downtime doesn't cost thousands, but millions of dollars",
+      "intro": {
+        "p1": "When we think about downtime, we usually think of lost minutes, some frustrated users, maybe a couple of sales that didn't close. Annoying, yes. Costly, too. But we rarely think about the true cost of downtime at scale.",
+        "p2": "Today I'll tell you about 5 real cases where downtime didn't cost hundreds or thousands of dollars. It cost millions. In some cases, hundreds of millions. And in the most extreme case, it almost destroyed an entire company in less than an hour.",
+        "p3": "These stories aren't just to learn from others' mistakes. They're reminders that in the digital world,",
+        "p3Bold": "every minute counts",
+        "p3End": ". And that the cost of not being prepared can be devastating."
+      },
+      "amazon": {
+        "title": "Amazon Prime Day 2018: $100 Million in 63 Minutes",
+        "story": {
+          "title": "The Story",
+          "p1": "It was July 2018. Amazon had been promoting its Prime Day for weeks. Millions of users ready to buy. Massive discounts. The biggest sales event of the year.",
+          "timeline": {
+            "start": "11:00 AM PT: Prime Day officially begins",
+            "crash": "11:01 AM PT: The site crashes"
+          },
+          "p2": "For 63 minutes, users around the world saw the same thing: an image of a dog with the message \"Uh oh! Something went wrong on our end.\"",
+          "problem": "The problem:",
+          "problemDesc": "Amazon's servers couldn't handle the massive traffic they themselves had generated with their marketing."
+        },
+        "numbers": {
+          "title": "The Numbers",
+          "loss": "Estimated loss: $72-100 million",
+          "duration": "Duration: 63 minutes",
+          "users": "Users affected: Millions globally",
+          "stocks": "Stock impact: Temporary drop",
+          "perMinute": "Amazon lost approximately $1.6 million per minute"
+        },
+        "lesson": {
+          "title": "The Lesson",
+          "p1": "Amazon is literally one of the most technologically advanced companies in the world. They have AWS. They have the best engineers. They have virtually unlimited resources.",
+          "p2": "And yet, they underestimated their own traffic. The lesson:",
+          "p2Bold": "load testing is critical",
+          "p2End": ", especially before major events."
+        },
+        "apply": {
+          "title": "What You Can Apply Today",
+          "items": {
+            "1": "Do load testing on your critical endpoints",
+            "2": "Have a scalability plan",
+            "3": "Set up aggressive monitoring",
+            "4": "Have a rollback plan",
+            "5": "Communicate proactively if there are problems"
+          }
+        }
+      },
+      "facebook": {
+        "title": "Facebook, Instagram and WhatsApp (2021): 6 Hours That Cost $60 Million",
+        "story": {
+          "title": "The Story",
+          "p1": "October 4, 2021. 11:40 AM ET. Suddenly, Facebook disappears from the internet.",
+          "literally": "Literally.",
+          "p2": "Not just the website. Not just the app. The entire company. Facebook, Instagram, WhatsApp, Oculus. Everything offline. For 6 hours.",
+          "problem": "The problem:",
+          "problemDesc": "A BGP (Border Gateway Protocol) configuration error made Facebook's servers \"deleted\" from the internet. For the global internet, Facebook ceased to exist.",
+          "worst": "The worst part:",
+          "worstDesc": "Engineers couldn't access the buildings because access cards were also connected to internal systems. They had to physically cut locks to enter the data centers."
+        },
+        "numbers": {
+          "title": "The Numbers",
+          "loss": "Direct loss: $60 million",
+          "duration": "Duration: 6 hours",
+          "users": "Users affected: 3.5 billion",
+          "stocks": "Stock drop: -4.9%",
+          "value": "Value lost: $7 billion",
+          "zuck": "Zuckerberg lost $6 billion in stock that day"
+        },
+        "lesson": {
+          "title": "The Lesson",
+          "p1": "The error wasn't in the code. It wasn't a bug. It wasn't an attack. It was an infrastructure configuration error during a routine update.",
+          "conclusion": "The lesson:",
+          "conclusionDesc": "The most dangerous errors aren't the obvious ones. They're the ones that happen in critical systems during \"routine maintenance\"."
+        }
+      },
+      "britishAirways": {
+        "title": "British Airways (2017): $100 Million from an Electricity Problem",
+        "story": {
+          "title": "The Story",
+          "p1": "May 27, 2017. Long weekend in the UK. Thousands of families ready to travel.",
+          "p2": "A contractor at British Airways' data center accidentally disconnects the power supply. When reconnecting it, the power surge damages critical systems.",
+          "result": "Result:",
+          "resultDesc": "Absolute chaos. British Airways had to cancel 726 flights over 3 days. 75,000 passengers stranded at airports worldwide."
+        },
+        "numbers": {
+          "title": "The Numbers",
+          "cost": "Direct cost: $100+ million",
+          "flights": "Flights canceled: 726",
+          "passengers": "Passengers affected: 75,000",
+          "duration": "Impact duration: 3 days",
+          "fine": "GDPR fine: £183 million additional"
+        },
+        "lesson": {
+          "title": "The Lesson",
+          "p1": "British Airways had outsourced their IT to \"reduce costs\". In the process, they eliminated critical redundancies.",
+          "p2": "They saved millions on IT. It cost them hundreds of millions when it failed.",
+          "conclusion": "Disaster recovery isn't an expense, it's insurance."
+        }
+      },
+      "delta": {
+        "title": "Delta Airlines (2016): 5 Hours of Chaos from a Failed Switchover",
+        "story": {
+          "title": "The Story",
+          "p1": "August 8, 2016, 2:30 AM. An electrical problem at Delta's main data center in Atlanta.",
+          "p2": "The automatic switchover to the backup system...",
+          "fails": "fails",
+          "p2End": ". Critical systems shut down. Check-in, boarding, crew scheduling, everything offline.",
+          "p3": "Delta had to cancel 2,300 flights over 3 days. The CEO had to apologize publicly."
+        },
+        "lesson": {
+          "title": "The Key Lesson",
+          "p1": "Delta HAD backup systems. Delta HAD redundancy. Delta HAD invested in disaster recovery.",
+          "p2": "But they never properly tested the switchover.",
+          "p2End": "When they really needed it, it didn't work. A disaster recovery plan that isn't tested is a disaster recovery plan that doesn't exist."
+        }
+      },
+      "knight": {
+        "title": "Knight Capital (2012): $440 Million Lost in 45 Minutes",
+        "story": {
+          "title": "The Wildest Story of All",
+          "p1": "August 1, 2012, 9:30 AM. Knight Capital, a trading firm, deploys new software to production.",
+          "problem": "There's a problem:",
+          "problemDesc": "The new code accidentally reactivates an old function that had been deprecated 8 years earlier. This function starts executing trades automatically. Thousands. Millions.",
+          "p2": "In 45 minutes, the software executes buy and sell orders worth $7 billion.",
+          "seven": "SEVEN BILLION.",
+          "p2End": "Without human supervision.",
+          "p3": "By the time they realize and shut down the systems, Knight Capital had accumulated $440 million in losses."
+        },
+        "numbers": {
+          "title": "The Devastating Numbers",
+          "loss": "Loss: $440 million",
+          "duration": "Duration: 45 minutes",
+          "volume": "Trade volume: $7 billion",
+          "consequence": "Consequence: The company nearly went bankrupt",
+          "perMinute": "Knight Capital lost $9.7 million per minute"
+        },
+        "lesson": {
+          "title": "The Unique Lesson",
+          "p1": "This case is unique because it wasn't traditional downtime. The system worked \"perfectly\". The problem was it was doing exactly what it SHOULDN'T do.",
+          "conclusion": "The lesson:",
+          "conclusionDesc": "Deployment errors can be catastrophic. The code you deploy can destroy your company in minutes."
+        }
+      },
+      "pattern": {
+        "title": "The Common Pattern in All These Cases",
+        "intro": "Looking at these 5 cases, there's a pattern that repeats:",
+        "items": {
+          "1": "All had complex systems",
+          "2": "All trusted that \"it would work\"",
+          "3": "All had talented engineers",
+          "4": "None thought it would happen to them",
+          "5": "The problem wasn't lack of resources",
+          "6": "It was lack of preparation"
+        },
+        "goodNews": "The good news: None of these problems were inevitable."
+      },
+      "appliedLessons": {
+        "title": "What We Can Learn (Applied to Real Projects)",
+        "notAmazon": {
+          "title": "\"But I'm not Amazon or Facebook\"",
+          "p1": "True. You don't have their scale. But you have the same risks, proportionally.",
+          "p2": "If your SaaS bills $5,000/month and is down 6 hours, you don't lose $60 million. But you can lose users, reputation and revenue that took you months to build."
+        },
+        "universal": {
+          "title": "Universal Lessons",
+          "monitoring": {
+            "title": "Monitoring is not optional",
+            "description": "You don't need to spend thousands. But you need to KNOW when something fails. Before your users tell you."
+          },
+          "backups": {
+            "title": "Backups without testing aren't backups",
+            "description": "Having a backup you've never tested is the same as not having a backup."
+          },
+          "infrastructure": {
+            "title": "Infrastructure changes are dangerous",
+            "description": "Treat every infrastructure change as if it could break everything. Because it can."
+          },
+          "documentation": {
+            "title": "Document your procedures",
+            "description": "When everything's on fire, you don't want to be googling \"how to rollback\"."
+          },
+          "automation": {
+            "title": "Automate carefully",
+            "description": "Automation is incredible. Until it does something it shouldn't, at scale."
+          },
+          "deployment": {
+            "title": "NEVER deploy directly to production",
+            "description": "Staging, testing, feature flags. Deployment is where most things can go wrong."
+          }
+        }
+      },
+      "realCost": {
+        "title": "The Real Cost of Downtime",
+        "intro": "These extreme cases show us something important: the cost of downtime isn't just the revenue lost during those minutes or hours.",
+        "isTitle": "It's:",
+        "items": {
+          "1": "Users who leave and don't return",
+          "2": "Damaged reputation",
+          "3": "Lost trust",
+          "4": "Opportunities that don't repeat",
+          "5": "Team stress",
+          "6": "Time spent on crisis management",
+          "7": "Loss of momentum",
+          "8": "Impact on future growth"
+        },
+        "comparison": {
+          "amazon": "For Amazon, $100 million is a bad day.",
+          "startup": "For your startup, 6 hours of downtime can be the end."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion",
+        "intro": "I'm not telling you these stories to scare you. I'm telling you so you understand that:",
+        "points": {
+          "1": "Downtime happens to everyone (even the giants)",
+          "2": "Preparation matters more than perfection",
+          "3": "Monitoring and backups aren't expenses, they're insurance",
+          "4": "Learning from others is cheaper than making your own mistakes"
+        },
+        "need": "You don't need Amazon's infrastructure to apply these lessons. You need:",
+        "items": {
+          "1": "Basic monitoring",
+          "2": "Backups that work",
+          "3": "A plan for when things fail",
+          "4": "The humility to know YOUR systems can also fail"
+        },
+        "final": {
+          "main": "It's not a question of IF it will happen. It's a question of WHEN.",
+          "sub": "And how prepared you are when it does."
+        }
+      },
+      "cta": {
+        "title": "Want to make sure you detect problems before they get expensive?",
+        "subtitle": "Start with basic monitoring today.",
+        "button": "Create free account",
+        "footer": "Set up your first check in under 2 minutes"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "description": "Access your AnkaPulse account to monitor your services",
+      "google": "Continue with Google",
+      "github": "Continue with GitHub",
+      "email": "Sign in with email",
+      "connecting": "Connecting...",
+      "orContinue": "Or continue with email",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up here",
+      "forgotPassword": "Forgot your password?",
+      "recoverHere": "Recover it here",
+      "terms": "By continuing, you accept our",
+      "termsLink": "Terms of Service",
+      "and": "and",
+      "privacyLink": "Privacy Policy"
+    },
+    "loginEmail": {
+      "title": "Sign In",
+      "description": "Enter your email and password",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submitButton": "Sign In",
+      "submitting": "Signing in...",
+      "backButton": "Back to login options",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign up",
+      "errors": {
+        "invalidEmail": "Invalid email",
+        "passwordTooShort": "Password must be at least 6 characters",
+        "loginFailed": "Login failed",
+        "unexpected": "Unexpected error. Please try again."
+      }
+    },
+    "register": {
+      "title": "Create Account",
+      "description": "Join AnkaPulse and start monitoring your services for free",
+      "google": "Sign up with Google",
+      "github": "Sign up with GitHub",
+      "email": "Create account with email",
+      "connecting": "Connecting...",
+      "orRegister": "Or sign up with email",
+      "haveAccount": "Already have an account?",
+      "login": "Sign in",
+      "terms": "By signing up, you accept our",
+      "termsLink": "Terms of Service",
+      "and": "and",
+      "privacyLink": "Privacy Policy",
+      "freePlan": {
+        "title": "✨ Free Plan includes:",
+        "checks": "10 monitoring checks",
+        "interval": "Checks every 30 minutes",
+        "alerts": "Email alerts",
+        "retention": "7 days data retention"
+      }
+    },
+    "registerEmail": {
+      "title": "Create Account",
+      "description": "Complete the form to sign up",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "••••••••",
+      "submitButton": "Create Account",
+      "submitting": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Sign in",
+      "errors": {
+        "nameTooShort": "Name must be at least 2 characters",
+        "invalidEmail": "Invalid email",
+        "passwordTooShort": "Password must be at least 6 characters",
+        "passwordMismatch": "Passwords don't match",
+        "registerFailed": "Registration failed",
+        "unexpected": "Unexpected error. Please try again."
+      },
+      "success": {
+        "title": "Registration Successful!",
+        "description": "Your account has been created successfully.",
+        "redirecting": "Redirecting to login...",
+        "goNow": "Go to Login Now"
+      }
+    },
+    "forgotPassword": {
+      "title": "Recover Password",
+      "description": "Enter your email and we'll send you a recovery link",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "sendButton": "Send recovery link",
+      "sending": "Sending...",
+      "backToLogin": "Back to login",
+      "error": "Error processing request. Please try again.",
+      "success": {
+        "title": "Email sent",
+        "description": "If the email exists in our system, you'll receive a recovery link.",
+        "checkSpam": "Check your inbox and spam folder.",
+        "backButton": "Back to login"
+      }
+    },
+    "resetPassword": {
+      "title": "New Password",
+      "description": "Enter your new password",
+      "newPasswordLabel": "New Password",
+      "newPasswordPlaceholder": "Minimum 8 characters",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Repeat password",
+      "updateButton": "Update password",
+      "updating": "Updating...",
+      "errors": {
+        "invalidToken": "Invalid or missing token",
+        "passwordMismatch": "Passwords don't match",
+        "passwordTooShort": "Password must be at least 8 characters",
+        "genericError": "Error resetting password"
+      },
+      "success": {
+        "title": "Password updated!",
+        "redirecting": "Redirecting to login..."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overview of your monitoring",
+    "planFree": {
+      "title": "Free Plan",
+      "usage": "of",
+      "checksUsed": "checks used",
+      "upgrade": "Upgrade"
+    },
+    "stats": {
+      "totalChecks": "Total Checks",
+      "avgUptime": "Average Uptime",
+      "online": "Online",
+      "withProblems": "With Problems"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "newCheck": {
+        "title": "New Check",
+        "description": "Monitor a new URL"
+      },
+      "statusPage": {
+        "title": "Status Page",
+        "description": "Public status page"
+      },
+      "viewAll": {
+        "title": "View All Checks",
+        "description": "Manage your monitoring"
+      }
+    },
+    "recentProblems": {
+      "title": "Recent Problems",
+      "consecutiveFailures": "consecutive failures",
+      "allGood": "Everything working fine! 🎉",
+      "down": "DOWN"
+    },
+    "emptyState": {
+      "title": "Start Monitoring",
+      "description": "Create your first check to start monitoring your APIs and receive alerts",
+      "button": "Create First Check"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "monitoring": "Monitoring",
+      "plans": "Plans",
+      "alerts": "Alerts",
+      "profile": "Profile"
+    },
+    "navbar": {
+      "logout": "Sign Out"
+    }
+  },
+  "checksPage": {
+    "title": "AnkaPulse",
+    "subtitle": "Monitoring Panel",
+    "offline": "Offline",
+    "refresh": "Refresh",
+    "newCheck": "New Check",
+    "allChecks": "All Checks",
+    "loading": "Loading checks...",
+    "status": {
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "stats": {
+      "uptime": "uptime",
+      "avgLatency": "avg"
+    },
+    "actions": {
+      "viewDetails": "View details",
+      "delete": "Delete check",
+      "confirmDelete": "Delete?",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "errors": {
+      "noConnection": "No server connection",
+      "checkConnection": "Verify that the backend is running on http://localhost:3000",
+      "cannotLoad": "Cannot load checks. Check backend connection."
+    },
+    "empty": {
+      "noConnection": "No server connection",
+      "noChecks": "You don't have any checks yet",
+      "descriptionOffline": "Cannot load checks. Check backend connection.",
+      "descriptionEmpty": "Create your first check to start monitoring your APIs",
+      "createFirst": "Create First Check",
+      "retry": "Retry connection"
+    }
+  },
+  "checksNew": {
+    "backToDashboard": "Back to Dashboard",
+    "title": "Create New Check",
+    "subtitle": "Configure a new check to monitor your API or website",
+    "form": {
+      "url": {
+        "label": "URL",
+        "placeholder": "api.example.com/health",
+        "required": "Invalid URL"
+      },
+      "name": {
+        "label": "Name (optional)",
+        "placeholder": "My Production API",
+        "minLength": "Name must be at least 2 characters"
+      },
+      "interval": {
+        "label": "Monitoring Interval",
+        "options": {
+          "1min": "1 minute",
+          "5min": "5 minutes",
+          "15min": "15 minutes",
+          "30min": "30 minutes",
+          "1h": "1 hour",
+          "1d": "1 day"
+        },
+        "requiresPlan": "Requires {plan} plan",
+        "currentPlanAllows": "Your {planName} plan allows intervals of {minInterval} or more"
+      },
+      "timeout": {
+        "label": "Timeout (seconds)"
+      },
+      "expectedStatusCode": {
+        "label": "Expected Status Code"
+      },
+      "submit": "Create Check",
+      "submitting": "Creating...",
+      "cancel": "Cancel",
+      "error": "Error creating check"
+    },
+    "upgradeModal": {
+      "title": "Plan Limit Reached",
+      "viewPlans": "View Plans",
+      "close": "Close"
+    }
+  },
+  "checkDetail": {
+    "backToList": "Back",
+    "editCheck": "Edit Check",
+    "noName": "Check without name",
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "active": "Active",
+      "paused": "Paused"
+    },
+    "stats": {
+      "uptime": "Uptime",
+      "avgLatency": "Average Latency",
+      "totalChecks": "Total Checks",
+      "regions": "Regions",
+      "successful": "of {total} successful",
+      "latest": "Latest: {latency}ms",
+      "failed": "Failed: {count}",
+      "notDefined": "Not defined"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "performance": "Performance",
+      "incidents": "Incidents",
+      "settings": "Settings"
+    },
+    "overview": {
+      "uptimeChart": "Uptime - Last 24 hours",
+      "latencyChart": "Latency - Last 24 hours",
+      "recentResults": "Recent Results",
+      "recentResultsDesc": "The last 10 executed checks",
+      "noResults": "No results available"
+    },
+    "performance": {
+      "title": "Performance Metrics",
+      "description": "Detailed performance analysis of the check",
+      "successfulChecks": "Successful Checks",
+      "failedChecks": "Failed Checks",
+      "availability": "Availability",
+      "ofTotal": "of total",
+      "historicalAvg": "Historical average"
+    },
+    "incidents": {
+      "title": "Incident History",
+      "description": "Log of detected events and issues",
+      "serviceUnavailable": "Service unavailable",
+      "noIncidents": "No recent incidents detected",
+      "code": "Code: {code}"
+    },
+    "settings": {
+      "title": "Check Configuration",
+      "description": "Current configuration details",
+      "targetUrl": "Target URL",
+      "interval": "Check interval",
+      "timeout": "Timeout",
+      "timeoutSeconds": "{seconds} seconds",
+      "expectedStatus": "Expected status code",
+      "status": "Status",
+      "monitoringRegions": "Monitoring regions",
+      "created": "Created:",
+      "updated": "Updated:",
+      "lastCheck": "Last check:"
+    },
+    "errors": {
+      "loadingError": "Error loading check",
+      "notFound": "Check not found",
+      "notFoundDesc": "The requested check does not exist or was deleted."
+    },
+    "loading": "Loading..."
+  },
+  "checkEdit": {
+    "title": "Edit Check",
+    "backToCheck": "Back to check",
+    "form": {
+      "name": {
+        "label": "Check Name",
+        "placeholder": "My API"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://api.example.com/health"
+      },
+      "interval": {
+        "label": "Monitoring Interval",
+        "requiresPlan": "Requires {plan} plan",
+        "currentPlanAllows": "Your {planName} plan allows intervals of {minInterval} or more",
+        "options": {
+          "1min": "1 minute",
+          "5min": "5 minutes",
+          "15min": "15 minutes",
+          "30min": "30 minutes",
+          "1h": "1 hour",
+          "1d": "1 day"
+        }
+      },
+      "timeout": {
+        "label": "Timeout (seconds)"
+      },
+      "expectedStatusCode": {
+        "label": "Expected Status Code"
+      },
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "cancel": "Cancel"
+    },
+    "loading": "Loading check...",
+    "notFound": "Check not found",
+    "backToDashboard": "Back to dashboard",
+    "errors": {
+      "loading": "Error loading check",
+      "updating": "Error updating check"
+    }
+  },
+  "alerts": {
+    "title": "Configure Alerts",
+    "subtitle": "Customize how and when to receive notifications from your monitoring",
+    "email": {
+      "title": "Email Alerts",
+      "description": "Receive notifications in your inbox when your services fail",
+      "enable": "Enable email alerts",
+      "availableAllPlans": "Available on all plans"
+    },
+    "telegram": {
+      "title": "Telegram Alerts",
+      "description": "Receive instant notifications on Telegram without spam filters",
+      "enable": "Enable Telegram alerts",
+      "pushNotifications": "Instant push notifications",
+      "chatIdLabel": "Telegram Chat ID",
+      "chatIdPlaceholder": "Ex: 123456789",
+      "premium": "Premium",
+      "starterPro": "Starter/Pro",
+      "upgradeRequired": "Telegram alerts are only available for Starter and Pro plans.",
+      "upgradePlan": "Upgrade plan",
+      "instructions": {
+        "title": "How to get your Chat ID?",
+        "step1": "Open Telegram and search for our bot:",
+        "step2": "Send the command",
+        "step3": "The bot will reply with your unique Chat ID",
+        "step4": "Copy that number and paste it above",
+        "copy": "Copy",
+        "open": "Open"
+      }
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "messages": {
+      "saveSuccess": "Settings saved successfully",
+      "saveError": "Error saving settings",
+      "linkCopied": "Bot link copied"
+    },
+    "preview": {
+      "title": "Alert Preview",
+      "description": "This is how your notifications will look when a service fails",
+      "emailFrom": "From:",
+      "emailSubject": "Subject:",
+      "emailSubjectText": "🚨 Alert: Your API is DOWN",
+      "emailBody": "Body:",
+      "emailBodyText": "Your service \"My API\" is not responding...",
+      "telegramAlert": "AnkaPulse Alert",
+      "service": "Service:",
+      "url": "URL:",
+      "status": "Status:",
+      "region": "Region:",
+      "time": "Time:",
+      "error": "Error:",
+      "viewDetails": "View Details →",
+      "noAlerts": "You have no alerts enabled",
+      "enableAtLeastOne": "Enable at least one channel to receive notifications"
+    }
+  },
+  "checks": {
+    "title": "All Checks",
+    "empty": "You don't have any checks yet",
+    "emptyDesc": "Create your first check to start monitoring your APIs",
+    "create": "New Check",
+    "createFirst": "Create First Check",
+    "delete": "Delete",
+    "deleteConfirm": "Delete?",
+    "yes": "Yes",
+    "no": "No",
+    "viewDetails": "View details",
+    "status": {
+      "up": "Online",
+      "down": "Offline"
+    },
+    "metrics": {
+      "uptime": "uptime",
+      "avg": "avg"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "refresh": "Refresh"
+  }
+}

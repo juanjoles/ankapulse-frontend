@@ -1,0 +1,1116 @@
+{
+  "nav": {
+    "login": "Iniciar Sesión",
+    "register": "Comenzar Gratis",
+    "checks": "Checks",
+    "statusPage": "Status Page",
+    "settings": "Configuración"
+  },
+  "landing": {
+    "hero": {
+      "title": "Monitoreo de APIs Simple y Accesible",
+      "titleHighlight": "APIs",
+      "subtitle": "Mantén tus servicios funcionando con AnkaPulse. Monitoreo en tiempo real, alertas instantáneas y reportes detallados. Simple y accesible.",
+      "ctaPrimary": "Comenzar Gratis",
+      "ctaSecondary": "Ver Precios",
+      "about": "Sobre Nosotros",
+      "docs": "Docs"
+    },
+    "features": {
+      "reliable": {
+        "title": "Monitoreo Confiable",
+        "description": "Verificaciones cada minuto desde múltiples ubicaciones"
+      },
+      "global": {
+        "title": "Global",
+        "description": "Checks desde múltiples regiones: US, EU y LATAM"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Reportes detallados y métricas de rendimiento"
+      }
+    },
+    "footer": {
+      "copyright": "© 2025 AnkaPulse. Todos los derechos reservados."
+    }
+  },
+  "profile": {
+    "title": "Mi Perfil",
+    "subtitle": "Gestiona tu información personal y configuraciones de cuenta",
+    "personalInfo": {
+      "title": "Información Personal",
+      "description": "Actualiza tu nombre y email asociado a la cuenta",
+      "fullName": "Nombre completo",
+      "fullNamePlaceholder": "Tu nombre completo",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "edit": "Editar"
+    },
+    "accountInfo": {
+      "title": "Información de la Cuenta",
+      "description": "Detalles de tu cuenta en AnkaPulse",
+      "registrationMethod": "Método de registro",
+      "emailVerified": "Email verificado",
+      "accountStatus": "Estado de la cuenta",
+      "memberSince": "Miembro desde",
+      "providers": {
+        "email": "Email y contraseña",
+        "google": "Google",
+        "github": "GitHub"
+      },
+      "verified": "✅ Verificado",
+      "pending": "⏳ Pendiente",
+      "active": "🟢 Activa",
+      "inactive": "🔴 Inactiva"
+    },
+    "messages": {
+      "nameUpdated": "Nombre actualizado exitosamente",
+      "emailUpdated": "Email actualizado exitosamente",
+      "nameEmpty": "El nombre no puede estar vacío",
+      "invalidEmail": "Formato de email inválido",
+      "updateError": "Error al actualizar perfil",
+      "loadError": "Error al cargar el perfil"
+    },
+    "loading": "Cargando perfil..."
+  },
+  "plans": {
+    "title": "Planes y Precios",
+    "footer": "Todos los derechos reservados",
+    "subtitle": "Comienza gratis y escala según tus necesidades. Sin sorpresas, sin tarifas ocultas.",
+    "popular": "Más Popular",
+    "perMonth": "/mes",
+    "perfectStart": "Perfecto para empezar",
+    "choosePlan": "Elegir Plan",
+    "startFree": "Comenzar Gratis",
+    "free": {
+      "name": "Free",
+      "features": {
+        "checks": "10 checks",
+        "interval": "Intervalo mínimo: 30 minutos",
+        "emailAlerts": "Email alerts",
+        "statusPage": "Status Page",
+        "retention": "7 días retención",
+        "region": "1 región"
+      },
+      "limitations": {
+        "noSlack": "Sin Slack/Discord",
+        "noApi": "Sin API access",
+        "noAdvanced": "Sin métricas avanzadas"
+      }
+    },
+    "starter": {
+      "name": "Starter",
+      "features": {
+        "checks": "50 checks",
+        "interval": "Intervalo mínimo: 1 minuto",
+        "emailAlerts": "Email alerts",
+        "telegramAlerts": "Telegram alerts",
+        "statusPage": "Status Page",
+        "retention": "30 días retención",
+        "regions": "3 regiones - Próximamente",
+        "api": "API básica - Próximamente"
+      },
+      "limitations": {
+        "noWebhooks": "Sin webhooks personalizados",
+        "noSla": "Sin SLA reports"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "features": {
+        "checks": "200 checks",
+        "interval": "Intervalo mínimo: 1 minuto",
+        "allAlerts": "Todos los canales de alerta",
+        "statusPage": "Status Page",
+        "retention": "90 días retención",
+        "allRegions": "Todas las regiones",
+        "api": "API completa - Próximamente",
+        "webhooks": "Webhooks - Próximamente",
+        "sla": "SLA reports - Próximamente",
+        "support": "Soporte prioritario"
+      }
+    },
+    "payment": {
+      "title": "Métodos de Pago",
+      "subtitle": "Elegí el método de pago que mejor te funcione",
+      "creditCard": {
+        "title": "Tarjeta de Crédito",
+        "status": "Próximamente"
+      },
+      "mercadopago": {
+        "title": "MercadoPago",
+        "description": "Para LATAM • Sin impuestos internacionales"
+      },
+      "crypto": {
+        "title": "Pagos crypto",
+        "status": "Próximamente"
+      },
+      "footer": "Plan gratuito sin tarjeta de crédito • Upgrade cuando quieras • Cancelá sin preguntas"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": {
+        "question": "¿Puedo cambiar de plan en cualquier momento?",
+        "answer": "Sí, puedes actualizar o degradar tu plan cuando quieras. Los cambios se aplican inmediatamente."
+      },
+      "q2": {
+        "question": "¿Qué incluye el plan gratuito?",
+        "answer": "El plan gratuito incluye 10 checks con monitoreo cada 30 minutos, perfecto para proyectos pequeños."
+      },
+      "q3": {
+        "question": "¿Hay descuentos por pago anual?",
+        "answer": "Próximamente ofreceremos descuentos por suscripciones anuales. Mantente atento a nuestras actualizaciones."
+      },
+      "q4": {
+        "question": "¿Ofrecen soporte técnico?",
+        "answer": "Todos los planes incluyen soporte por email. Los planes Pro incluyen soporte prioritario."
+      }
+    },
+    "cta": {
+      "title": "¿Listo para empezar?",
+      "subtitle": "Configura tu primer monitor en menos de 2 minutos",
+      "button": "Comenzar Gratis Ahora"
+    }
+  },
+  "pricingDashboard": {
+    "title": "Planes y Precios",
+    "subtitle": "Elige el plan que mejor se adapte a tus necesidades",
+    "currentPlan": "Plan actual:",
+    "confirmations": {
+      "downgradeLemonStarter": "¿Estás seguro que querés cambiar a plan Starter? Tu próximo cobro será de $5/mes.",
+      "downgradeLemonStarterTitle": "¿Cambiar a Starter?"
+    },
+    "actions": {
+      "currentPlan": "Plan Actual",
+      "upgrade": "Actualizar Plan",
+      "changePlan": "Cambiar Plan",
+      "downgrade": "Degradar a FREE",
+      "processing": "Procesando...",
+      "mercadoPagoLatam": "MercadoPago (LATAM)",
+      "creditCardInternational": "Tarjeta de Crédito (Internacional) 💳",
+      "orPayWith": "Pagar con"
+    },
+    "confirmDowngrade": "¿Estás seguro de que quieres degradar a plan FREE? Perderás acceso a las funciones premium.",
+    "success": {
+      "planChanged": "✅ Plan cambiado exitosamente!",
+      "downgraded": "Plan degradado exitosamente a FREE"
+    },
+    "errors": {
+      "payment": "Error al procesar el pago. Inténtalo de nuevo.",
+      "downgrade": "Error al degradar el plan:"
+    },
+    "usage": {
+      "title": "Uso Actual",
+      "checks": "checks",
+      "of": "de",
+      "currentPlan": "Plan actual"
+    }
+  },
+  "about": {
+    "title": "Sobre AnkaPulse",
+    "subtitle": "Monitoreo simple y accesible, hecho por developers para developers",
+    "story": {
+      "title": "¿Por qué nació AnkaPulse?",
+      "p1": "Como developers, sabemos lo que es estar desarrollando un proyecto personal, un MVP para una startup, o trabajando como freelancer y necesitar herramientas de monitoreo profesionales sin gastar una fortuna.",
+      "p2": "El problema es simple:",
+      "p2Bold": "las plataformas existentes están pensadas para empresas con presupuestos de miles de dólares al mes.",
+      "p2After": "Sus dashboards están llenos de features que nunca usarás, sus planes son prohibitivos para indie developers y startups early-stage, y la complejidad te hace perder tiempo en vez de ahorrártelo.",
+      "p3": "Nosotros creamos AnkaPulse porque",
+      "p3Bold": "creemos que todo developer merece tener herramientas profesionales sin quebrar su presupuesto.",
+      "p4": "Y seguro te preguntás:",
+      "p4Bold": "¿qué significa AnkaPulse?",
+      "p4After": "\"Anka\" es una palabra quechua que significa \"águila\" - un ave que vuela alto y tiene una visión panorámica de todo lo que sucede abajo. Combinado con \"Pulse\" (pulso), representa nuestra misión:",
+      "p4Mission": "ser los ojos que monitorean el pulso de tus servicios desde las alturas,",
+      "p4End": "detectando cualquier problema antes de que afecte a tus usuarios."
+    },
+    "values": {
+      "pricing": {
+        "title": "Precios Justos",
+        "description": "Desde $5 USD al mes. No mil features que no necesitas, solo lo esencial que realmente usarás."
+      },
+      "developers": {
+        "title": "Hecho por Developers",
+        "description": "Sabemos qué necesitas porque nosotros también desarrollamos. Sin complejidad innecesaria."
+      },
+      "indie": {
+        "title": "Para Indie Developers",
+        "description": "Precios accesibles, múltiples opciones de pago, y entendemos tus necesidades reales."
+      }
+    },
+    "forWho": {
+      "title": "¿Para quién es AnkaPulse?",
+      "startups": {
+        "title": "🚀 Startups y Emprendedores",
+        "description": "Estás validando tu MVP, cada dólar cuenta, pero necesitas saber si tu aplicación está funcionando."
+      },
+      "freelancers": {
+        "title": "💻 Developers Freelancers",
+        "description": "Desarrollas para múltiples clientes y necesitas monitorear sus servicios sin complicarte la vida."
+      },
+      "teams": {
+        "title": "🏢 Equipos Pequeños",
+        "description": "Son 2-10 personas, no necesitan dashboards corporativos, solo saber que todo funciona bien."
+      },
+      "personal": {
+        "title": "📱 Proyectos Personales",
+        "description": "Tu side project está creciendo y necesitas profesionalizarlo sin gastar una fortuna."
+      }
+    },
+    "promise": {
+      "title": "Nuestra Promesa",
+      "main": "Monitoreo profesional, sin complejidad, a precio justo.",
+      "description": "No te vamos a bombardear con features que no necesitas. Te vamos a dar exactamente lo que precisas para dormir tranquilo sabiendo que tus servicios están funcionando."
+    },
+    "support": {
+      "title": "¿Te gusta lo que hacemos?",
+      "description": "Si querés apoyar el proyecto y ayudar a que más developers tengan acceso a herramientas de monitoreo profesionales y accesibles.",
+      "button": "☕ Invitame un café",
+      "footer": "Cada aporte nos ayuda a mantener AnkaPulse accesible para todos"
+    },
+    "contact": {
+      "title": "¿Preguntas? ¿Sugerencias?",
+      "description": "Somos un equipo pequeño y nos encanta escuchar a nuestra comunidad."
+    }
+  },
+  "docs": {
+    "title": "Documentación y Recursos",
+    "subtitle": "Aprende todo sobre monitoreo de servicios y cómo sacarle el máximo provecho a AnkaPulse",
+    "articles": {
+      "downtimeHistory": {
+        "title": "Los 5 Casos de Downtime Más Caros de la Historia",
+        "description": "De Amazon perdiendo $100M en una hora a Knight Capital casi quebrando en 45 minutos. Historias reales, números impactantes y lecciones aplicables.",
+        "category": "Casos de Estudio"
+      },
+      "whyMonitoring": {
+        "title": "Por qué es fundamental monitorear tus APIs",
+        "description": "Descubre el impacto real del downtime y cómo el monitoreo proactivo puede salvar tu negocio y tu reputación.",
+        "category": "Fundamentos"
+      },
+      "about": {
+        "title": "Sobre AnkaPulse",
+        "description": "Conoce la historia detrás de AnkaPulse y por qué creamos una herramienta de monitoreo pensada para developers de LATAM.",
+        "category": "Acerca de"
+      }
+    },
+    "readTime": "min",
+    "readArticle": "Leer artículo",
+    "comingSoon": {
+      "title": "Más contenido en camino",
+      "description": "Estamos trabajando en más guías y artículos sobre monitoreo, mejores prácticas, y casos de uso."
+    },
+    "whyMonitoringPage": {
+      "title": "Por qué es fundamental monitorear tus APIs",
+      "subtitle": "En el mundo del desarrollo moderno, las APIs son el corazón de prácticamente toda aplicación",
+      "intro": "Desde una simple app de clima hasta un e-commerce complejo, todos dependemos de servicios externos y propios que deben estar disponibles 24/7. Sin embargo, muchos desarrolladores solo se enteran de que algo falló cuando los usuarios ya están quejándose.",
+      "costDowntime": {
+        "title": "El verdadero costo del downtime",
+        "economic": {
+          "title": "Impacto económico inmediato",
+          "description": "Cuando tu API está caída, no solo pierdes funcionalidad - pierdes dinero. Un e-commerce que procesa $10,000 USD por día pierde aproximadamente $7 por minuto de downtime.",
+          "examplesTitle": "Ejemplos reales:",
+          "payment": "API de pagos caída: Ventas perdidas directamente",
+          "auth": "Sistema de autenticación down: Usuarios no pueden acceder",
+          "thirdParty": "API de terceros: Funcionalidad crítica deshabilitada"
+        },
+        "reputation": {
+          "title": "Daño a la reputación",
+          "description": "En LATAM, donde la competencia digital está creciendo exponencialmente, la confiabilidad es un diferenciador clave. Un usuario que no puede completar una acción importante probablemente no regrese. La reputación que tardaste meses en construir puede perderse en minutos."
+        }
+      },
+      "earlyDetection": {
+        "title": "La detección temprana marca la diferencia",
+        "beforeUsers": {
+          "title": "Enterarte antes que tus usuarios",
+          "description": "El monitoreo proactivo te permite ser el primero en saber cuando algo anda mal. En lugar de despertar con 20 mensajes furiosos en WhatsApp, recibes una alerta inmediata que te da tiempo para actuar.",
+          "without": {
+            "title": "❌ Sin monitoreo:",
+            "timeline": {
+              "1": "9:00 AM - API se cae",
+              "2": "9:30 AM - Primeros usuarios reportan",
+              "3": "10:00 AM - Te enteras del problema",
+              "4": "10:30 AM - Identificas la causa",
+              "5": "11:00 AM - Problema resuelto"
+            },
+            "downTotal": "Downtime total: 2 horas"
+          },
+          "with": {
+            "title": "✅ Con monitoreo:",
+            "timeline": {
+              "1": "9:00 AM - API se cae",
+              "2": "9:01 AM - Alerta automática",
+              "3": "9:10 AM - Problema identificado",
+              "4": "9:20 AM - Problema resuelto"
+            },
+            "downTotal": "Downtime total: 20 minutos"
+          }
+        },
+        "beyond": {
+          "title": "Más allá del \"está arriba\" o \"está abajo\"",
+          "description": "El monitoreo moderno no solo verifica si tu API responde, sino cómo responde:",
+          "responseTime": {
+            "title": "Tiempo de respuesta",
+            "description": "Una API que tarda 5s puede ser \"funcional\" pero inutilizable"
+          },
+          "statusCodes": {
+            "title": "Códigos de estado",
+            "description": "500 internal error es diferente a 503 service unavailable"
+          },
+          "validContent": {
+            "title": "Contenido válido",
+            "description": "Verificar que devuelva datos válidos, no solo que responda"
+          }
+        }
+      },
+      "latam": {
+        "title": "Desafíos específicos en LATAM",
+        "context": {
+          "title": "El contexto regional importa",
+          "description": "En América Latina enfrentamos desafíos únicos:",
+          "infrastructure": {
+            "title": "🌐 Infraestructura variable",
+            "description": "Internet y hosting pueden ser menos estables"
+          },
+          "thirdParty": {
+            "title": "🔗 Servicios terceros",
+            "description": "APIs internacionales con latencia alta"
+          },
+          "resources": {
+            "title": "💰 Recursos limitados",
+            "description": "No siempre podemos permitirnos equipos DevOps"
+          }
+        },
+        "credibility": {
+          "title": "Credibilidad profesional",
+          "description": "Cuando pitcheas tu startup a inversores o clientes enterprise, mostrar métricas de uptime reales es un diferenciador importante.",
+          "quote": "\"Tenemos 99.9% de uptime en los últimos 6 meses\"",
+          "vs": "suena mucho mejor que",
+          "bad": "\"creemos que funciona bien\""
+        }
+      },
+      "roi": {
+        "title": "ROI del monitoreo",
+        "calculation": {
+          "title": "Cálculo simple",
+          "description": "Si tu aplicación genera $1000 USD/día:",
+          "cost": "Costo de monitoreo: $30/mes",
+          "avoided": "Downtime evitado: 2 horas/mes",
+          "loss": "Pérdida evitada: $83/mes",
+          "result": "ROI: 177%"
+        },
+        "intangible": {
+          "title": "Beneficios intangibles:",
+          "sleep": "Mejor sueño (sin emergencias nocturnas)",
+          "productive": "Equipo más productivo (menos firefighting)",
+          "confidence": "Mayor confianza del cliente",
+          "data": "Datos para optimización de performance"
+        }
+      },
+      "cta": {
+        "title": "El mejor momento para implementar monitoreo es ayer",
+        "subtitle": "El segundo mejor momento es ahora.",
+        "description": "La pregunta no es si tu API va a fallar alguna vez, sino cuándo va a pasar y qué tan rápido vas a enterarte.",
+        "button": "Crear cuenta gratuita",
+        "footer": "Configura tu primer check en menos de 2 minutos"
+      }
+    },
+    "downtimeHistoryPage": {
+      "title": "Los 5 Casos de Downtime Más Caros de la Historia",
+      "subtitle": "Cuando el downtime no cuesta miles, sino millones de dólares",
+      "intro": {
+        "p1": "Cuando pensamos en downtime, generalmente pensamos en minutos perdidos, algunos usuarios frustrados, tal vez un par de ventas que no se cerraron. Molesto, sí. Costoso, también. Pero raramente pensamos en el verdadero costo del downtime a escala.",
+        "p2": "Hoy te cuento 5 casos reales donde el downtime no costó cientos o miles de dólares. Costó millones. En algunos casos, cientos de millones. Y en el caso más extremo, casi destruyó una empresa completa en menos de una hora.",
+        "p3": "Estas historias no son solo para aprender de los errores de los demás. Son recordatorios de que en el mundo digital,",
+        "p3Bold": "cada minuto cuenta",
+        "p3End": ". Y que el costo de no estar preparado puede ser devastador."
+      },
+      "amazon": {
+        "title": "Amazon Prime Day 2018: $100 Millones en 63 Minutos",
+        "story": {
+          "title": "La Historia",
+          "p1": "Era julio de 2018. Amazon había promocionado su Prime Day durante semanas. Millones de usuarios listos para comprar. Descuentos masivos. El evento de ventas más grande del año.",
+          "timeline": {
+            "start": "11:00 AM PT: Prime Day comienza oficialmente",
+            "crash": "11:01 AM PT: El sitio colapsa"
+          },
+          "p2": "Durante 63 minutos, los usuarios de todo el mundo vieron lo mismo: una imagen de un perro con el mensaje \"Uh oh! Something went wrong on our end.\"",
+          "problem": "El problema:",
+          "problemDesc": "Los servidores de Amazon no pudieron manejar el tráfico masivo que ellos mismos habían generado con su marketing."
+        },
+        "numbers": {
+          "title": "Los Números",
+          "loss": "Pérdida estimada: $72-100 millones",
+          "duration": "Duración: 63 minutos",
+          "users": "Usuarios afectados: Millones globalmente",
+          "stocks": "Impacto en acciones: Caída temporal",
+          "perMinute": "Amazon perdió aproximadamente $1.6 millones por minuto"
+        },
+        "lesson": {
+          "title": "La Lección",
+          "p1": "Amazon es literalmente una de las empresas más avanzadas tecnológicamente del mundo. Tienen AWS. Tienen los mejores ingenieros. Tienen recursos prácticamente ilimitados.",
+          "p2": "Y aun así, subestimaron su propio tráfico. La lección:",
+          "p2Bold": "load testing es crítico",
+          "p2End": ", especialmente antes de eventos importantes."
+        },
+        "apply": {
+          "title": "Qué Podés Aplicar Hoy",
+          "items": {
+            "1": "Hacé load testing de tus endpoints críticos",
+            "2": "Tené un plan de escalabilidad",
+            "3": "Configurá monitoring agresivo",
+            "4": "Tené un rollback plan",
+            "5": "Comunicá proactivamente si hay problemas"
+          }
+        }
+      },
+      "facebook": {
+        "title": "Facebook, Instagram y WhatsApp (2021): 6 Horas que Costaron $60 Millones",
+        "story": {
+          "title": "La Historia",
+          "p1": "4 de octubre de 2021. 11:40 AM ET. De repente, Facebook desaparece de internet.",
+          "literally": "Literalmente.",
+          "p2": "No solo el sitio web. No solo la app. La empresa completa. Facebook, Instagram, WhatsApp, Oculus. Todo offline. Durante 6 horas.",
+          "problem": "El problema:",
+          "problemDesc": "Un error en la configuración BGP (Border Gateway Protocol) hizo que los servidores de Facebook fueran \"eliminados\" de internet. Para el internet global, Facebook dejó de existir.",
+          "worst": "Lo peor:",
+          "worstDesc": "Los ingenieros no podían acceder a los edificios porque las tarjetas de acceso también estaban conectadas a los sistemas internos. Tuvieron que cortar físicamente candados para entrar a los data centers."
+        },
+        "numbers": {
+          "title": "Los Números",
+          "loss": "Pérdida directa: $60 millones",
+          "duration": "Duración: 6 horas",
+          "users": "Usuarios afectados: 3.5 mil millones",
+          "stocks": "Caída en acciones: -4.9%",
+          "value": "Valor perdido: $7 mil millones",
+          "zuck": "Zuckerberg perdió $6 mil millones en acciones ese día"
+        },
+        "lesson": {
+          "title": "La Lección",
+          "p1": "El error no fue en el código. No fue un bug. No fue un ataque. Fue un error en configuración de infraestructura durante una actualización de rutina.",
+          "conclusion": "La lección:",
+          "conclusionDesc": "Los errores más peligrosos no son los obvios. Son los que pasan en sistemas críticos durante \"mantenimiento de rutina\"."
+        }
+      },
+      "britishAirways": {
+        "title": "British Airways (2017): $100 Millones por un Problema de Electricidad",
+        "story": {
+          "title": "La Historia",
+          "p1": "27 de mayo de 2017. Feriado largo en UK. Miles de familias listas para viajar.",
+          "p2": "Un contratista en el data center de British Airways desconecta accidentalmente la alimentación eléctrica. Cuando la reconecta, el surge de energía daña sistemas críticos.",
+          "result": "Resultado:",
+          "resultDesc": "Caos absoluto. British Airways tuvo que cancelar 726 vuelos en 3 días. 75,000 pasajeros varados en aeropuertos de todo el mundo."
+        },
+        "numbers": {
+          "title": "Los Números",
+          "cost": "Costo directo: $100+ millones",
+          "flights": "Vuelos cancelados: 726",
+          "passengers": "Pasajeros afectados: 75,000",
+          "duration": "Duración del impacto: 3 días",
+          "fine": "Multa GDPR: £183 millones adicionales"
+        },
+        "lesson": {
+          "title": "La Lección",
+          "p1": "British Airways había externalizado su TI para \"reducir costos\". En el proceso, eliminaron redundancias críticas.",
+          "p2": "Ahorraron millones en TI. Les costó cientos de millones cuando falló.",
+          "conclusion": "El disaster recovery no es un gasto, es un seguro."
+        }
+      },
+      "delta": {
+        "title": "Delta Airlines (2016): 5 Horas de Caos por un Switchover Fallido",
+        "story": {
+          "title": "La Historia",
+          "p1": "8 de agosto de 2016, 2:30 AM. Un problema eléctrico en el data center principal de Delta en Atlanta.",
+          "p2": "El switchover automático al sistema de backup...",
+          "fails": "falla",
+          "p2End": ". Los sistemas críticos se apagan. Check-in, boarding, crew scheduling, todo offline.",
+          "p3": "Delta tuvo que cancelar 2,300 vuelos en 3 días. El CEO tuvo que pedir disculpas públicamente."
+        },
+        "lesson": {
+          "title": "La Lección Clave",
+          "p1": "Delta TENÍA sistemas de backup. Delta TENÍA redundancia. Delta HABÍA invertido en disaster recovery.",
+          "p2": "Pero nunca testearon adecuadamente el switchover.",
+          "p2End": "Cuando lo necesitaron de verdad, no funcionó. Un disaster recovery plan que no se testea es un disaster recovery plan que no existe."
+        }
+      },
+      "knight": {
+        "title": "Knight Capital (2012): $440 Millones Perdidos en 45 Minutos",
+        "story": {
+          "title": "La Historia Más Salvaje de Todas",
+          "p1": "1 de agosto de 2012, 9:30 AM. Knight Capital, una firma de trading, despliega nuevo software a producción.",
+          "problem": "Hay un problema:",
+          "problemDesc": "El código nuevo reactiva accidentalmente una función vieja que había sido deprecada 8 años antes. Esta función empieza a ejecutar trades automáticamente. Miles. Millones.",
+          "p2": "En 45 minutos, el software ejecuta órdenes de compra y venta por $7 mil millones.",
+          "seven": "SIETE MIL MILLONES.",
+          "p2End": "Sin supervisión humana.",
+          "p3": "Para cuando se dan cuenta y apagan los sistemas, Knight Capital había acumulado $440 millones en pérdidas."
+        },
+        "numbers": {
+          "title": "Los Números Devastadores",
+          "loss": "Pérdida: $440 millones",
+          "duration": "Duración: 45 minutos",
+          "volume": "Volumen de trades: $7 mil millones",
+          "consequence": "Consecuencia: La empresa casi quiebra",
+          "perMinute": "Knight Capital perdió $9.7 millones por minuto"
+        },
+        "lesson": {
+          "title": "La Lección Única",
+          "p1": "Este caso es único porque no fue downtime tradicional. El sistema funcionaba \"perfectamente\". El problema fue que funcionaba haciendo exactamente lo que NO debía hacer.",
+          "conclusion": "La lección:",
+          "conclusionDesc": "Los errores en deployment pueden ser catastróficos. El código que desplegas puede destruir tu empresa en minutos."
+        }
+      },
+      "pattern": {
+        "title": "El Patrón Común en Todos Estos Casos",
+        "intro": "Mirando estos 5 casos, hay un patrón que se repite:",
+        "items": {
+          "1": "Todos tenían sistemas complejos",
+          "2": "Todos confiaban en que \"funcionaría\"",
+          "3": "Todos tenían ingenieros talentosos",
+          "4": "Ninguno pensó que les pasaría a ellos",
+          "5": "El problema no fue falta de recursos",
+          "6": "Fue falta de preparación"
+        },
+        "goodNews": "La buena noticia: Ninguno de estos problemas era inevitable."
+      },
+      "appliedLessons": {
+        "title": "Qué Podemos Aprender (Aplicado a Proyectos Reales)",
+        "notAmazon": {
+          "title": "\"Pero yo no soy Amazon ni Facebook\"",
+          "p1": "Es verdad. No tenés su escala. Pero tenés los mismos riesgos, proporcionalmente.",
+          "p2": "Si tu SaaS factura $5,000/mes y está down 6 horas, no perdés $60 millones. Pero podés perder usuarios, reputación y revenue que te costó meses construir."
+        },
+        "universal": {
+          "title": "Lecciones Universales",
+          "monitoring": {
+            "title": "Monitoring no es opcional",
+            "description": "No necesitás gastar miles. Pero necesitás SABER cuando algo falla. Antes de que tus usuarios te avisen."
+          },
+          "backups": {
+            "title": "Backups sin testing no son backups",
+            "description": "Tener un backup que nunca probaste es lo mismo que no tener backup."
+          },
+          "infrastructure": {
+            "title": "Los cambios de infraestructura son peligrosos",
+            "description": "Tratá cada cambio de infra como si pudiera romper todo. Porque puede."
+          },
+          "documentation": {
+            "title": "Documentá tus procedimientos",
+            "description": "Cuando todo está prendido fuego, no querés estar googleando \"cómo hacer rollback\"."
+          },
+          "automation": {
+            "title": "Automatizá con cuidado",
+            "description": "La automatización es increíble. Hasta que hace algo que no debería, a escala."
+          },
+          "deployment": {
+            "title": "NUNCA deploys directos a producción",
+            "description": "Staging, testing, feature flags. El deployment es donde más cosas pueden salir mal."
+          }
+        }
+      },
+      "realCost": {
+        "title": "El Costo Real del Downtime",
+        "intro": "Estos casos extremos nos muestran algo importante: el costo del downtime no es solo el revenue perdido durante esos minutos u horas.",
+        "isTitle": "Es:",
+        "items": {
+          "1": "Usuarios que se van y no vuelven",
+          "2": "Reputación dañada",
+          "3": "Confianza perdida",
+          "4": "Oportunidades que no se repiten",
+          "5": "Estrés del equipo",
+          "6": "Tiempo gastado en crisis management",
+          "7": "Pérdida de momentum",
+          "8": "Impacto en el crecimiento futuro"
+        },
+        "comparison": {
+          "amazon": "Para Amazon, $100 millones es un mal día.",
+          "startup": "Para tu startup, 6 horas de downtime pueden ser el fin."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusión",
+        "intro": "No te cuento estas historias para asustarte. Te las cuento para que entiendas que:",
+        "points": {
+          "1": "El downtime le pasa a todos (incluso a los gigantes)",
+          "2": "La preparación importa más que la perfección",
+          "3": "El monitoring y backups no son gastos, son seguros",
+          "4": "Aprender de otros es más barato que cometer tus errores"
+        },
+        "need": "No necesitás la infraestructura de Amazon para aplicar estas lecciones. Necesitás:",
+        "items": {
+          "1": "Monitoring básico",
+          "2": "Backups que funcionan",
+          "3": "Un plan para cuando las cosas fallen",
+          "4": "La humildad de saber que TUS sistemas también pueden fallar"
+        },
+        "final": {
+          "main": "No es cuestión de SI va a pasar. Es cuestión de CUÁNDO.",
+          "sub": "Y qué tan preparado estés cuando pase."
+        }
+      },
+      "cta": {
+        "title": "¿Querés asegurarte de detectar problemas antes de que cuesten caro?",
+        "subtitle": "Empezá con monitoring básico hoy.",
+        "button": "Crear cuenta gratuita",
+        "footer": "Configura tu primer check en menos de 2 minutos"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "description": "Accede a tu cuenta de AnkaPulse para monitorear tus servicios",
+      "google": "Continuar con Google",
+      "github": "Continuar con GitHub",
+      "email": "Iniciar sesión con email",
+      "connecting": "Conectando...",
+      "orContinue": "O continúa con email",
+      "noAccount": "¿No tienes una cuenta?",
+      "register": "Regístrate aquí",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "recoverHere": "Recupérala aquí",
+      "terms": "Al continuar, aceptas nuestros",
+      "termsLink": "Términos de Servicio",
+      "and": "y",
+      "privacyLink": "Política de Privacidad"
+    },
+    "loginEmail": {
+      "title": "Iniciar Sesión",
+      "description": "Ingresa con tu email y contraseña",
+      "emailLabel": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "submitButton": "Iniciar Sesión",
+      "submitting": "Iniciando sesión...",
+      "backButton": "Volver a opciones de login",
+      "noAccount": "¿No tienes cuenta?",
+      "registerLink": "Regístrate",
+      "errors": {
+        "invalidEmail": "Email inválido",
+        "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+        "loginFailed": "Error al iniciar sesión",
+        "unexpected": "Error inesperado. Inténtalo de nuevo."
+      }
+    },
+    "register": {
+      "title": "Crear Cuenta",
+      "description": "Únete a AnkaPulse y comienza a monitorear tus servicios de forma gratuita",
+      "google": "Registrarse con Google",
+      "github": "Registrarse con GitHub",
+      "email": "Crear cuenta con email",
+      "connecting": "Conectando...",
+      "orRegister": "O regístrate con email",
+      "haveAccount": "¿Ya tienes una cuenta?",
+      "login": "Inicia sesión",
+      "terms": "Al registrarte, aceptas nuestros",
+      "termsLink": "Términos de Servicio",
+      "and": "y",
+      "privacyLink": "Política de Privacidad",
+      "freePlan": {
+        "title": "✨ Plan Gratuito incluye:",
+        "checks": "10 checks de monitoreo",
+        "interval": "Verificaciones cada 30 minutos",
+        "alerts": "Alertas por email",
+        "retention": "7 días de retención de datos"
+      }
+    },
+    "registerEmail": {
+      "title": "Crear Cuenta",
+      "description": "Completa los datos para registrarte",
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "emailLabel": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "confirmPasswordLabel": "Confirmar Contraseña",
+      "confirmPasswordPlaceholder": "••••••••",
+      "submitButton": "Crear Cuenta",
+      "submitting": "Creando cuenta...",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "loginLink": "Inicia sesión",
+      "errors": {
+        "nameTooShort": "El nombre debe tener al menos 2 caracteres",
+        "invalidEmail": "Email inválido",
+        "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+        "passwordMismatch": "Las contraseñas no coinciden",
+        "registerFailed": "Error al registrarse",
+        "unexpected": "Error inesperado. Inténtalo de nuevo."
+      },
+      "success": {
+        "title": "¡Registro Exitoso!",
+        "description": "Tu cuenta ha sido creada correctamente.",
+        "redirecting": "Redirigiendo al login...",
+        "goNow": "Ir al Login Ahora"
+      }
+    },
+    "forgotPassword": {
+      "title": "Recuperar Contraseña",
+      "description": "Ingresa tu email y te enviaremos un link de recuperación",
+      "emailLabel": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "sendButton": "Enviar link de recuperación",
+      "sending": "Enviando...",
+      "backToLogin": "Volver al login",
+      "error": "Error al procesar solicitud. Intenta de nuevo.",
+      "success": {
+        "title": "Email enviado",
+        "description": "Si el email existe en nuestro sistema, recibirás un link de recuperación.",
+        "checkSpam": "Revisa tu bandeja de entrada y spam.",
+        "backButton": "Volver al login"
+      }
+    },
+    "resetPassword": {
+      "title": "Nueva Contraseña",
+      "description": "Ingresa tu nueva contraseña",
+      "newPasswordLabel": "Nueva Contraseña",
+      "newPasswordPlaceholder": "Mínimo 8 caracteres",
+      "confirmPasswordLabel": "Confirmar Contraseña",
+      "confirmPasswordPlaceholder": "Repite la contraseña",
+      "updateButton": "Actualizar contraseña",
+      "updating": "Actualizando...",
+      "errors": {
+        "invalidToken": "Token inválido o faltante",
+        "passwordMismatch": "Las contraseñas no coinciden",
+        "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+        "genericError": "Error al resetear contraseña"
+      },
+      "success": {
+        "title": "¡Contraseña actualizada!",
+        "redirecting": "Redirigiendo al login..."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Vista general de tu monitoreo",
+    "planFree": {
+      "title": "Plan Free",
+      "usage": "de",
+      "checksUsed": "checks usados",
+      "upgrade": "Upgrade"
+    },
+    "stats": {
+      "totalChecks": "Total Checks",
+      "avgUptime": "Uptime Promedio",
+      "online": "Online",
+      "withProblems": "Con Problemas"
+    },
+    "quickActions": {
+      "title": "Acciones Rápidas",
+      "newCheck": {
+        "title": "Nuevo Check",
+        "description": "Monitorea una nueva URL"
+      },
+      "statusPage": {
+        "title": "Status Page",
+        "description": "Página pública de estado"
+      },
+      "viewAll": {
+        "title": "Ver Todos los Checks",
+        "description": "Gestiona tu monitoreo"
+      }
+    },
+    "recentProblems": {
+      "title": "Problemas Recientes",
+      "consecutiveFailures": "fallas consecutivas",
+      "allGood": "¡Todo funcionando bien! 🎉",
+      "down": "DOWN"
+    },
+    "emptyState": {
+      "title": "Comienza a Monitorear",
+      "description": "Crea tu primer check para empezar a monitorear tus APIs y recibir alertas",
+      "button": "Crear Primer Check"
+    },
+    "sidebar": {
+      "dashboard": "Panel Principal",
+      "monitoring": "Monitoreo",
+      "plans": "Planes",
+      "alerts": "Alertas",
+      "profile": "Perfil"
+    },
+    "navbar": {
+      "logout": "Cerrar Sesión"
+    }
+  },
+  "checksPage": {
+    "title": "AnkaPulse",
+    "subtitle": "Panel de Monitoreo",
+    "offline": "Sin conexión",
+    "refresh": "Actualizar",
+    "newCheck": "Nuevo Check",
+    "allChecks": "Todos los Checks",
+    "loading": "Cargando checks...",
+    "status": {
+      "online": "En línea",
+      "offline": "Fuera de línea"
+    },
+    "stats": {
+      "uptime": "uptime",
+      "avgLatency": "avg"
+    },
+    "actions": {
+      "viewDetails": "Ver detalles",
+      "delete": "Eliminar check",
+      "confirmDelete": "¿Eliminar?",
+      "yes": "Sí",
+      "no": "No"
+    },
+    "errors": {
+      "noConnection": "Sin conexión al servidor",
+      "checkConnection": "Verifica que el backend esté ejecutándose en http://localhost:3000",
+      "cannotLoad": "No se pueden cargar los checks. Verifica la conexión al backend."
+    },
+    "empty": {
+      "noConnection": "Sin conexión al servidor",
+      "noChecks": "Aún no tienes checks",
+      "descriptionOffline": "No se pueden cargar los checks. Verifica la conexión al backend.",
+      "descriptionEmpty": "Crea tu primer check para comenzar a monitorear tus APIs",
+      "createFirst": "Crear Primer Check",
+      "retry": "Reintentar conexión"
+    }
+  },
+  "checksNew": {
+    "backToDashboard": "Volver al Dashboard",
+    "title": "Crear Nuevo Check",
+    "subtitle": "Configura un nuevo check para monitorear tu API o sitio web",
+    "form": {
+      "url": {
+        "label": "URL",
+        "placeholder": "api.example.com/health",
+        "required": "URL inválida"
+      },
+      "name": {
+        "label": "Nombre (opcional)",
+        "placeholder": "Mi API de Producción",
+        "minLength": "El nombre debe tener al menos 2 caracteres"
+      },
+      "interval": {
+        "label": "Intervalo de Monitoreo",
+        "options": {
+          "1min": "1 minuto",
+          "5min": "5 minutos",
+          "15min": "15 minutos",
+          "30min": "30 minutos",
+          "1h": "1 hora",
+          "1d": "1 día"
+        },
+        "requiresPlan": "Requiere plan {plan}",
+        "currentPlanAllows": "Tu plan {planName} permite intervalos de {minInterval} o más"
+      },
+      "timeout": {
+        "label": "Timeout (segundos)"
+      },
+      "expectedStatusCode": {
+        "label": "Status Code Esperado"
+      },
+      "submit": "Crear Check",
+      "submitting": "Creando...",
+      "cancel": "Cancelar",
+      "error": "Error al crear check"
+    },
+    "upgradeModal": {
+      "title": "Límite de Plan Alcanzado",
+      "viewPlans": "Ver Planes",
+      "close": "Cerrar"
+    }
+  },
+  "checkDetail": {
+    "backToList": "Volver",
+    "editCheck": "Editar Check",
+    "noName": "Check sin nombre",
+    "status": {
+      "online": "En línea",
+      "offline": "Fuera de línea",
+      "active": "Activo",
+      "paused": "Pausado"
+    },
+    "stats": {
+      "uptime": "Uptime",
+      "avgLatency": "Latencia Promedio",
+      "totalChecks": "Checks Totales",
+      "regions": "Regiones",
+      "successful": "de {total} exitosos",
+      "latest": "Última: {latency}ms",
+      "failed": "Fallidos: {count}",
+      "notDefined": "No definidas"
+    },
+    "tabs": {
+      "overview": "Resumen",
+      "performance": "Rendimiento",
+      "incidents": "Incidentes",
+      "settings": "Configuración"
+    },
+    "overview": {
+      "uptimeChart": "Uptime - Últimas 24 horas",
+      "latencyChart": "Latencia - Últimas 24 horas",
+      "recentResults": "Resultados Recientes",
+      "recentResultsDesc": "Los últimos 10 checks ejecutados",
+      "noResults": "No hay resultados disponibles"
+    },
+    "performance": {
+      "title": "Métricas de Rendimiento",
+      "description": "Análisis detallado del rendimiento del check",
+      "successfulChecks": "Checks Exitosos",
+      "failedChecks": "Checks Fallidos",
+      "availability": "Disponibilidad",
+      "ofTotal": "del total",
+      "historicalAvg": "Promedio histórico"
+    },
+    "incidents": {
+      "title": "Historial de Incidentes",
+      "description": "Registro de eventos y problemas detectados",
+      "serviceUnavailable": "Servicio no disponible",
+      "noIncidents": "No se han detectado incidentes recientes",
+      "code": "Código: {code}"
+    },
+    "settings": {
+      "title": "Configuración del Check",
+      "description": "Detalles de la configuración actual",
+      "targetUrl": "URL objetivo",
+      "interval": "Intervalo de verificación",
+      "timeout": "Timeout",
+      "timeoutSeconds": "{seconds} segundos",
+      "expectedStatus": "Código de estado esperado",
+      "status": "Estado",
+      "monitoringRegions": "Regiones de monitoreo",
+      "created": "Creado:",
+      "updated": "Actualizado:",
+      "lastCheck": "Último check:"
+    },
+    "errors": {
+      "loadingError": "Error al cargar el check",
+      "notFound": "Check no encontrado",
+      "notFoundDesc": "El check solicitado no existe o fue eliminado."
+    },
+    "loading": "Cargando..."
+  },
+  "checkEdit": {
+    "title": "Editar Check",
+    "backToCheck": "Volver al check",
+    "form": {
+      "name": {
+        "label": "Nombre del Check",
+        "placeholder": "Mi API"
+      },
+      "url": {
+        "label": "URL",
+        "placeholder": "https://api.example.com/health"
+      },
+      "interval": {
+        "label": "Intervalo de Monitoreo",
+        "requiresPlan": "Requiere plan {plan}",
+        "currentPlanAllows": "Tu plan {planName} permite intervalos de {minInterval} o más",
+        "options": {
+          "1min": "1 minuto",
+          "5min": "5 minutos",
+          "15min": "15 minutos",
+          "30min": "30 minutos",
+          "1h": "1 hora",
+          "1d": "1 día"
+        }
+      },
+      "timeout": {
+        "label": "Timeout (segundos)"
+      },
+      "expectedStatusCode": {
+        "label": "Status Code Esperado"
+      },
+      "save": "Guardar Cambios",
+      "saving": "Guardando...",
+      "cancel": "Cancelar"
+    },
+    "loading": "Cargando check...",
+    "notFound": "Check no encontrado",
+    "backToDashboard": "Volver al dashboard",
+    "errors": {
+      "loading": "Error cargando el check",
+      "updating": "Error actualizando el check"
+    }
+  },
+  "alerts": {
+    "title": "Configurar Alertas",
+    "subtitle": "Personaliza cómo y cuándo recibir notificaciones de tus monitoreos",
+    "email": {
+      "title": "Alertas por Email",
+      "description": "Recibe notificaciones en tu bandeja de entrada cuando tus servicios fallen",
+      "enable": "Habilitar alertas por email",
+      "availableAllPlans": "Disponible en todos los planes"
+    },
+    "telegram": {
+      "title": "Alertas por Telegram",
+      "description": "Recibe notificaciones instantáneas en Telegram sin filtros de spam",
+      "enable": "Habilitar alertas por Telegram",
+      "pushNotifications": "Push notifications instantáneas",
+      "chatIdLabel": "Chat ID de Telegram",
+      "chatIdPlaceholder": "Ej: 123456789",
+      "premium": "Premium",
+      "starterPro": "Starter/Pro",
+      "upgradeRequired": "Las alertas por Telegram están disponibles solo para planes Starter y Pro.",
+      "upgradePlan": "Actualizar plan",
+      "instructions": {
+        "title": "¿Cómo obtener tu Chat ID?",
+        "step1": "Abre Telegram y busca nuestro bot:",
+        "step2": "Envía el comando",
+        "step3": "El bot te responderá con tu Chat ID único",
+        "step4": "Copia ese número y pégalo arriba",
+        "copy": "Copiar",
+        "open": "Abrir"
+      }
+    },
+    "actions": {
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "saving": "Guardando..."
+    },
+    "messages": {
+      "saveSuccess": "Configuración guardada exitosamente",
+      "saveError": "Error al guardar configuración",
+      "linkCopied": "Enlace del bot copiado"
+    },
+    "preview": {
+      "title": "Vista Previa de Alertas",
+      "description": "Así es como se verán tus notificaciones cuando un servicio falle",
+      "emailFrom": "From:",
+      "emailSubject": "Subject:",
+      "emailSubjectText": "🚨 Alert: Tu API está DOWN",
+      "emailBody": "Body:",
+      "emailBodyText": "Tu servicio \"Mi API\" no está respondiendo...",
+      "telegramAlert": "AnkaPulse Alert",
+      "service": "Service:",
+      "url": "URL:",
+      "status": "Status:",
+      "region": "Region:",
+      "time": "Time:",
+      "error": "Error:",
+      "viewDetails": "View Details →",
+      "noAlerts": "No tienes alertas habilitadas",
+      "enableAtLeastOne": "Habilita al menos un canal para recibir notificaciones"
+    }
+  },
+  "checks": {
+    "title": "Todos los Checks",
+    "empty": "Aún no tienes checks",
+    "emptyDesc": "Crea tu primer check para comenzar a monitorear tus APIs",
+    "create": "Nuevo Check",
+    "createFirst": "Crear Primer Check",
+    "delete": "Eliminar",
+    "deleteConfirm": "¿Eliminar?",
+    "yes": "Sí",
+    "no": "No",
+    "viewDetails": "Ver detalles",
+    "status": {
+      "up": "En línea",
+      "down": "Fuera de línea"
+    },
+    "metrics": {
+      "uptime": "uptime",
+      "avg": "avg"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "refresh": "Actualizar"
+  }
+}

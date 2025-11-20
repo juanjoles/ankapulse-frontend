@@ -1,9 +1,12 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    // Esto permite que el build continue incluso con warnings de ESLint
     ignoreDuringBuilds: true,
   },
-}
+};
 
-module.exports = nextConfig
+export default withNextIntl(nextConfig);
