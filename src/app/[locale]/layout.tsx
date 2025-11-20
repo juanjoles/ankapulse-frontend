@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from '@vercel/analytics/react';
-import { Toaster } from 'react-hot-toast';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
@@ -16,16 +15,15 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: {locale:string};
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
-  const messages = await getMessages();
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         {children}
-        {/* <Toaster position="top-right" /> */}
       </ThemeProvider>
       <Analytics />
     </NextIntlClientProvider>
