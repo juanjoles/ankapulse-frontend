@@ -1112,5 +1112,43 @@
     "save": "Save",
     "cancel": "Cancel",
     "refresh": "Refresh"
+  },
+  "statusPage": {
+    "title": "Status Page",
+    "subtitle": "Create a public page where your customers can see the status of your services",
+    "publicUrl": "Your status page is public at:",
+    "noChecks": {
+      "message": "You don't have any checks created.",
+      "action": "Create your first check"
+    },
+    "config": {
+      "sectionTitle": "Configuration",
+      "enabled": {
+        "label": "Public Status Page",
+        "description": "Enable or disable public visibility"
+      },
+      "slug": {
+        "label": "URL Slug",
+        "placeholder": "my-company"
+      },
+      "pageTitle": {
+        "label": "Title (optional)",
+        "placeholder": "MyCompany Status",
+        "description": "If not specified, \"Service Status\" will be used"
+      },
+      "description": {
+        "label": "Description (optional)",
+        "placeholder": "Real-time status of our services"
+      },
+      "monitors": {
+        "label": "Services to Monitor"
+      }
+    },
+    "actions": {
+      "saving": "Saving...",
+      "create": "Create Status Page",
+      "update": "Update Status Page",
+      "confirmDisable": "Are you sure? Your status page will be hidden publicly."
+    }
   }
 }

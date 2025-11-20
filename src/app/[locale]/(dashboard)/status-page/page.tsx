@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { useStatusPage } from '@/hooks/useStatusPage';
 import { useChecks } from '@/hooks/useChecks';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,6 +17,7 @@ import { Globe, Loader2, ExternalLink, AlertCircle, Trash2 } from 'lucide-react'
 import { LocaleLink as Link } from '@/components/locale-link';
 
 export default function StatusPageConfigPage() {
+  const t = useTranslations('statusPage');
   const router = useRouter();
   const { config, loading, createOrUpdate, disable, checkSlugAvailability } = useStatusPage();
   const { checks } = useChecks();
@@ -61,7 +63,7 @@ export default function StatusPageConfigPage() {
   };
 
   const handleDisable = async () => {
-    if (!confirm('¿Estás seguro? Tu status page se ocultará públicamente.')) {
+    if (!confirm(t('actions.confirmDisable'))) {
       return;
     }
 
@@ -91,9 +93,9 @@ export default function StatusPageConfigPage() {
     <div className="space-y-6 max-w-4xl">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Status Page</h1>
+        <h1 className="text-3xl font-bold text-foreground">{t('title')}</h1>
         <p className="text-muted-foreground mt-1">
-          Crea una página pública donde tus clientes puedan ver el estado de tus servicios
+          {t('subtitle')}
         </p>
       </div>
 
@@ -104,7 +106,7 @@ export default function StatusPageConfigPage() {
           <AlertDescription>
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold mb-1">Tu status page está público en:</p>
+                <p className="font-semibold mb-1">{t('publicUrl')}</p>
                 <a 
                   href={publicUrl}
                   target="_blank"
@@ -121,31 +123,31 @@ export default function StatusPageConfigPage() {
       )}
 
       {/* Warning si no tiene checks */}
-        {checks.length === 0 && (
-          <Alert className="border-destructive bg-destructive/10">
-            <AlertCircle className="h-4 w-4 text-destructive" />
-            <AlertDescription className="text-destructive">
-              No tienes checks creados. 
-              <Link href="/checks/new" className="font-semibold underline ml-1">
-                Crea tu primer check
-              </Link> para poder configurar tu status page.
-            </AlertDescription>
-          </Alert>
-        )}
+      {checks.length === 0 && (
+        <Alert className="border-destructive bg-destructive/10">
+          <AlertCircle className="h-4 w-4 text-destructive" />
+          <AlertDescription className="text-destructive">
+            {t('noChecks.message')}
+            <Link href="/checks/new" className="font-semibold underline ml-1">
+              {t('noChecks.action')}
+            </Link>
+          </AlertDescription>
+        </Alert>
+      )}
 
       {/* Config Form */}
       <Card>
         <CardHeader>
-          <CardTitle>Configuración</CardTitle>
+          <CardTitle>{t('config.sectionTitle')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           
           {/* Enabled Switch */}
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
-              <Label>Status Page Público</Label>
+              <Label>{t('config.enabled.label')}</Label>
               <p className="text-sm text-muted-foreground">
-                Habilita o deshabilita la visibilidad pública
+                {t('config.enabled.description')}
               </p>
             </div>
             <Switch
@@ -164,27 +166,27 @@ export default function StatusPageConfigPage() {
 
           {/* Title */}
           <div className="space-y-2">
-            <Label htmlFor="title">Título (opcional)</Label>
+            <Label htmlFor="title">{t('config.pageTitle.label')}</Label>
             <Input
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="MiEmpresa Status"
+              placeholder={t('config.pageTitle.placeholder')}
               disabled={saving}
             />
             <p className="text-sm text-muted-foreground">
-              Si no especificas, se usará "Service Status"
+              {t('config.pageTitle.description')}
             </p>
           </div>
 
           {/* Description */}
           <div className="space-y-2">
-            <Label htmlFor="description">Descripción (opcional)</Label>
+            <Label htmlFor="description">{t('config.description.label')}</Label>
             <Input
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Estado en tiempo real de nuestros servicios"
+              placeholder={t('config.description.placeholder')}
               disabled={saving}
             />
           </div>
@@ -207,12 +209,12 @@ export default function StatusPageConfigPage() {
               {saving ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Guardando...
+                  {t('actions.saving')}
                 </>
               ) : (
                 <>
                   <Globe className="mr-2 h-4 w-4" />
-                  {config ? 'Actualizar' : 'Crear'} Status Page
+                  {config ? t('actions.update') : t('actions.create')}
                 </>
               )}
             </Button>
