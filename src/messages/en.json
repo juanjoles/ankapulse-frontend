@@ -1150,5 +1150,22 @@
       "update": "Update Status Page",
       "confirmDisable": "Are you sure? Your status page will be hidden publicly."
     }
+  },
+  "authCallback": {
+    "loading": {
+      "title": "Authenticating...",
+      "processing": "Processing authentication..."
+    },
+    "success": {
+      "title": "Success!",
+      "settingUp": "Authentication successful! Setting up your account...",
+      "gettingUser": "Getting user data...",
+      "welcomeNew": "Welcome to AnkaPulse! Your account with {provider} has been created successfully.",
+      "welcomeBack": "Welcome back! You've signed in with {provider}."
+    },
+    "error": {
+      "title": "Error",
+      "redirecting": "You will be redirected to login in a few seconds..."
+    }
   }
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { setToken, setUser } from '@/lib/auth';
@@ -10,10 +11,11 @@ export const dynamic = 'force-dynamic';
 
 // Componente interno que usa useSearchParams
 function CallbackContent() {
+  const t = useTranslations('authCallback');
   const router = useRouter();
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
-  const [message, setMessage] = useState('Procesando autenticación...');
+  const [message, setMessage] = useState(t('loading.processing'));
 
   // Función para decodificar el token JWT y obtener los datos del usuario
   const decodeTokenAndGetUser = async (token: string) => {
@@ -70,14 +72,14 @@ function CallbackContent() {
         }
 
         if (success === 'true' && token) {
-          setMessage('¡Autenticación exitosa! Configurando tu cuenta...');
+          setMessage(t('success.settingUp'));
           
           // Guardar el token
           setToken(token);
           console.log('✅ Token guardado correctamente');
 
           // Obtener datos completos del usuario
-          setMessage('Obteniendo datos del usuario...');
+          setMessage(t('success.gettingUser'));
           const userData = await decodeTokenAndGetUser(token);
           
           if (userData) {
@@ -100,9 +102,9 @@ function CallbackContent() {
           setStatus('success');
           
           if (isNewUser) {
-            setMessage(`¡Bienvenido a AnkaPulse! Tu cuenta con ${provider} ha sido creada exitosamente.`);
+            setMessage(t('success.welcomeNew', { provider: provider || 'OAuth' }));
           } else {
-            setMessage(`¡Bienvenido de nuevo! Has iniciado sesión con ${provider}.`);
+            setMessage(t('success.welcomeBack', { provider: provider || 'OAuth' }));
           }
 
           // Redirigir al dashboard después de un breve delay
@@ -127,7 +129,7 @@ function CallbackContent() {
     };
 
     handleCallback();
-  }, [searchParams, router]);
+  }, [searchParams, router, t]);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
@@ -136,7 +138,7 @@ function CallbackContent() {
           {status === 'loading' && (
             <>
               <Loader2 className="h-12 w-12 animate-spin text-primary" />
-              <h2 className="text-xl font-semibold">Autenticando...</h2>
+              <h2 className="text-xl font-semibold">{t('loading.title')}</h2>
               <p className="text-center text-muted-foreground">{message}</p>
             </>
           )}
@@ -144,7 +146,7 @@ function CallbackContent() {
           {status === 'success' && (
             <>
               <CheckCircle className="h-12 w-12 text-success" />
-              <h2 className="text-xl font-semibold text-success">¡Éxito!</h2>
+              <h2 className="text-xl font-semibold text-success">{t('success.title')}</h2>
               <p className="text-center text-muted-foreground">{message}</p>
               <div className="w-full bg-accent rounded-full h-2 overflow-hidden">
                 <div className="bg-primary h-2 rounded-full animate-pulse w-full"></div>
@@ -155,10 +157,10 @@ function CallbackContent() {
           {status === 'error' && (
             <>
               <XCircle className="h-12 w-12 text-destructive" />
-              <h2 className="text-xl font-semibold text-destructive">Error</h2>
+              <h2 className="text-xl font-semibold text-destructive">{t('error.title')}</h2>
               <p className="text-center text-muted-foreground">{message}</p>
               <p className="text-xs text-muted-foreground">
-                Serás redirigido al login en unos segundos...
+                {t('error.redirecting')}
               </p>
             </>
           )}
@@ -170,13 +172,15 @@ function CallbackContent() {
 
 // Componente principal con Suspense boundary
 export default function CallbackPage() {
+  const t = useTranslations('authCallback');
+  
   return (
     <Suspense fallback={
       <div className="flex items-center justify-center min-h-screen p-4">
         <Card className="w-full max-w-md">
           <CardContent className="flex flex-col items-center justify-center p-8 space-y-4">
             <Loader2 className="h-12 w-12 animate-spin text-primary" />
-            <h2 className="text-xl font-semibold">Cargando...</h2>
+            <h2 className="text-xl font-semibold">{t('loading.title')}</h2>
           </CardContent>
         </Card>
       </div>
