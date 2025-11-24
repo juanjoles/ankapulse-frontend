@@ -9,6 +9,13 @@ const intlMiddleware = createMiddleware({
 
 export default function middleware(request: NextRequest) {
   
+ const { pathname } = request.nextUrl;
+  
+  // Si es una ruta de status page, no aplicar i18n
+  if (pathname.startsWith('/status')) {
+    return; // Dejar pasar sin modificar
+  }
+  
   const response = intlMiddleware(request);
   
   
