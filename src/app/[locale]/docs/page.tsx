@@ -10,6 +10,22 @@ export default function DocsIndexPage() {
   // Metadata de los artículos disponibles
   const articles = [
     {
+      title: t('articles.apiMonitoringGuide.title'),
+      description: t('articles.apiMonitoringGuide.description'),
+      href: '/docs/api-monitoring-guide',
+      category: t('articles.apiMonitoringGuide.category'),
+      readTime: '12',
+      icon: '📚',
+    },
+    // {
+    //   title: t('articles.ankapulseVsUptimerobot.title'),
+    //   description: t('articles.ankapulseVsUptimerobot.description'),
+    //   href: '/docs/ankapulse-vs-uptimerobot',
+    //   category: t('articles.ankapulseVsUptimerobot.category'),
+    //   readTime: '10',
+    //   icon: '⚖️',
+    // },
+    {
       title: t('articles.downtimeHistory.title'),
       description: t('articles.downtimeHistory.description'),
       href: '/docs/downtime-history',

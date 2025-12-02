@@ -290,6 +290,420 @@
         "title": "Sobre AnkaPulse",
         "description": "Conoce la historia detrás de AnkaPulse y por qué creamos una herramienta de monitoreo pensada para developers de LATAM.",
         "category": "Acerca de"
+      },
+      "apiMonitoringGuide": {
+        "title": "Guía Completa: Monitoreo de APIs y Servicios REST/GraphQL",
+        "description": "Aprende todo sobre monitoreo de APIs: conceptos clave, tipos, configuración y mejores prácticas.",
+        "category": "Guías"
+      },
+      "ankapulseVsUptimerobot": {
+        "title": "AnkaPulse vs UptimeRobot: Comparación Completa 2025",
+        "description": "Comparación detallada de características, precios y ventajas entre AnkaPulse y UptimeRobot.",
+        "category": "Comparaciones"
+      }
+    },
+    "apiMonitoringGuide": {
+      "category": "Guías",
+      "readTime": "12 min de lectura",
+      "title": "Guía Completa: Monitoreo de APIs y Servicios REST/GraphQL",
+      "description": "Aprende todo lo que necesitas saber sobre el monitoreo de APIs en 2025",
+      "toc": {
+        "title": "Contenido",
+        "whatIs": "¿Qué es el monitoreo de APIs?",
+        "types": "Tipos de monitoreo",
+        "glossary": "Glosario de términos",
+        "setup": "Cómo configurar monitoreo",
+        "bestPractices": "Mejores prácticas",
+        "tools": "Herramientas recomendadas"
+      },
+      "whatIs": {
+        "title": "¿Qué es el Monitoreo de APIs?",
+        "intro": "El monitoreo de APIs es el proceso de observar y analizar el comportamiento de tus interfaces de programación de aplicaciones (APIs) para garantizar que funcionen correctamente, respondan rápidamente y estén disponibles cuando tus usuarios las necesiten.",
+        "definition": "En términos simples, es como tener un vigilante que verifica constantemente si tus APIs están funcionando bien, alertándote inmediatamente cuando algo sale mal.",
+        "quote": "El 80% de los problemas de producción se detectan primero por los usuarios, no por sistemas de monitoreo. No seas parte de esa estadística.",
+        "whyImportant": "¿Por qué es crítico el monitoreo?",
+        "reason1": "Detecta problemas antes que tus usuarios: Un sistema de monitoreo te alerta segundos después de que ocurre un problema, no horas después cuando los clientes empiezan a quejarse.",
+        "reason2": "Reduce el tiempo de inactividad: Cuanto más rápido sepas que algo está mal, más rápido podrás solucionarlo. Cada minuto de downtime puede costar miles de dólares en revenue perdido.",
+        "reason3": "Mejora la confianza del usuario: Los usuarios confían en servicios que funcionan consistentemente. Un uptime del 99.9% no es un lujo, es un requisito mínimo.",
+        "reason4": "Datos para mejorar: El monitoreo no solo detecta problemas, también te da información valiosa sobre el rendimiento y uso de tus APIs.",
+        "useCases": "Casos de uso reales",
+        "useCase1Title": "E-commerce",
+        "useCase1": "Una tienda online monitorea su API de pagos. Si cae, pierden ventas. Con alertas en tiempo real, pueden actuar antes de perder miles de dólares.",
+        "useCase2Title": "SaaS B2B",
+        "useCase2": "Una plataforma SaaS monitorea sus APIs de autenticación. Si fallan, ningún cliente puede iniciar sesión. El monitoreo les permite resolver el problema en minutos, no horas.",
+        "useCase3Title": "Aplicaciones móviles",
+        "useCase3": "Una app móvil depende de APIs backend. Si el endpoint de notificaciones falla, los usuarios no reciben updates críticos. El monitoreo detecta esto inmediatamente.",
+        "useCase4Title": "Integraciones",
+        "useCase4": "Tu servicio consume APIs de terceros (Stripe, SendGrid, etc). Si esas APIs fallan, tu aplicación también. Monitorearlas te da visibilidad completa."
+      },
+      "types": {
+        "title": "Tipos de Monitoreo de APIs",
+        "uptime": {
+          "title": "1. Monitoreo de Uptime (Disponibilidad)",
+          "description": "Verifica constantemente si tu API está respondiendo y accesible. Es el tipo más básico pero fundamental de monitoreo.",
+          "example": "Ejemplo: Hacer una petición GET a https://api.tuapp.com/health cada minuto y verificar que devuelva un status 200"
+        },
+        "performance": {
+          "title": "2. Monitoreo de Performance (Latencia)",
+          "description": "Mide qué tan rápido responde tu API. Una API disponible pero lenta es casi tan malo como una API caída.",
+          "example": "Ejemplo: Medir que tu endpoint /api/users responda en menos de 200ms. Si tarda 5 segundos, hay un problema aunque técnicamente 'funcione'."
+        },
+        "errors": {
+          "title": "3. Monitoreo de Errores",
+          "description": "Rastrea errores específicos que ocurren en tu API: 500, 404, timeouts, excepciones no manejadas, etc.",
+          "example": "Ejemplo: Detectar cuando tu API empieza a devolver errores 500 en el 10% de las peticiones, indicando un problema en producción."
+        },
+        "health": {
+          "title": "4. Health Checks",
+          "description": "Endpoints dedicados que verifican no solo si tu API responde, sino si todos sus servicios dependientes (base de datos, cache, servicios externos) están funcionando.",
+          "example": "Ejemplo: Un endpoint /health que verifica PostgreSQL, Redis, y S3, devolviendo el estado de cada uno."
+        }
+      },
+      "glossary": {
+        "title": "Glosario de Términos Clave",
+        "intro": "Conceptos esenciales que necesitas conocer para entender el monitoreo de APIs:",
+        "terms": {
+          "uptime": {
+            "title": "Uptime / Disponibilidad",
+            "definition": "El porcentaje de tiempo que tu API está funcionando correctamente. Un uptime del 99.9% significa que tu API puede estar caída máximo 43 minutos al mes."
+          },
+          "downtime": {
+            "title": "Downtime / Tiempo de inactividad",
+            "definition": "El tiempo durante el cual tu API no está disponible o no funciona correctamente. Cada minuto de downtime puede costar dinero y confianza de usuarios."
+          },
+          "latency": {
+            "title": "Latency / Latencia",
+            "definition": "El tiempo que tarda tu API en responder a una petición. Una latencia baja (< 200ms) es crítica para una buena experiencia de usuario."
+          },
+          "responseTime": {
+            "title": "Response Time / Tiempo de respuesta",
+            "definition": "Similar a latencia, pero incluye el tiempo total desde que se envía la petición hasta que se recibe la respuesta completa."
+          },
+          "checkInterval": {
+            "title": "Check Interval / Intervalo de verificación",
+            "definition": "La frecuencia con la que se monitorea tu API. Por ejemplo, cada 1 minuto, cada 5 minutos, etc. Intervalos más cortos detectan problemas más rápido pero cuestan más."
+          },
+          "statusCodes": {
+            "title": "Status Codes / Códigos de estado HTTP",
+            "definition": "Los códigos que devuelve tu API: 200 (éxito), 404 (no encontrado), 500 (error del servidor), etc. El monitoreo verifica estos códigos para detectar problemas."
+          },
+          "alerts": {
+            "title": "Alerts / Alertas",
+            "definition": "Notificaciones que recibes cuando ocurre un problema: emails, mensajes de Telegram, SMS, webhooks, etc. Configurar alertas correctamente es crítico."
+          },
+          "statusPage": {
+            "title": "Status Page / Página de estado",
+            "definition": "Una página pública que muestra el estado actual de tus servicios. Transparencia que genera confianza con tus usuarios."
+          }
+        }
+      },
+      "setup": {
+        "title": "Cómo Configurar Monitoreo Paso a Paso",
+        "intro": "Guía práctica para implementar monitoreo en tu aplicación:",
+        "step1": {
+          "title": "Paso 1: Identifica qué monitorear",
+          "description": "No necesitas monitorear TODO. Enfócate en los endpoints críticos:",
+          "code": "✓ Endpoint de autenticación (/api/auth)\n✓ APIs principales de tu negocio (/api/orders, /api/payments)\n✓ Health check endpoint (/health)\n✓ APIs de terceros que consumes (Stripe, SendGrid, etc.)"
+        },
+        "step2": {
+          "title": "Paso 2: Configura health checks en tu backend",
+          "description": "Crea un endpoint dedicado que verifique tus dependencias:",
+          "item1": "Verifica conexión a base de datos",
+          "item2": "Verifica conexión a servicios de cache (Redis)",
+          "item3": "Verifica conexión a servicios externos críticos"
+        },
+        "step3": {
+          "title": "Paso 3: Elige una herramienta de monitoreo",
+          "description": "Puedes construir tu propio sistema o usar una herramienta como AnkaPulse que ya tiene todo configurado. Para la mayoría de equipos, una herramienta dedicada es la mejor opción."
+        },
+        "step4": {
+          "title": "Paso 4: Configura alertas inteligentes",
+          "description": "Define qué debe disparar una alerta y a quién notificar. Evita la fatiga de alertas configurando umbrales razonables."
+        }
+      },
+      "bestPractices": {
+        "title": "Mejores Prácticas de Monitoreo",
+        "frequency": {
+          "title": "Frecuencia de checks",
+          "description": "La frecuencia ideal depende de tu caso de uso:",
+          "tip1": "APIs críticas de producción: checks cada 1 minuto (detecta problemas en 60 segundos)",
+          "tip2": "APIs no críticas o en desarrollo: checks cada 5-15 minutos (suficiente para la mayoría de casos)",
+          "tip3": "Side projects o MVPs: checks cada 30 minutos (balance entre costo y utilidad)"
+        },
+        "endpoints": {
+          "title": "Qué endpoints monitorear",
+          "description": "No monitores todo, enfócate en lo importante:",
+          "tip1": "Endpoints que generan revenue (pagos, checkout, suscripciones)",
+          "tip2": "Endpoints de autenticación (login, registro, recuperación de contraseña)",
+          "tip3": "APIs principales que usan tus usuarios (listados, búsquedas, creación de contenido)",
+          "tip4": "Servicios de terceros críticos (procesadores de pago, email, SMS)"
+        },
+        "alerts": {
+          "title": "Configuración de alertas",
+          "description": "Evita la fatiga de alertas con estas reglas:",
+          "tip1": "No alertes en el primer fallo: espera 2-3 checks fallidos para confirmar que es un problema real, no un blip temporal",
+          "tip2": "Usa múltiples canales: email para contexto detallado, Telegram/Slack para notificaciones inmediatas",
+          "tip3": "Define cooldowns: no envíes 100 alertas del mismo problema. Una alerta inicial, luego actualizaciones cada X minutos."
+        },
+        "retention": {
+          "title": "Retención de datos",
+          "description": "¿Cuánto tiempo guardar los datos de monitoreo?",
+          "tip1": "Mínimo 7 días para side projects y MVPs (suficiente para detectar patrones semanales)",
+          "tip2": "30-90 días para producción (te permite analizar tendencias mensuales y problemas recurrentes)"
+        }
+      },
+      "tools": {
+        "title": "Herramientas Recomendadas",
+        "intro": "Hay muchas opciones en el mercado, pero para equipos indie y startups en LATAM, recomendamos:",
+        "ankapulse": "Monitoreo de uptime diseñado específicamente para desarrolladores indie y startups. Checks cada minuto, alertas por email y Telegram, status pages públicos, y lo más importante: acepta MercadoPago para evitar el impuesto del 65% en pagos internacionales.",
+        "cta": "Ver planes de AnkaPulse"
+      },
+      "conclusion": {
+        "title": "Conclusión",
+        "text": "El monitoreo de APIs no es opcional en 2025. Es la diferencia entre enterarte de un problema por tus usuarios (malo) o enterarte antes que ellos (bueno). Con las herramientas modernas, implementar monitoreo robusto es más fácil y económico que nunca.",
+        "cta": "¿Listo para empezar a monitorear tus APIs? AnkaPulse te ofrece checks cada minuto desde $5/mes."
+      }
+    },
+    "comparison": {
+      "category": "Comparaciones",
+      "readTime": "10 min de lectura",
+      "title": "AnkaPulse vs UptimeRobot: Comparación Completa 2024",
+      "description": "Comparación detallada y objetiva entre ambas plataformas para ayudarte a elegir la mejor opción",
+      "quickSummary": {
+        "title": "Resumen Rápido",
+        "text": "¿No tienes tiempo para leer todo? Aquí está el veredicto rápido:",
+        "chooseAnkapulse": "Elige AnkaPulse si...",
+        "ankapulseReason": "Estás en LATAM, quieres checks cada 1 minuto, mejor precio/monitor, y pagas con MercadoPago",
+        "chooseUptimerobot": "Elige UptimeRobot si...",
+        "uptimerobotReason": "Necesitas un plan Free muy generoso (50 monitores) o ya tienes tarjeta internacional"
+      },
+      "toc": {
+        "title": "Contenido",
+        "overview": "Visión general",
+        "comparisonTable": "Tabla comparativa",
+        "pricing": "Análisis de precios",
+        "features": "Características clave",
+        "prosCons": "Pros y contras",
+        "useCases": "Casos de uso",
+        "verdict": "Veredicto final"
+      },
+      "overview": {
+        "title": "Visión General",
+        "founded": "Fundado",
+        "target": "Mercado objetivo",
+        "ankapulse": {
+          "description": "Plataforma de monitoreo de uptime diseñada específicamente para desarrolladores indie, freelancers y startups en Latinoamérica.",
+          "founded": "2024",
+          "target": "Indie devs, startups LATAM, freelancers"
+        },
+        "uptimerobot": {
+          "description": "Servicio establecido de monitoreo de uptime con más de 10 años en el mercado y millones de usuarios globales.",
+          "founded": "2010",
+          "target": "Empresas globales, equipos establecidos"
+        }
+      },
+      "comparisonTable": {
+        "title": "Comparación Detallada",
+        "feature": "Característica",
+        "rows": {
+          "freePlan": "Plan Gratuito",
+          "starterPrice": "Precio Starter/Pro",
+          "checkFrequency": "Frecuencia de Checks",
+          "regions": "Regiones de Monitoreo",
+          "emailAlerts": "Alertas por Email",
+          "telegramAlerts": "Alertas por Telegram",
+          "smsAlerts": "Alertas por SMS",
+          "statusPage": "Status Page Público",
+          "spanishInterface": "Interfaz en Español",
+          "spanishSupport": "Soporte en Español",
+          "latamPayment": "Pago con MercadoPago",
+          "realCostArg": "Costo Real Argentina",
+          "dataRetentionFree": "Retención Free",
+          "mobileApp": "App Móvil"
+        },
+        "values": {
+          "ankapulse": {
+            "freePlan": "10 monitores",
+            "starterPrice": "$5/mes (20 mon)",
+            "checkFrequency": "1 minuto ⚡",
+            "regions": "1 (Free), 3+ (Pro)",
+            "telegramAlerts": "✅ Premium",
+            "smsAlerts": "🚧 Roadmap",
+            "spanishInterface": "✅ 100% Nativo",
+            "latamPayment": "✅ MercadoPago",
+            "realCostArg": "~$6,000 ARS",
+            "dataRetentionFree": "7 días",
+            "mobileApp": "✅ Optimizada"
+          },
+          "uptimerobot": {
+            "freePlan": "50 monitores",
+            "starterPrice": "$7/mes (10 mon)",
+            "checkFrequency": "5 minutos",
+            "regions": "Múltiples",
+            "smsAlerts": "✅ Extra cost",
+            "spanishInterface": "⚠️ Parcial",
+            "spanishSupport": "❌ Solo EN",
+            "realCostArg": "~$13,800 ARS",
+            "dataRetentionFree": "30 días",
+            "mobileApp": "✅ Básica"
+          }
+        }
+      },
+      "pricing": {
+        "title": "Análisis Profundo de Precios",
+        "latamWarning": {
+          "title": "⚠️ Importante para usuarios de LATAM",
+          "text": "En Argentina, México, Brasil y otros países de LATAM, pagar con tarjeta internacional tiene un impuesto adicional del 30-65% dependiendo del país.",
+          "example": "Ejemplo: $7 USD de UptimeRobot = ~$13,800 ARS con impuestos vs $5 USD de AnkaPulse con MercadoPago = ~$6,000 ARS sin impuesto extra."
+        },
+        "ankapulse": {
+          "free": {
+            "title": "Free",
+            "monitors": "10 monitores",
+            "frequency": "Checks cada 30 min",
+            "retention": "7 días de retención"
+          },
+          "starter": {
+            "title": "Starter (Recomendado)",
+            "price": "$5/mes",
+            "monitors": "20 monitores",
+            "frequency": "Checks cada 1 minuto",
+            "telegram": "Alertas por Telegram",
+            "retention": "30 días de retención"
+          },
+          "pro": {
+            "title": "Pro",
+            "price": "$15/mes",
+            "monitors": "50 monitores",
+            "everything": "Todo lo anterior + 90 días retención"
+          }
+        },
+        "uptimerobot": {
+          "free": {
+            "title": "Free",
+            "monitors": "50 monitores",
+            "frequency": "Checks cada 5 min",
+            "retention": "30 días de retención"
+          },
+          "pro": {
+            "title": "Pro",
+            "price": "$7/mes",
+            "monitors": "10 monitores",
+            "frequency": "Checks cada 1 min",
+            "sms": "SMS alerts (costo extra)"
+          }
+        }
+      },
+      "features": {
+        "title": "Características Clave Comparadas",
+        "checkFrequency": {
+          "title": "Frecuencia de Checks",
+          "description": "Esta es una de las diferencias más importantes entre ambas plataformas:",
+          "ankapulse": "1 minuto",
+          "ankapulseDetail": "Detecta problemas en 60 segundos. Crítico para APIs de producción.",
+          "uptimerobot": "5 minutos (plan pago)",
+          "uptimerobotDetail": "Un problema podría estar activo hasta 5 minutos antes de ser detectado."
+        },
+        "alerts": {
+          "title": "Canales de Alertas",
+          "description": "Ambas plataformas ofrecen múltiples canales de notificación:",
+          "both": "Email (ambos)",
+          "bothDetail": "Alertas por email incluidas en todos los planes",
+          "telegram": "Telegram (solo AnkaPulse)",
+          "telegramDetail": "AnkaPulse incluye alertas por Telegram en planes premium. UptimeRobot no ofrece Telegram.",
+          "sms": "SMS",
+          "smsDetail": "UptimeRobot ofrece SMS (costo extra). AnkaPulse en roadmap."
+        },
+        "latam": {
+          "title": "Ventajas para LATAM",
+          "description": "AnkaPulse fue diseñado pensando en desarrolladores latinoamericanos:",
+          "advantage": "Por qué esto importa para LATAM",
+          "point1": "MercadoPago: Evita el impuesto del 30-65% en pagos internacionales",
+          "point2": "Interfaz 100% en español: No solo traducida, sino pensada para hispanohablantes",
+          "point3": "Soporte directo en español: Habla con el fundador en tu idioma"
+        }
+      },
+      "prosCons": {
+        "title": "Pros y Contras de Cada Plataforma",
+        "pros": "Ventajas",
+        "cons": "Desventajas",
+        "ankapulse": {
+          "pros": {
+            "1": "⚡ Checks cada 1 minuto (5x más rápido que competencia)",
+            "2": "💰 Mejor relación precio/monitores ($5 por 20 vs $7 por 10)",
+            "3": "🌎 MercadoPago sin impuestos extra en LATAM",
+            "4": "🇪🇸 Interfaz y soporte 100% en español",
+            "5": "📱 Alertas por Telegram incluidas (premium)",
+            "6": "🤝 Built in public: Hablas directo con el founder"
+          },
+          "cons": {
+            "1": "⚠️ Producto más nuevo (menos track record)",
+            "2": "⚠️ Plan Free con menos monitores (10 vs 50)",
+            "3": "⚠️ Sin SMS alerts (por ahora, en roadmap)"
+          }
+        },
+        "uptimerobot": {
+          "pros": {
+            "1": "✅ Más tiempo en el mercado (establecido desde 2010)",
+            "2": "✅ Plan Free muy generoso (50 monitores)",
+            "3": "✅ SMS alerts disponibles"
+          },
+          "cons": {
+            "1": "❌ Checks cada 5 minutos (más lento)",
+            "2": "❌ Más caro en LATAM por impuestos (hasta 2x el precio real)",
+            "3": "❌ Menos monitores por dólar ($7 por 10 vs $5 por 20)",
+            "4": "❌ No acepta MercadoPago"
+          }
+        }
+      },
+      "useCases": {
+        "title": "¿Cuál Elegir Según Tu Caso?",
+        "chooseAnkapulse": {
+          "title": "✅ Elige AnkaPulse si:",
+          "case1": "Estás en Argentina, México, Brasil, Chile u otro país de LATAM donde los pagos internacionales tienen impuestos altos",
+          "case2": "Necesitas detección rápida de problemas (checks cada 1 minuto) para APIs críticas",
+          "case3": "Quieres mejor relación precio/monitores (20 monitores por $5 vs 10 por $7)",
+          "case4": "Valoras soporte en español y una plataforma pensada para LATAM"
+        },
+        "chooseUptimerobot": {
+          "title": "✅ Elige UptimeRobot si:",
+          "case1": "Necesitas un plan Free muy generoso con 50 monitores para proyectos pequeños",
+          "case2": "Ya tienes tarjeta internacional y no te afectan los impuestos extra",
+          "case3": "Necesitas SMS alerts inmediatamente (AnkaPulse las tiene en roadmap)"
+        },
+        "examples": {
+          "startup": {
+            "title": "Startup argentina",
+            "description": "Eligió AnkaPulse por MercadoPago (sin impuesto 65%) y checks cada 1 minuto para su API de pagos"
+          },
+          "freelancer": {
+            "title": "Freelancer mexicano",
+            "description": "Usa AnkaPulse para monitorear 5 proyectos de clientes con checks rápidos y soporte en español"
+          },
+          "agency": {
+            "title": "Agencia chilena",
+            "description": "Monitorea 15 sitios de clientes con AnkaPulse, ahorrando 50% vs competencia con tarjeta internacional"
+          }
+        }
+      },
+      "verdict": {
+        "title": "Veredicto Final",
+        "summary": "Ambas son excelentes herramientas, pero cada una brilla en diferentes escenarios:",
+        "winner": {
+          "ankapulse": "🏆 AnkaPulse gana para:",
+          "ankapulsePoint1": "Usuarios de LATAM (evita impuesto 30-65%)",
+          "ankapulsePoint2": "Mejor relación precio/monitores y checks más rápidos",
+          "ankapulsePoint3": "Soporte y experiencia en español nativo",
+          "uptimerobot": "🏆 UptimeRobot gana para:",
+          "uptimerobotPoint1": "Plan Free muy generoso (50 monitores)",
+          "uptimerobotPoint2": "Si no te afectan impuestos de pago internacional"
+        },
+        "cta": "Empieza a Monitorear con AnkaPulse"
+      },
+      "conclusion": {
+        "title": "Conclusión",
+        "text": "Para desarrolladores y startups en LATAM, AnkaPulse ofrece una propuesta de valor superior: checks más rápidos (1 min vs 5 min), mejor precio por monitor, y sobre todo, MercadoPago que evita el impuesto del 30-65% que pagarías con UptimeRobot usando tarjeta internacional.",
+        "final": "Si estás fuera de LATAM o necesitas un plan Free muy generoso, UptimeRobot sigue siendo una excelente opción con su plan de 50 monitores gratuitos."
       }
     },
     "readTime": "min",
