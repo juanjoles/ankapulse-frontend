@@ -1121,8 +1121,8 @@
       "privacyLink": "Política de Privacidad",
       "freePlan": {
         "title": "✨ Plan Gratuito incluye:",
-        "checks": "10 checks de monitoreo",
-        "interval": "Verificaciones cada 30 minutos",
+        "checks": "20 checks de monitoreo",
+        "interval": "Verificaciones cada 5 minutos",
         "alerts": "Alertas por email",
         "retention": "7 días de retención de datos"
       }
