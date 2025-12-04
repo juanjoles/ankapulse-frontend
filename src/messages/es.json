@@ -85,8 +85,8 @@
     "free": {
       "name": "Free",
       "features": {
-        "checks": "10 checks",
-        "interval": "Intervalo mínimo: 30 minutos",
+        "checks": "20 checks",
+        "interval": "Intervalo mínimo: 5 minutos",
         "emailAlerts": "Email alerts",
         "statusPage": "Status Page",
         "retention": "7 días retención",
