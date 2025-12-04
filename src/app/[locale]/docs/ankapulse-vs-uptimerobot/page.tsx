@@ -67,7 +67,7 @@ export default function AnkaPulseVsUptimeRobotPage() {
             <p className="text-sm text-muted-foreground">{t('quickSummary.ankapulseReason')}</p>
           </div>
           <div className="p-4 bg-card rounded-lg border">
-            <p className="font-semibold mb-2">✅ {t('quickSummary.chooseUptimerobot')}</p>
+            <p className="font-semibold mb-2">⚠️ {t('quickSummary.chooseUptimerobot')}</p>
             <p className="text-sm text-muted-foreground">{t('quickSummary.uptimerobotReason')}</p>
           </div>
         </div>
@@ -151,26 +151,47 @@ export default function AnkaPulseVsUptimeRobotPage() {
                 <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.freePlan')}</td>
                 <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.freePlan')}</td>
               </tr>
+
+              {/* Free Checks */}
+              <tr className="border-b hover:bg-muted/30">
+                <td className="p-4 font-medium">{t('comparisonTable.rows.freeChecks')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.freeChecks')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.freeChecks')}</td>
+              </tr>
               
               {/* Starter Price */}
-              <tr className="border-b hover:bg-muted/30">
+              <tr className="border-b hover:bg-muted/30 bg-primary/5">
                 <td className="p-4 font-medium">{t('comparisonTable.rows.starterPrice')}</td>
                 <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.starterPrice')}</td>
                 <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.starterPrice')}</td>
               </tr>
-              
-              {/* Check Frequency */}
-              <tr className="border-b hover:bg-muted/30 bg-primary/5">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.checkFrequency')}</td>
-                <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.checkFrequency')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.checkFrequency')}</td>
+
+              {/* Starter Monitors */}
+              <tr className="border-b hover:bg-muted/30">
+                <td className="p-4 font-medium">{t('comparisonTable.rows.starterMonitors')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.starterMonitors')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.starterMonitors')}</td>
               </tr>
               
-              {/* Regions */}
+              {/* Check Frequency */}
               <tr className="border-b hover:bg-muted/30">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.regions')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.regions')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.regions')}</td>
+                <td className="p-4 font-medium">{t('comparisonTable.rows.checkFrequency')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.checkFrequency')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.checkFrequency')}</td>
+              </tr>
+
+              {/* Pro Plan */}
+              <tr className="border-b hover:bg-muted/30 bg-primary/5">
+                <td className="p-4 font-medium">{t('comparisonTable.rows.proPlan')}</td>
+                <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.proPlan')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.proPlan')}</td>
+              </tr>
+
+              {/* Pro Monitors */}
+              <tr className="border-b hover:bg-muted/30">
+                <td className="p-4 font-medium">{t('comparisonTable.rows.proMonitors')}</td>
+                <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.proMonitors')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.proMonitors')}</td>
               </tr>
               
               {/* Email Alerts */}
@@ -184,7 +205,7 @@ export default function AnkaPulseVsUptimeRobotPage() {
               <tr className="border-b hover:bg-muted/30 bg-primary/5">
                 <td className="p-4 font-medium">{t('comparisonTable.rows.telegramAlerts')}</td>
                 <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.telegramAlerts')}</td>
-                <td className="p-4 text-center"><XCircle className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.telegramAlerts')}</td>
               </tr>
               
               {/* SMS Alerts */}
@@ -197,50 +218,36 @@ export default function AnkaPulseVsUptimeRobotPage() {
               {/* Status Page */}
               <tr className="border-b hover:bg-muted/30">
                 <td className="p-4 font-medium">{t('comparisonTable.rows.statusPage')}</td>
-                <td className="p-4 text-center"><CheckCircle className="w-5 h-5 text-success mx-auto" /></td>
-                <td className="p-4 text-center"><CheckCircle className="w-5 h-5 text-success mx-auto" /></td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.statusPage')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.statusPage')}</td>
               </tr>
-              
-              {/* Spanish Interface */}
-              <tr className="border-b hover:bg-muted/30 bg-primary/5">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.spanishInterface')}</td>
-                <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.spanishInterface')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.spanishInterface')}</td>
-              </tr>
-              
-              {/* Spanish Support */}
+
+              {/* API Access */}
               <tr className="border-b hover:bg-muted/30">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.spanishSupport')}</td>
-                <td className="p-4 text-center"><CheckCircle className="w-5 h-5 text-success mx-auto" /></td>
-                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.spanishSupport')}</td>
+                <td className="p-4 font-medium">{t('comparisonTable.rows.apiAccess')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.apiAccess')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.apiAccess')}</td>
               </tr>
               
               {/* LATAM Payment */}
               <tr className="border-b hover:bg-muted/30 bg-primary/5">
                 <td className="p-4 font-medium">{t('comparisonTable.rows.latamPayment')}</td>
                 <td className="p-4 text-center font-semibold text-success">{t('comparisonTable.values.ankapulse.latamPayment')}</td>
-                <td className="p-4 text-center"><XCircle className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.latamPayment')}</td>
               </tr>
               
-              {/* Real Cost Argentina */}
-              <tr className="border-b hover:bg-muted/30 bg-orange-50 dark:bg-orange-950/20">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.realCostArg')}</td>
-                <td className="p-4 text-center font-bold text-success">{t('comparisonTable.values.ankapulse.realCostArg')}</td>
-                <td className="p-4 text-center font-bold text-destructive">{t('comparisonTable.values.uptimerobot.realCostArg')}</td>
-              </tr>
-              
-              {/* Data Retention Free */}
+              {/* Data Retention */}
               <tr className="border-b hover:bg-muted/30">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.dataRetentionFree')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.dataRetentionFree')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.dataRetentionFree')}</td>
+                <td className="p-4 font-medium">{t('comparisonTable.rows.dataRetentionPaid')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.dataRetentionPaid')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.dataRetentionPaid')}</td>
               </tr>
-              
-              {/* Mobile App */}
+
+              {/* Support */}
               <tr className="border-b hover:bg-muted/30">
-                <td className="p-4 font-medium">{t('comparisonTable.rows.mobileApp')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.mobileApp')}</td>
-                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.mobileApp')}</td>
+                <td className="p-4 font-medium">{t('comparisonTable.rows.support')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.ankapulse.support')}</td>
+                <td className="p-4 text-center">{t('comparisonTable.values.uptimerobot.support')}</td>
               </tr>
             </tbody>
           </table>
@@ -254,15 +261,56 @@ export default function AnkaPulseVsUptimeRobotPage() {
           {t('pricing.title')}
         </h2>
         
+        <p className="mb-8 text-lg text-muted-foreground">{t('pricing.intro')}</p>
+
+        {/* Free Comparison */}
+        <div className="mb-8 p-6 bg-muted/50 border-l-4 border-muted rounded-r-lg">
+          <h3 className="text-xl font-semibold mb-3">{t('pricing.freeComparison.title')}</h3>
+          <div className="space-y-2">
+            <p className="text-sm">• {t('pricing.freeComparison.ankapulseFree')}</p>
+            <p className="text-sm">• {t('pricing.freeComparison.uptimerobotFree')}</p>
+            <p className="font-semibold text-sm mt-3">{t('pricing.freeComparison.verdict')}</p>
+            <p className="text-sm text-muted-foreground italic">{t('pricing.freeComparison.but')}</p>
+          </div>
+        </div>
+
+        {/* Starter Comparison */}
+        <div className="mb-8 p-6 bg-success/10 border-l-4 border-success rounded-r-lg">
+          <h3 className="text-xl font-semibold mb-3">{t('pricing.starterComparison.title')}</h3>
+          <div className="space-y-2">
+            <p className="text-sm">• {t('pricing.starterComparison.ankapulseStarter')}</p>
+            <p className="text-sm">• {t('pricing.starterComparison.uptimerobotSolo')}</p>
+            <p className="font-bold text-success mt-3">{t('pricing.starterComparison.savings')}</p>
+            <p className="font-semibold text-sm">{t('pricing.starterComparison.verdict')}</p>
+          </div>
+        </div>
+
+        {/* Pro Comparison */}
+        <div className="mb-8 p-6 bg-primary/10 border-l-4 border-primary rounded-r-lg">
+          <h3 className="text-xl font-semibold mb-3">{t('pricing.proComparison.title')}</h3>
+          <div className="space-y-2">
+            <p className="text-sm">• {t('pricing.proComparison.ankapulsePro')}</p>
+            <p className="text-sm">• {t('pricing.proComparison.uptimerobotTeam')}</p>
+            <p className="font-semibold text-sm mt-3">{t('pricing.proComparison.pricePerMonitor')}</p>
+            <p className="text-sm ml-4">- {t('pricing.proComparison.ankapulseRate')}</p>
+            <p className="text-sm ml-4">- {t('pricing.proComparison.uptimerobotRate')}</p>
+            <p className="font-bold text-primary mt-3">{t('pricing.proComparison.savings')}</p>
+            <p className="font-semibold text-sm">{t('pricing.proComparison.verdict')}</p>
+          </div>
+        </div>
+
+        {/* LATAM Bonus */}
         <div className="mb-8 p-6 bg-orange-50 dark:bg-orange-950/20 border-l-4 border-orange-500 rounded-r-lg">
           <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
             <AlertCircle className="w-6 h-6 text-orange-500" />
-            {t('pricing.latamWarning.title')}
+            {t('pricing.latamBonus.title')}
           </h3>
-          <p className="mb-3">{t('pricing.latamWarning.text')}</p>
-          <p className="font-semibold">{t('pricing.latamWarning.example')}</p>
+          <p className="mb-3">{t('pricing.latamBonus.text')}</p>
+          <p className="text-sm">✅ {t('pricing.latamBonus.mercadopago')}</p>
+          <p className="text-sm text-muted-foreground mt-2">{t('pricing.latamBonus.comparison')}</p>
         </div>
 
+        {/* Plan Cards */}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="p-6 border-2 border-primary rounded-lg bg-card">
             <h3 className="text-2xl font-bold mb-4">AnkaPulse</h3>
@@ -273,6 +321,7 @@ export default function AnkaPulseVsUptimeRobotPage() {
                   <li>• {t('pricing.ankapulse.free.monitors')}</li>
                   <li>• {t('pricing.ankapulse.free.frequency')}</li>
                   <li>• {t('pricing.ankapulse.free.retention')}</li>
+                  <li>• {t('pricing.ankapulse.free.alerts')}</li>
                 </ul>
               </div>
               <div className="p-4 bg-primary/10 rounded-lg">
@@ -283,6 +332,7 @@ export default function AnkaPulseVsUptimeRobotPage() {
                   <li>• {t('pricing.ankapulse.starter.frequency')}</li>
                   <li>• {t('pricing.ankapulse.starter.telegram')}</li>
                   <li>• {t('pricing.ankapulse.starter.retention')}</li>
+                  <li>• {t('pricing.ankapulse.starter.regions')}</li>
                 </ul>
               </div>
               <div>
@@ -291,6 +341,9 @@ export default function AnkaPulseVsUptimeRobotPage() {
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   <li>• {t('pricing.ankapulse.pro.monitors')}</li>
                   <li>• {t('pricing.ankapulse.pro.everything')}</li>
+                  <li>• {t('pricing.ankapulse.pro.retention')}</li>
+                  <li>• {t('pricing.ankapulse.pro.api')}</li>
+                  <li>• {t('pricing.ankapulse.pro.support')}</li>
                 </ul>
               </div>
             </div>
@@ -304,16 +357,28 @@ export default function AnkaPulseVsUptimeRobotPage() {
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   <li>• {t('pricing.uptimerobot.free.monitors')}</li>
                   <li>• {t('pricing.uptimerobot.free.frequency')}</li>
-                  <li>• {t('pricing.uptimerobot.free.retention')}</li>
+                  <li>• {t('pricing.uptimerobot.free.integrations')}</li>
+                  <li>• {t('pricing.uptimerobot.free.statusPage')}</li>
                 </ul>
               </div>
               <div className="p-4 bg-muted rounded-lg">
-                <p className="font-semibold text-lg">{t('pricing.uptimerobot.pro.title')}</p>
-                <p className="text-2xl font-bold mb-2">{t('pricing.uptimerobot.pro.price')}</p>
+                <p className="font-semibold text-lg">{t('pricing.uptimerobot.solo.title')}</p>
+                <p className="text-2xl font-bold mb-2">{t('pricing.uptimerobot.solo.price')}</p>
                 <ul className="space-y-1 text-sm">
-                  <li>• {t('pricing.uptimerobot.pro.monitors')}</li>
-                  <li>• {t('pricing.uptimerobot.pro.frequency')}</li>
-                  <li>• {t('pricing.uptimerobot.pro.sms')}</li>
+                  <li>• {t('pricing.uptimerobot.solo.monitors')}</li>
+                  <li>• {t('pricing.uptimerobot.solo.frequency')}</li>
+                  <li>• {t('pricing.uptimerobot.solo.integrations')}</li>
+                  <li>• {t('pricing.uptimerobot.solo.note')}</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-lg">{t('pricing.uptimerobot.team.title')}</p>
+                <p className="text-xl font-bold mb-2">{t('pricing.uptimerobot.team.price')}</p>
+                <ul className="space-y-1 text-sm text-muted-foreground">
+                  <li>• {t('pricing.uptimerobot.team.monitors')}</li>
+                  <li>• {t('pricing.uptimerobot.team.frequency')}</li>
+                  <li>• {t('pricing.uptimerobot.team.integrations')}</li>
+                  <li>• {t('pricing.uptimerobot.team.seats')}</li>
                 </ul>
               </div>
             </div>
@@ -326,24 +391,60 @@ export default function AnkaPulseVsUptimeRobotPage() {
         <h2 className="text-3xl font-bold mb-6">{t('features.title')}</h2>
         
         <div className="space-y-6">
+          {/* Value Proposition */}
+          <div className="p-6 border rounded-lg bg-card">
+            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
+              <DollarSign className="w-6 h-6 text-primary" />
+              {t('features.valueProposition.title')}
+            </h3>
+            <p className="mb-4 text-muted-foreground">{t('features.valueProposition.description')}</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-success/10 rounded-lg border border-success/20">
+                <p className="font-semibold mb-2">🦅 AnkaPulse</p>
+                <p className="text-sm">{t('features.valueProposition.ankapulse')}</p>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <p className="font-semibold mb-2">🤖 UptimeRobot</p>
+                <p className="text-sm">{t('features.valueProposition.uptimerobot')}</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm font-semibold text-primary">{t('features.valueProposition.difference')}</p>
+          </div>
+
+          {/* Check Frequency */}
           <div className="p-6 border rounded-lg bg-card">
             <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
               <Zap className="w-6 h-6 text-primary" />
               {t('features.checkFrequency.title')}
             </h3>
             <p className="mb-4 text-muted-foreground">{t('features.checkFrequency.description')}</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 bg-success/10 rounded-lg border border-success/20">
-                <p className="font-semibold mb-2">🦅 AnkaPulse: {t('features.checkFrequency.ankapulse')}</p>
-                <p className="text-sm text-muted-foreground">{t('features.checkFrequency.ankapulseDetail')}</p>
-              </div>
-              <div className="p-4 bg-muted rounded-lg">
-                <p className="font-semibold mb-2">🤖 UptimeRobot: {t('features.checkFrequency.uptimerobot')}</p>
-                <p className="text-sm text-muted-foreground">{t('features.checkFrequency.uptimerobotDetail')}</p>
-              </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <p className="font-semibold mb-2">{t('features.checkFrequency.equal')}</p>
+              <p className="text-sm text-muted-foreground">{t('features.checkFrequency.note')}</p>
             </div>
           </div>
 
+          {/* Scaling */}
+          <div className="p-6 border rounded-lg bg-card">
+            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
+              <BarChart3 className="w-6 h-6 text-primary" />
+              {t('features.scaling.title')}
+            </h3>
+            <p className="mb-4 text-muted-foreground">{t('features.scaling.description')}</p>
+            <div className="space-y-3">
+              <div className="p-4 bg-success/10 rounded-lg border border-success/20">
+                <p className="font-semibold mb-2">🦅 AnkaPulse</p>
+                <p className="text-sm">{t('features.scaling.ankapulse')}</p>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <p className="font-semibold mb-2">🤖 UptimeRobot</p>
+                <p className="text-sm">{t('features.scaling.uptimerobot')}</p>
+              </div>
+              <p className="mt-4 text-sm font-semibold text-success">{t('features.scaling.verdict')}</p>
+            </div>
+          </div>
+
+          {/* Alerts */}
           <div className="p-6 border rounded-lg bg-card">
             <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
               <Bell className="w-6 h-6 text-primary" />
@@ -354,8 +455,7 @@ export default function AnkaPulseVsUptimeRobotPage() {
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-success mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">{t('features.alerts.both')}</p>
-                  <p className="text-sm text-muted-foreground">{t('features.alerts.bothDetail')}</p>
+                  <p className="font-semibold">{t('features.alerts.email')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -366,37 +466,18 @@ export default function AnkaPulseVsUptimeRobotPage() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold">{t('features.alerts.slack')}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">{t('features.alerts.sms')}</p>
                   <p className="text-sm text-muted-foreground">{t('features.alerts.smsDetail')}</p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="p-6 border rounded-lg bg-card">
-            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-              <Globe className="w-6 h-6 text-primary" />
-              {t('features.latam.title')}
-            </h3>
-            <p className="mb-4 text-muted-foreground">{t('features.latam.description')}</p>
-            <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
-              <p className="font-semibold mb-2">{t('features.latam.advantage')}</p>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
-                  <span>{t('features.latam.point1')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
-                  <span>{t('features.latam.point2')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
-                  <span>{t('features.latam.point3')}</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -549,6 +630,10 @@ export default function AnkaPulseVsUptimeRobotPage() {
                 <CheckCircle className="w-5 h-5 text-success mt-1 flex-shrink-0" />
                 <span>{t('useCases.chooseAnkapulse.case4')}</span>
               </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-success mt-1 flex-shrink-0" />
+                <span>{t('useCases.chooseAnkapulse.case5')}</span>
+              </li>
             </ul>
           </div>
 
@@ -577,12 +662,12 @@ export default function AnkaPulseVsUptimeRobotPage() {
               <p className="text-sm text-muted-foreground">{t('useCases.examples.startup.description')}</p>
             </div>
             <div className="p-5 bg-muted rounded-lg">
-              <p className="font-semibold mb-2">👨‍💻 {t('useCases.examples.freelancer.title')}</p>
-              <p className="text-sm text-muted-foreground">{t('useCases.examples.freelancer.description')}</p>
+              <p className="font-semibold mb-2">📈 {t('useCases.examples.growing.title')}</p>
+              <p className="text-sm text-muted-foreground">{t('useCases.examples.growing.description')}</p>
             </div>
             <div className="p-5 bg-muted rounded-lg">
-              <p className="font-semibold mb-2">🏢 {t('useCases.examples.agency.title')}</p>
-              <p className="text-sm text-muted-foreground">{t('useCases.examples.agency.description')}</p>
+              <p className="font-semibold mb-2">👨‍💻 {t('useCases.examples.freelancer.title')}</p>
+              <p className="text-sm text-muted-foreground">{t('useCases.examples.freelancer.description')}</p>
             </div>
           </div>
         </div>
@@ -598,21 +683,26 @@ export default function AnkaPulseVsUptimeRobotPage() {
         <div className="p-8 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary">
           <p className="text-lg mb-6">{t('verdict.summary')}</p>
           
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="space-y-6 mb-6">
             <div className="p-5 bg-card rounded-lg border">
-              <h3 className="font-bold text-lg mb-3 text-success">{t('verdict.winner.ankapulse')}</h3>
+              <h3 className="font-bold text-lg mb-3 text-success">{t('verdict.forPaid.title')}</h3>
+              <p className="mb-3">{t('verdict.forPaid.text')}</p>
               <ul className="space-y-2 text-sm">
-                <li>• {t('verdict.winner.ankapulsePoint1')}</li>
-                <li>• {t('verdict.winner.ankapulsePoint2')}</li>
-                <li>• {t('verdict.winner.ankapulsePoint3')}</li>
+                <li>{t('verdict.forPaid.starter')}</li>
+                <li>{t('verdict.forPaid.pro')}</li>
+                <li>{t('verdict.forPaid.scaling')}</li>
               </ul>
             </div>
+            
             <div className="p-5 bg-card rounded-lg border">
-              <h3 className="font-bold text-lg mb-3 text-blue-500">{t('verdict.winner.uptimerobot')}</h3>
-              <ul className="space-y-2 text-sm">
-                <li>• {t('verdict.winner.uptimerobotPoint1')}</li>
-                <li>• {t('verdict.winner.uptimerobotPoint2')}</li>
-              </ul>
+              <h3 className="font-bold text-lg mb-3 text-blue-500">{t('verdict.forFree.title')}</h3>
+              <p className="mb-2">{t('verdict.forFree.text')}</p>
+              <p className="text-sm text-muted-foreground italic">{t('verdict.forFree.but')}</p>
+            </div>
+
+            <div className="p-5 bg-primary/10 rounded-lg border border-primary">
+              <h3 className="font-bold text-lg mb-3">{t('verdict.recommendation.title')}</h3>
+              <p className="text-sm">{t('verdict.recommendation.text')}</p>
             </div>
           </div>
 

@@ -1581,5 +1581,308 @@
       "title": "Error",
       "redirecting": "You will be redirected to login in a few seconds..."
     }
+  },
+  "comparison": {
+    "category": "Comparisons",
+    "readTime": "10 min read",
+    "title": "AnkaPulse vs UptimeRobot: Complete 2024 Comparison",
+    "description": "Detailed comparison of pricing, features and value to help you choose",
+    "quickSummary": {
+      "title": "Quick Summary",
+      "text": "Don't have time? Here's the verdict:",
+      "chooseAnkapulse": "✅ AnkaPulse offers:",
+      "ankapulseReason": "Better price per monitor across all paid plans. $5/mo for 50 monitors vs $7/mo from UptimeRobot.",
+      "chooseUptimerobot": "⚠️ UptimeRobot offers:",
+      "uptimerobotReason": "More generous Free plan (50 vs 20 monitors), but both with 5-min checks."
+    },
+    "toc": {
+      "title": "Table of Contents",
+      "overview": "Overview",
+      "comparisonTable": "Comparison table",
+      "pricing": "Pricing analysis",
+      "features": "Key features",
+      "prosCons": "Pros and cons",
+      "useCases": "Use cases",
+      "verdict": "Final verdict"
+    },
+    "overview": {
+      "title": "Overview",
+      "founded": "Founded",
+      "target": "Target market",
+      "ankapulse": {
+        "description": "Modern uptime monitoring platform with the best price-to-value ratio in the market, designed for developers who want quality without paying enterprise prices.",
+        "founded": "2024",
+        "target": "Indie devs, startups, freelancers globally"
+      },
+      "uptimerobot": {
+        "description": "Established uptime monitoring service with over 10 years in the market and millions of global users.",
+        "founded": "2010",
+        "target": "From hobby projects to enterprises"
+      }
+    },
+    "comparisonTable": {
+      "title": "Detailed Comparison",
+      "feature": "Feature",
+      "rows": {
+        "freePlan": "Free Plan",
+        "freeChecks": "Checks (Free)",
+        "starterPrice": "Starter/Solo Plan",
+        "starterMonitors": "Monitors included",
+        "checkFrequency": "Check Frequency",
+        "proPlan": "Pro/Team Plan",
+        "proMonitors": "Pro/Team Monitors",
+        "emailAlerts": "Email Alerts",
+        "telegramAlerts": "Telegram Alerts",
+        "smsAlerts": "SMS Alerts",
+        "statusPage": "Status Pages",
+        "apiAccess": "API Access",
+        "latamPayment": "MercadoPago (LATAM)",
+        "dataRetentionPaid": "Retention (Paid Plan)",
+        "support": "Support"
+      },
+      "values": {
+        "ankapulse": {
+          "freePlan": "20 monitors",
+          "freeChecks": "5 minutes",
+          "starterPrice": "$5/mo",
+          "starterMonitors": "50 monitors",
+          "checkFrequency": "1 minute",
+          "proPlan": "$15/mo",
+          "proMonitors": "200 monitors",
+          "telegramAlerts": "✅ Included (Starter+)",
+          "smsAlerts": "🚧 Coming soon",
+          "statusPage": "✅ Unlimited",
+          "apiAccess": "🚧 Coming soon",
+          "latamPayment": "✅ Available",
+          "dataRetentionPaid": "30-90 days",
+          "support": "Email + Direct"
+        },
+        "uptimerobot": {
+          "freePlan": "50 monitors",
+          "freeChecks": "5 minutes",
+          "starterPrice": "$7/mo",
+          "starterMonitors": "50 monitors",
+          "checkFrequency": "1 minute",
+          "proPlan": "$29/mo",
+          "proMonitors": "100 monitors",
+          "telegramAlerts": "✅ Via integrations",
+          "smsAlerts": "✅ Extra cost",
+          "statusPage": "✅ Limited",
+          "apiAccess": "✅ Available",
+          "latamPayment": "❌ Not available",
+          "dataRetentionPaid": "Varies by plan",
+          "support": "Tickets (EN)"
+        }
+      }
+    },
+    "pricing": {
+      "title": "In-Depth Pricing Analysis",
+      "intro": "Let's compare real plans to understand where the true value lies:",
+      "freeComparison": {
+        "title": "Free Plans Comparison",
+        "ankapulseFree": "AnkaPulse Free: 20 monitors, 5-min checks",
+        "uptimerobotFree": "UptimeRobot Free: 50 monitors, 5-min checks",
+        "verdict": "🏆 UptimeRobot wins in free monitor quantity",
+        "but": "BUT... both have 5-minute checks. For production, you need the paid plan."
+      },
+      "starterComparison": {
+        "title": "Starter/Solo Comparison (Most Popular Plan)",
+        "ankapulseStarter": "AnkaPulse Starter: $5/mo - 50 monitors - 1 min checks - Telegram included",
+        "uptimerobotSolo": "UptimeRobot Solo: $7/mo - 50 monitors - 1 min checks - No Telegram",
+        "savings": "💰 You save: $2/mo = $24/year (28% cheaper)",
+        "verdict": "🏆 AnkaPulse wins on price and features"
+      },
+      "proComparison": {
+        "title": "Pro/Team Comparison",
+        "ankapulsePro": "AnkaPulse Pro: $15/mo - 200 monitors - Everything included",
+        "uptimerobotTeam": "UptimeRobot Team: $29/mo - 100 monitors - Everything included",
+        "pricePerMonitor": "Price per monitor:",
+        "ankapulseRate": "AnkaPulse: $0.075/monitor",
+        "uptimerobotRate": "UptimeRobot: $0.29/monitor",
+        "savings": "💰 You save: $14/mo = $168/year (48% cheaper with 2x monitors)",
+        "verdict": "🏆 AnkaPulse wins by huge margin"
+      },
+      "latamBonus": {
+        "title": "Bonus for LATAM users",
+        "text": "If you're in Argentina, Mexico, Brazil or another LATAM country:",
+        "mercadopago": "✅ AnkaPulse accepts MercadoPago (no international payment taxes)",
+        "comparison": "UptimeRobot only accepts international cards (may have 30-65% tax in some countries)"
+      },
+      "ankapulse": {
+        "free": {
+          "title": "Free",
+          "monitors": "20 monitors",
+          "frequency": "5-min checks",
+          "retention": "7 days retention",
+          "alerts": "Email only"
+        },
+        "starter": {
+          "title": "Starter ⭐ Most Popular",
+          "price": "$5/mo",
+          "monitors": "50 monitors",
+          "frequency": "1-minute checks",
+          "telegram": "Email + Telegram",
+          "retention": "30 days retention",
+          "regions": "3 regions (coming soon)"
+        },
+        "pro": {
+          "title": "Pro",
+          "price": "$15/mo",
+          "monitors": "200 monitors",
+          "everything": "All alert channels",
+          "retention": "90 days retention",
+          "api": "Full API (coming soon)",
+          "support": "Priority support"
+        }
+      },
+      "uptimerobot": {
+        "free": {
+          "title": "Free",
+          "monitors": "50 monitors",
+          "frequency": "5-min checks",
+          "integrations": "Only 5 integrations",
+          "statusPage": "Basic status pages"
+        },
+        "solo": {
+          "title": "Solo",
+          "price": "$7/mo",
+          "monitors": "50 monitors",
+          "frequency": "1-min checks",
+          "integrations": "9 integrations",
+          "note": "No Telegram included"
+        },
+        "team": {
+          "title": "Team",
+          "price": "$29/mo",
+          "monitors": "100 monitors",
+          "frequency": "1-min checks",
+          "integrations": "12 integrations",
+          "seats": "3 users included"
+        }
+      }
+    },
+    "features": {
+      "title": "Key Features",
+      "valueProposition": {
+        "title": "Price/Value Ratio",
+        "description": "This is where AnkaPulse really shines:",
+        "ankapulse": "50 monitors for $5/mo = $0.10 per monitor",
+        "uptimerobot": "50 monitors for $7/mo = $0.14 per monitor",
+        "difference": "40% more economical per monitor on most popular plan"
+      },
+      "checkFrequency": {
+        "title": "Check Frequency (Paid Plans)",
+        "description": "Both platforms offer 1-minute checks on paid plans:",
+        "equal": "They're equal in this aspect",
+        "note": "The difference is in the price you pay for that speed"
+      },
+      "scaling": {
+        "title": "Scalability",
+        "description": "What happens when your project grows?",
+        "ankapulse": "From 50 to 200 monitors: Only $10 more ($5→$15)",
+        "uptimerobot": "From 50 to 100 monitors: $22 more ($7→$29)",
+        "verdict": "AnkaPulse is much more economical when scaling"
+      },
+      "alerts": {
+        "title": "Alert Channels",
+        "description": "Notification comparison:",
+        "email": "Email: Both ✅",
+        "telegram": "Telegram: Only AnkaPulse included in Starter ($5). UptimeRobot requires additional integrations",
+        "telegramDetail": "AnkaPulse includes Telegram alerts in premium plans. UptimeRobot doesn't offer direct Telegram.",
+        "slack": "Slack/Discord: Both available",
+        "sms": "SMS",
+        "smsDetail": "UptimeRobot ✅ (extra cost), AnkaPulse 🚧 (coming soon)"
+      }
+    },
+    "prosCons": {
+      "title": "Honest Pros and Cons",
+      "pros": "Advantages",
+      "cons": "Disadvantages",
+      "ankapulse": {
+        "pros": {
+          "1": "💰 28% cheaper on Starter plan ($5 vs $7)",
+          "2": "💰 48% cheaper on Pro plan with 2x monitors",
+          "3": "📱 Telegram included from $5/mo",
+          "4": "🌎 MercadoPago for LATAM users",
+          "5": "📈 Economic scalability (200 monitors for $15)",
+          "6": "🤝 Direct support with founder"
+        },
+        "cons": {
+          "1": "⚠️ More limited Free plan (20 vs 50 monitors)",
+          "2": "⚠️ Newer product (less track record)",
+          "3": "⚠️ Some features in development (API, more regions)"
+        }
+      },
+      "uptimerobot": {
+        "pros": {
+          "1": "✅ Very generous Free plan (50 monitors)",
+          "2": "✅ Established product (14 years in market)",
+          "3": "✅ API available now"
+        },
+        "cons": {
+          "1": "❌ 28% more expensive for same number of monitors",
+          "2": "❌ Telegram not included (requires external integrations)",
+          "3": "❌ Expensive scalability ($29 for only 100 monitors)",
+          "4": "❌ No MercadoPago for LATAM"
+        }
+      }
+    },
+    "useCases": {
+      "title": "Which One to Choose Based on Your Case?",
+      "chooseAnkapulse": {
+        "title": "✅ Choose AnkaPulse if:",
+        "case1": "You need serious monitoring (1-min checks) at the best market price",
+        "case2": "You want to save $24-168/year vs competition",
+        "case3": "You're going to scale (200 monitors for $15 vs 100 for $29)",
+        "case4": "You're in LATAM and want to pay with MercadoPago",
+        "case5": "You value Telegram alerts at no extra cost"
+      },
+      "chooseUptimerobot": {
+        "title": "✅ Choose UptimeRobot if:",
+        "case1": "You only need the Free plan for hobby projects (5-min checks)",
+        "case2": "You need API access NOW (AnkaPulse has it on roadmap)",
+        "case3": "You need SMS alerts immediately"
+      },
+      "examples": {
+        "startup": {
+          "title": "Startup monitoring 40 services",
+          "description": "With AnkaPulse Starter ($5): $60/year. With UptimeRobot Solo ($7): $84/year. Savings: $24/year"
+        },
+        "growing": {
+          "title": "Company growing to 150 monitors",
+          "description": "With AnkaPulse Pro ($15): $180/year for 200 mon. With UptimeRobot Team ($29): $348/year for 100 mon. Savings: $168/year + double the monitors"
+        },
+        "freelancer": {
+          "title": "Freelancer in Argentina",
+          "description": "Pays $5 with MercadoPago without extra tax vs $7 USD with international card (may have 30-65% additional tax)"
+        }
+      }
+    },
+    "verdict": {
+      "title": "Final Verdict",
+      "summary": "The decision is clear based on numbers:",
+      "forPaid": {
+        "title": "🏆 For paid plans:",
+        "text": "AnkaPulse offers better value at all levels:",
+        "starter": "• Starter: 28% cheaper with Telegram included",
+        "pro": "• Pro: 48% cheaper with 2x monitors",
+        "scaling": "• Much more economical scalability"
+      },
+      "forFree": {
+        "title": "🏆 For free plan:",
+        "text": "UptimeRobot wins with 50 monitors vs 20",
+        "but": "BUT both have 5-min checks (not suitable for serious production)"
+      },
+      "recommendation": {
+        "title": "Recommendation",
+        "text": "If your project matters and you need fast detection (1 min), AnkaPulse gives you better service for less money. UptimeRobot's Free plan is useful for hobby projects, but for APIs that generate revenue or have real users, AnkaPulse is the best investment."
+      },
+      "cta": "Start with AnkaPulse"
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "text": "AnkaPulse offers the best price-to-value ratio in the monitoring market. You pay less and get more: better price per monitor, Telegram included, and economic scalability. For LATAM users, the MercadoPago bonus makes the difference even clearer.",
+      "final": "UptimeRobot remains a solid option if you only need the Free plan for hobby projects. But if your application generates revenue or has real users depending on it, AnkaPulse is the smart choice."
+    }
   }
 }

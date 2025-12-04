@@ -6,7 +6,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/dashboard/', '/api/'],
+        disallow: [
+          '/dashboard/',
+          '/api/',
+          '/admin/',
+          '/_next/',
+          '/static/',],
       },
     ],
     sitemap: 'https://ankapulse.app/sitemap.xml',

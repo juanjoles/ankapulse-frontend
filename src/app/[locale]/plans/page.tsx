@@ -176,9 +176,9 @@ export default function PublicPlansPage() {
                 <h3 className="text-lg font-semibold text-card-foreground mb-2">
                   {t('payment.creditCard.title')}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                {/* <p className="text-sm text-muted-foreground">
                   {t('payment.creditCard.status')}
-                </p>
+                </p> */}
               </div>
               
               <div className="p-6 bg-card rounded-lg border border-border text-center">
